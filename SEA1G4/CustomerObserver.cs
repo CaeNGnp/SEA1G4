@@ -8,6 +8,6 @@ namespace SEA1G4
 {
     public interface CustomerObserver
     {
-        public update(Customer c);
+        public void update(Customer c);
     }
 }

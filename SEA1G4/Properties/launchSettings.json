@@ -2,7 +2,6 @@
   "profiles": {
     "SEA1G4": {
       "commandName": "Project",
-      "workingDirectory": "C:\\Users\\ShiXu\\Documents\\Visual Studio 2019",
       "nativeDebugging": true
     }
   }

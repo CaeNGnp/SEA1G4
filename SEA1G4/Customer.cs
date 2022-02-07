@@ -11,9 +11,7 @@ namespace SEA1G4 {
         public double points;
         private CreditCard myCreditCard;
 
-        public Customer(string n, string c, string e, string id, double a, double p, CreditCard cc) : base(n, c, e, id) {
-            amountSpent = a;
-            points = p;
+        public Customer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id) {
             myCreditCard = cc;
         }
 
@@ -33,7 +31,7 @@ namespace SEA1G4 {
         }
 
         public void notifyObservers() {
-            foreach (customerObserver co in observers)
+            foreach (CustomerObserver co in observers)
             {
                 co.update(this);
             }

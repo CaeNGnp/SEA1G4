@@ -39,6 +39,10 @@ namespace SEA1G4
             throw new NotImplementedException();
         }
 
+        public void giveRating() {
+            throw new NotImplementedException();
+        }
+
         public void startRide() {
             throw new NotImplementedException();
         }

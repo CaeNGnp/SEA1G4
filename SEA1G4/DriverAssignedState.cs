@@ -12,7 +12,7 @@ namespace SEA1G4 {
             Driver d = context.Ride.driver;
             // 2.	System provides information about the booking
             // TODO customer name
-            d.WriteLine($"Pickup location: {context.Ride.PickupLoc}");
+            //d.WriteLine($"Pickup location: {context.Ride.PickupLoc}");
 
             
             while (true) {
@@ -42,9 +42,21 @@ namespace SEA1G4 {
             return;
         }
 
+        public void entry() {
+            throw new NotImplementedException();
+        }
+
+        public void exit() {
+            throw new NotImplementedException();
+        }
+
         public void giveRating(Rating r) {
             // No-op
             return;
+        }
+
+        public void giveRating() {
+            throw new NotImplementedException();
         }
 
         public void startRide() {

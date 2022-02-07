@@ -25,6 +25,17 @@ namespace SEA1G4
             available = av;
         }
 
+        public string LicensePlate {
+            get { return licensePlate; }
+        }
+
+        public string Brand {
+            get { return brand; }
+        }
+        public string Model {
+            get { return model; }
+        }
+
         public bool getHasFee() {
             bool hasFee = true;
 

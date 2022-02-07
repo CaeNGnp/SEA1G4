@@ -14,15 +14,15 @@ namespace SEA1G4 {
         }
 
         public void acceptBooking() {
-            throw new NotImplementedException();
+            Console.WriteLine("Cannot accept booking. Rating done");
         }
 
         public void cancelBooking() {
-            throw new NotImplementedException();
+            Console.WriteLine("Cannot cancel booking. Rating done");
         }
 
         public void endRide() {
-            throw new NotImplementedException();
+            Console.WriteLine("Ride has ended. Rating done");
         }
 
         public void entry() {
@@ -38,6 +38,10 @@ namespace SEA1G4 {
         }
 
         public void startRide() {
+            throw new NotImplementedException();
+        }
+
+        public void giveRating() {
             throw new NotImplementedException();
         }
     }

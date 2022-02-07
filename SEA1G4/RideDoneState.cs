@@ -61,6 +61,10 @@ namespace SEA1G4 {
             context.changeState(new RatedState(context));
         }
 
+        public void giveRating() {
+            throw new NotImplementedException();
+        }
+
         public void startRide() {
             Console.WriteLine("Cannot start ride. Ride has already ended.");
         }
