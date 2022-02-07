@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    interface RatingObserver
+    public interface RatingObserver
     {
-        void update(int r, string f);
+        void update(Rating r);
     }
 }
