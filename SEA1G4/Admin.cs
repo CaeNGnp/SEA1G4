@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace SEA1G4
-{
-    class Admin : User, RatingObserver
-    {
-        private FollowUp[] followUps;
+namespace SEA1G4 {
+    public class Admin : User, RatingObserver {
+        private List<FollowUp> followUps;
 
-        public void update(Rating r)
-        {
-            this.rating = r;
+        public Admin(string n, string c, string e, string id) : base(n, c, e, id) {
+            followUps = new List<FollowUp>();
+        }
+
+        public void update(int r, string f) {
+            throw new System.NotImplementedException();
         }
     }
 }
