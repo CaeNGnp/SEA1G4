@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-﻿using System.Collections.Generic;
-=======
-﻿using System;
 using System.Collections.Generic;
->>>>>>> 93e2733 (process feedback uc)
 
 namespace SEA1G4 {
     public class Admin : User, RatingObserver {
