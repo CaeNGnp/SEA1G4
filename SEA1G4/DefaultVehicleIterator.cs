@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    public interface DefaultVehicleIterator
+    public class DefaultVehicleIterator
     {
         int position = 0;
         List<Vehicle> vehicleList;
         private bool available;
 
-        public DefaultVehicleIterator(DefaultVehicleAggregate vList, bool avail)
+        public DefaultVehicleIterator(DefaultVehicleAggregate vehicleAggregate, bool avail)
         {
-            vehicleList = vList;
+            vehicleList = vehicleAggregate.vList;
             available = avail;
         }
         public Vehicle getNext()
         {
-            DefaultVehicleAggregate availVehicle = vehicleList[position];
+            Vehicle availVehicle = vehicleList[position];
             ++position;
             while ((position < vehicleList.Count()) &&
                    (vehicleList[position].isAvailable != available))

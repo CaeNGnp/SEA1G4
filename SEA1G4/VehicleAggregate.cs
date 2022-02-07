@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    public class VehicleAggregate
+    public interface VehicleAggregate
     {
         public VehicleIterator createIterator();
     }
