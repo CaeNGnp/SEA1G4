@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace SEA1G4 {
     class RideContext {
         private Ride ride;
+        private RideState state;
 
         public Ride Ride { get; private set; }
 

@@ -20,5 +20,7 @@ namespace SEA1G4 {
         void entry();
 
         void exit();
+        
+        void giveRating();
     }
 }
