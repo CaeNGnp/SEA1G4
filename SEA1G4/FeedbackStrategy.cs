@@ -6,25 +6,28 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    interface FeedbackStrategy
+    public interface FeedbackStrategy
     {
-        void feedbackStrategy(string feedback);
+        bool setFeedback();
 
     }
 
-    public class FeedbackFromCustomer : FeedbackStrategy
+    public class FeedbackFromCustomer: FeedbackStrategy
     {
-        public void setFeedback(string feedback)
+
+        public bool setFeedback()
         {
             Console.WriteLine("Feedback Received!");
+            return true;
         }
     }
 
     public class FeedbackFromDriver : FeedbackStrategy
     {
-        public void setFeedback(string feedback)
+        public bool setFeedback()
         {
-            Console.WriteLine("");
+            Console.WriteLine("Feedback unapplicable.");
+            return false;
         }
     }
 }

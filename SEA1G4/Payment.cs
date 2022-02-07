@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 namespace SEA1G4 {
     public class Payment {
         //private Ride ride;
-        private double toPay;
 
-        public Payment() { }
+        //public Payment(Ride r) {
+        //    this.ride = r;
+        //}
 
-        public void applyCreditCard() { }
-        public void applyGiftCard() { }
-        public void applyPoints() { }
-        public void pay() { }
+        //public void payFare() {
+        //    double amt = ride.getFare();
+        //    ride.getCustomer().payWithCreditCard(amt);
+        //}
+
+        //public void payBookingFee() {
+        //    Vehicle v = ride.getDriver().getVehicle();
+        //    if (v.hasFee()) {
+        //        double amt = v.getBookingFee();
+        //        ride.getCustomer().payWithCreditCard(amt);
+        //    }
+        //}
+
+        //public void creditToDriver() {
+        //    double amt = ride.getFare();
+        //    ride.getDriver().getBankAccount().creditAmount(amt);
+        //}
     }
 }

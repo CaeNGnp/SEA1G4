@@ -13,35 +13,39 @@ namespace SEA1G4
         private string feedback;
         private User author;
         private User ratingFor;
+        private List<RatingObserver> observers;
 
         public Rating()
         {
-            RatingObserver observer = new RatingObserver();
+            observers = new List<RatingObserver>();
         }
 
         public void setRating(int rating)
         {
-            rating = rating;
+            this.rating = rating;
         }
 
         public void setFeedback(string feedback)
         {
-            FeedbackStrategy.setFeedback(feedback);
+            bool val = feedbackStrategy.setFeedback();
+            if (val) {
+                this.feedback = feedback;
+            }
         }
 
         public void registerObserver(RatingObserver o)
         {
-            observer.Add(o);
+            observers.Add(o);
         }
 
         public void removeObserver(RatingObserver o)
         {
-            observer.Remove(o);
+            observers.Remove(o);
         }
 
         public void notifyObservers()
         {
-            foreach (RatingObserver o in observer)
+            foreach (RatingObserver o in observers)
                 o.update(rating, feedback);
         }
        
