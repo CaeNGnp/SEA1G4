@@ -10,19 +10,19 @@ namespace SEA1G4 {
             // Populate a drivers list
             List<Driver> drivers = new List<Driver>();
             BankAccount ba1 = new BankAccount("1234567812345678", "abc bank", 1200);
-            Car c1 = new Car("sd1234e", "brand a", "model 1", false, false, true);
+            Car c1 = new Car("sd1234e", "brand a", "car 1", false, false, true);
             Driver d1 = new Driver("Driver 1", "87654321", "driver@email.com", "d1", ba1, c1);
             drivers.Add(d1);
             BankAccount ba2 = new BankAccount("3214567812345678", "abc bank", 2200);
-            Van van1 = new Van("sw3245f", "brand b", "model 2", false, false, true);
+            Van van1 = new Van("sw3245f", "brand b", "van 2", false, false, true);
             Driver d2 = new Driver("Driver 2", "87654321", "driver@email.com", "d2", ba2, van1);
             drivers.Add(d2);
             BankAccount ba3 = new BankAccount("2314567812345678", "abc bank", 1900);
-            ExcursionBus b1 = new ExcursionBus("sh5678d", "brand c", "model 3", false, false, true);
+            ExcursionBus b1 = new ExcursionBus("sh5678d", "brand c", "bus 3", false, false, true);
             Driver d3 = new Driver("Driver 3", "87654321", "driver@email.com", "d3", ba3, b1);
             drivers.Add(d3);
             BankAccount ba4 = new BankAccount("4321567812345678", "abc bank", 1900);
-            ExcursionBus b2 = new ExcursionBus("sq0000d", "brand e", "model 1", false, false, false);
+            ExcursionBus b2 = new ExcursionBus("sq0000d", "brand e", "bus 1", false, false, false);
             Driver d4 = new Driver("Driver 4", "87654321", "driver@email.com", "d4", ba3, b1);
             drivers.Add(d4);
 
@@ -72,10 +72,36 @@ namespace SEA1G4 {
                     DefaultVehicleIterator iter = agg1.createIterator(true);
                     int i = 1;
                     while (iter.hasNext()) {
+                        //Console.WriteLine("[" + i + "]Vehicle Type: " + iter.getNext().);
                         Console.WriteLine("[" + i + "]License Plate: " + iter.getNext().LicensePlate);
+                        Console.WriteLine("[" + i + "]Brand: " + iter.getNext().Brand);
+                        Console.WriteLine("[" + i + "]Model: " + iter.getNext().Model);
                         i++;
                     }
-                    Console.WriteLine();
+                    Console.Write();
+                    int opt = Convert.ToInt32(Console.Readline());
+                    if (agg1.createIterator(true))
+                    {
+                        for (int i = 1; i < opt+1; i++)
+                        {
+                            if (Vehicle is Van)
+                            {
+                                Console.WriteLine("Deposit amount to be paid: $5");
+                                Console.Write("Date and Time of booking:");
+                                string datetime = Console.ReadLine();
+                                Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                                Console.Readline();
+                                Console.WriteLine("Deposit Deducted.");
+                                Console.WriteLine("------Driver------");
+                                Console.WriteLine("You have a new Customer!");
+                                Console.WriteLine("Name: " + c.Name);
+                                Console.WriteLine("Phone Number: " + c.contactNo);
+                                Console.WriteLine("Email Address: " + c.emailAddress);
+                                Console.WriteLine("Date and Time: " + datetime);
+                            }
+                        }
+                    }
+
 
 
                 }

@@ -13,5 +13,11 @@ namespace SEA1G4
         public ExcursionBus(string lp, string bd, string md, bool hd, bool hf, bool av) : base(lp, bd, md, hd, hf, av)
         {
         }
+
+        public double Deposit
+        {
+            set { deposit = value; }
+            get { return deposit; }
+        }
     }
 }

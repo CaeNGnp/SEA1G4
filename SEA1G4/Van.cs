@@ -20,5 +20,11 @@ namespace SEA1G4
             set { bookingFee = value; }
             get { return bookingFee; }
         }
+
+        public double Deposit
+        {
+            set { deposit = value; }
+            get { return deposit; }
+        }
     }
 }

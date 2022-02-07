@@ -26,13 +26,16 @@ namespace SEA1G4
         }
 
         public string LicensePlate {
+            set { licensePlate = value; }
             get { return licensePlate; }
         }
 
         public string Brand {
+            set { brand = value; }
             get { return brand; }
         }
         public string Model {
+            set { model = value; }
             get { return model; }
         }
 
