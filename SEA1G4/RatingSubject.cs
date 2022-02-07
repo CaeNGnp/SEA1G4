@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    interface RatingSubject
+    public interface RatingSubject
     {
         void registerObserver(RatingObserver o);
 

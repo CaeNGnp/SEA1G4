@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    class Rating : RatingSubject
+    public class Rating : RatingSubject
     {
         protected FeedbackStrategy feedbackStrategy;
         private int rating;

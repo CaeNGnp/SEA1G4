@@ -33,6 +33,7 @@ namespace SEA1G4
         {
             Console.WriteLine("Unable to give rating as ride has not ended");
         }
+
     }
 }
 
