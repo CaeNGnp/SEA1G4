@@ -11,11 +11,10 @@ namespace SEA1G4 {
         private double fare;
         private double distance;
         private string referenceNo;
-        private string pickupLoc;
-        private string destinationLoc;
         private RideState state;
-      
 
+        public string PickupLoc { get; set; }
+        public string DestinationLoc { get; set; }
         public Driver driver { get; set; }
         public Customer customer { get; set; }
         
