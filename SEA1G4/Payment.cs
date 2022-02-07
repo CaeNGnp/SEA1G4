@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace SEA1G4 {
     public class Payment {
-        //private Ride ride;
+        private Ride ride;
 
-        //public Payment(Ride r) {
-        //    this.ride = r;
-        //}
+        public Payment(Ride r) {
+            this.ride = r;
+        }
 
-        //public void payFare() {
-        //    double amt = ride.getFare();
-        //    ride.getCustomer().payWithCreditCard(amt);
-        //}
+        public void payFare() {
+            double amt = ride.getFare();
+            ride.getCustomer().payWithCreditCard(amt);
+        }
 
-        //public void payBookingFee() {
-        //    Vehicle v = ride.getDriver().getVehicle();
-        //    if (v.hasFee()) {
-        //        double amt = v.getBookingFee();
-        //        ride.getCustomer().payWithCreditCard(amt);
-        //    }
-        //}
+        public void payBookingFee() {
+            Vehicle v = ride.getDriver().getVehicle();
+            if (v.hasFee()) {
+                double amt = v.getBookingFee();
+                ride.getCustomer().payWithCreditCard(amt);
+            }
+        }
 
-        //public void creditToDriver() {
-        //    double amt = ride.getFare();
-        //    ride.getDriver().getBankAccount().creditAmount(amt);
-        //}
+        public void creditToDriver() {
+            double amt = ride.getFare();
+            ride.getDriver().getBankAccount().creditAmount(amt);
+        }
     }
 }

@@ -18,5 +18,11 @@ namespace SEA1G4
             brand = bd;
             model = md;
         }
+
+        public bool hasFee() {
+            bool hasfee = true;
+
+            return hasfee;
+        }
     }
 }
