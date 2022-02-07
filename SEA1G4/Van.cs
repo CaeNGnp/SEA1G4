@@ -11,7 +11,7 @@ namespace SEA1G4
         private double deposit;
         private double bookingFee;
 
-        public Van(string lp, string bd, string md, double dep, double bf) : base(lp, bd, md)
+        public Van(string lp, string bd, string md, bool hd, bool hf, double dep, double bf) : base(lp, bd, md,hd,hf)
         {
             deposit = dep;
             bookingFee = bf;

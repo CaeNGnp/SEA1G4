@@ -19,8 +19,9 @@ namespace SEA1G4 {
 
         public void payBookingFee() {
             Vehicle v = ride.getDriver().getVehicle();
-            if (v.hasFee()) {
-                double amt = v.getBookingFee();
+            if (v.getHasFee()) {
+                Van van = (Van)v;
+                double amt = van.getBookingFee();
                 ride.getCustomer().payWithCreditCard(amt);
             }
         }

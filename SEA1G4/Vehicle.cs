@@ -11,18 +11,22 @@ namespace SEA1G4
         private string licensePlate;
         private string brand;
         private string model;
+        private bool hasDeposit;
+        private bool hasFee;
 
-        public Vehicle(string lp, string bd, string md)
+        public Vehicle(string lp, string bd, string md, bool hd, bool hf)
         {
             licensePlate = lp;
             brand = bd;
             model = md;
+            hasDeposit = hd;
+            hasFee = hf;
         }
 
-        public bool hasFee() {
-            bool hasfee = true;
+        public bool getHasFee() {
+            bool hasFee = true;
 
-            return hasfee;
+            return hasFee;
         }
     }
 }
