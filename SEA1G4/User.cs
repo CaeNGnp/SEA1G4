@@ -5,17 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class User {
-        private string name;
+    public abstract class User {
         private string contactNo;
         private string emailAddress;
         private string userId;
 
+        public string Name { get; private set; }
+
         public User(string n, string c, string e, string id) {
-            name = n;
+            Name = n;
             contactNo = c;
             emailAddress = e;
             userId = id;
+        }
+
+        /// <summary>
+        /// Write a console string to the user
+        /// </summary>
+        public void Write(string value) {
+            string title = "User";
+            //if (this is Customer) {
+            //    title = "Customer";
+            if (this is Driver) {
+                title = "Customer";
+            } else if (this is Admin) {
+                title = "Admin";
+            }
+            Console.Write($"> [{title} {Name}] {value}");
+        }
+
+        /// <summary>
+        /// Write a console string to the user
+        /// </summary>
+        public void WriteLine(string value) {
+            Write(value);
+            Console.WriteLine();
         }
     }
 }

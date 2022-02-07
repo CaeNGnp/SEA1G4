@@ -1,57 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace SEA1G4
-{
-    public class Rating : RatingSubject
-    {
+namespace SEA1G4 {
+    public class Rating : RatingSubject {
         protected FeedbackStrategy feedbackStrategy;
-        private int rating;
-        private string feedback;
-        private User author;
-        private User ratingFor;
         private List<RatingObserver> observers;
 
-        public Rating()
-        {
+        public User Author { get; private set; }
+        public User RatingFor { get; private set; }
+        public string Feedback { get; private set; }
+        public int RatingNum { get; private set; }
+
+        public Rating(User author, User ratingFor) {
             observers = new List<RatingObserver>();
+
+            Author = author;
+            RatingFor = ratingFor;
         }
 
-        public void setRating(int rating)
-        {
-            this.rating = rating;
+        public void setRating(int rating) {
+            RatingNum = rating;
         }
 
-        public void setFeedback(string feedback)
-        {
-            bool val = feedbackStrategy.setFeedback();
-            if (val) {
-                this.feedback = feedback;
-            }
+        public void setFeedback(string feedback) {
+            Feedback = feedbackStrategy.processFeedback(feedback);
         }
 
-        public void registerObserver(RatingObserver o)
-        {
+        public void registerObserver(RatingObserver o) {
             observers.Add(o);
         }
 
-        public void removeObserver(RatingObserver o)
-        {
+        public void removeObserver(RatingObserver o) {
             observers.Remove(o);
         }
 
-        public void notifyObservers()
-        {
-            foreach (RatingObserver o in observers)
-                o.update(rating, feedback);
+        public void notifyObservers() {
+            foreach (RatingObserver o in observers) {
+                o.update(this);
+            }
         }
-       
-        public void measurementsChanged()
-        {
-            notifyObservers();
-        }
+
     }
 }
