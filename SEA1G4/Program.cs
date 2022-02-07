@@ -34,6 +34,7 @@ namespace SEA1G4 {
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
 
+            
             while (option != "0") {
 
                 Menu();
@@ -82,29 +83,41 @@ namespace SEA1G4 {
 
                 // Accept booking
 
+                Console.Write("Accept driver? [Y/N] ");
 
+                string response = Console.ReadLine().Trim().ToLower();
+                if (response == "y") {
+                    while (true) {
+                        Console.WriteLine("Do you want to start ride? [Y/N] ");
+
+                        string ans = Console.ReadLine().Trim().ToLower();
+                        if (ans == "y") {
+                            
+                        } else if (ans == "n") {
+                            continue;
+                        }
+                    }
+                } 
+                else if (response == "n") {
+                    //cancel booking(vandana)
+                }
                 // Cancel booking(Customer)
                 // TODO (DIY)
 
                 // Start ride
                 // TODO (DIY)
-                // bool booked = true;
-                /*while (true) {
-               
-                    Console.WriteLine("Do you want to create a new follow up action? [Y/N] ");
 
-                    string response = Console.ReadLine().Trim().ToLower();
-                    if (response == "y") {
-                        break;
-                    } else if (response == "n") {
-                        ;
-                    }
-                }*/
                 // Make payment
                 // TODO (DIY)
 
-                // Rate Customer
+                // Rate driver
                 // TODO (DIY)
+                Console.WriteLine("Ride ended.");
+                Console.Write("Rate driver [1-5] ");
+                string rate = Console.ReadLine();
+                int rating = Convert.ToInt32(rate);
+                Rating r = new Rating(c, d1);
+
 
                 // Process feedback
                 // TODO (DIY)
