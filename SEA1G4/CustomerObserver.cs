@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    interface CustomerObserver
+    public interface CustomerObserver
     {
         public update(Customer c);
     }

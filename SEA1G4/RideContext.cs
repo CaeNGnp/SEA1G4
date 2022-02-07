@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    class RideContext {
+    public class RideContext {
         private Ride ride;
         private RideState state;
 
@@ -13,6 +13,7 @@ namespace SEA1G4 {
 
         public RideContext(Ride ride) {
             Ride = ride;
+            state = new RideRequestedState(this);
         }
 
         public void changeState(RideState state) {
@@ -36,7 +37,7 @@ namespace SEA1G4 {
         }
 
         public void giveRating(Rating rating) {
-            state.giveRating();
+            state.giveRating(rating);
         }
 
         public void entry() {

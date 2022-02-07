@@ -9,18 +9,41 @@ namespace SEA1G4 {
         private DateTime endTime;
         private DateTime startTime;
         private double fare;
-        private double distance;
+        private double distance; // in km
         private string referenceNo;
         private string pickupLoc;
         private string destinationLoc;
-        private RideState state;
-      
+        private RideContext context;
+        private Payment payment;
+        private Rating rating;
 
+        public Ride(string n, string pl, string dl) {
+            referenceNo = n;
+            pickupLoc = pl;
+            destinationLoc = dl;
+            context = new RideContext(this);
+        }
+        
         public Driver driver { get; set; }
         public Customer customer { get; set; }
+
+        public double Distance {
+            set { distance = 5; } // for testing purposes
+            get { return distance; }
+        }
+
+        public DateTime Endtime {
+            set { endTime = value; }
+            get { return endTime; }
+        }
+
+        public Rating Rating {
+            set { rating = value; }
+            get { return rating; }
+        }
         
         public double Fare {
-            set { fare = value; }
+            set { fare = 10; } // for testing purposes
             get { return fare; }
         }
 
@@ -32,5 +55,7 @@ namespace SEA1G4 {
         public void sendReceipt() {
             Console.WriteLine("E-receipt sent!");
         }
+
+
     }
 }

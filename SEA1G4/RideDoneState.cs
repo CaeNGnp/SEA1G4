@@ -14,48 +14,55 @@ namespace SEA1G4 {
         }
 
         public void acceptBooking() {
-            // implement
+            Console.WriteLine("Cannot accept booking. Rating is still pending.");
         }
 
         public void cancelBooking() {
-            // implement
+            Console.WriteLine("Cannot cancel booking. Rating is still pending.");
         }
 
         public void endRide() {
-            // implement
+            Console.WriteLine("Ride has already ended.");
         }
 
         public void entry() {
-            // make payment for fare credit card
-            double fare = context.ride.Fare;
-            context.ride.Payment.payFare(fare);
-            
-            // credit to driver
-            context.ride.Payment.creditToDriver(fare);
-            
-            // check if have booking fee
-            Vehicle v = context.ride.driver.MyVehicle;
-            if (v.getHasFee()) {
-                // make payment for fee
-                Van van = (Van)v;
-                double fee = van.BookingFee;
-                context.ride.Payment.payBookingFee(fee);
-            }
+            //// make payment for fare credit card
+            //double fare = context.Ride.Fare;
+            //context.Ride.Payment.payFare(fare);
+            context.Ride.Payment.payFare();
+
+            //// credit to driver
+            //context.Ride.Payment.creditToDriver(fare);
+            context.Ride.Payment.creditToDriver();
+
+            //// check if have booking fee
+            //Vehicle v = context.Ride.driver.MyVehicle;
+            //if (v.getHasFee()) {
+            //    // make payment for fee
+            //    Van van = (Van)v;
+            //    double fee = van.BookingFee;
+            //    context.Ride.Payment.payBookingFee(fee);
+            //}
+            context.Ride.Payment.payBookingFee();
         }
 
         public void exit() {
             // send e-receipt
-            context.ride.sendReceipt();
+            context.Ride.sendReceipt();
             // add points
-            context.ride.customer.addPoints();
+            context.Ride.customer.addPoints(context.Ride.Fare);
         }
 
         public void giveRating(Rating r) {
-            // implement
+            // customer give rating
+            context.Ride.Rating = r;
+
+            // change state
+            context.changeState(new RatedState(context));
         }
 
         public void startRide() {
-            // implement
+            Console.WriteLine("Cannot start ride. Ride has already ended.");
         }
     }
 }

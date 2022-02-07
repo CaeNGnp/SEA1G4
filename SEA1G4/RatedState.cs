@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEA1G4
-{
-    class RideRequestedState : RideState
-    {
-        RideContext context;
-        RideState state;
+namespace SEA1G4 {
+    public class RatedState : RideState {
 
-        public RideRequestedState(RideContext ctx) {
-            context = ctx;
+        private RideContext context;
+
+        public RatedState(RideContext c) {
+            this.context = c;
         }
 
         public void acceptBooking() {

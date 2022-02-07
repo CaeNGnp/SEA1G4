@@ -17,7 +17,7 @@ namespace SEA1G4
 
         public void addVehicle(Vehicle v)
         {
-            vList.add(v);
+            vList.Add(v);
         }
 
         public DefaultVehicleIterator createIterator(bool available)

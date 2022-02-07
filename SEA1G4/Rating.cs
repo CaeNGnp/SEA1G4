@@ -9,6 +9,7 @@ namespace SEA1G4 {
         public User RatingFor { get; private set; }
         public string Feedback { get; private set; }
         public int RatingNum { get; private set; }
+        public Ride ride { get; set; }
 
         public Rating(User author, User ratingFor) {
             observers = new List<RatingObserver>();
