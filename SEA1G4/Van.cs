@@ -17,8 +17,9 @@ namespace SEA1G4
             bookingFee = bf;
         }
 
-        public double getBookingFee() {
-            return bookingFee;
+        public double BookingFee {
+            set { bookingFee = value; }
+            get { return bookingFee; }
         }
     }
 }

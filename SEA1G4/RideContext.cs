@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class RideContext {
-        private RideState state;
+    class RideContext {
+        private Ride ride;
 
         public Ride Ride { get; private set; }
 
@@ -36,6 +36,14 @@ namespace SEA1G4 {
 
         public void giveRating(Rating rating) {
             state.giveRating();
+        }
+
+        public void entry() {
+
+        }
+
+        public void exit() {
+
         }
     }
 }

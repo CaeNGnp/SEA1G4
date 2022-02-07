@@ -13,14 +13,17 @@ namespace SEA1G4 {
         public Driver(string n, string c, string e, string id, BankAccount acc, Vehicle v) : base(n, c, e, id) {
             this.myBankAccount = acc;
             this.myVehicle = v;
+            rideList = new List<Ride>();
         }
 
-        public BankAccount getBankAccount() {
-            return myBankAccount;
+        public BankAccount MyBankAccount {
+            set { myBankAccount = value; }
+            get { return myBankAccount; }
         }
 
-        public Vehicle getVehicle() {
-            return myVehicle;
+        public Vehicle MyVehicle {
+            set { myVehicle = value; }
+            get { return myVehicle; }
         }
     }
 }
