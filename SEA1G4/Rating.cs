@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    class Rating
+    class Rating : RatingSubject
     {
         protected FeedbackStrategy feedbackStrategy;
         private int rating;
@@ -14,6 +14,10 @@ namespace SEA1G4
         private User author;
         private User ratingFor;
 
+        public Rating()
+        {
+            RatingObserver observer = new RatingObserver();
+        }
 
         public void setRating(int rating)
         {
@@ -23,6 +27,27 @@ namespace SEA1G4
         public void setFeedback(string feedback)
         {
             FeedbackStrategy.setFeedback(feedback);
+        }
+
+        public void registerObserver(RatingObserver o)
+        {
+            observer.Add(o);
+        }
+
+        public void removeObserver(RatingObserver o)
+        {
+            observer.Remove(o);
+        }
+
+        public void notifyObservers()
+        {
+            foreach (RatingObserver o in observer)
+                o.update(rating, feedback);
+        }
+       
+        public void measurementsChanged()
+        {
+            notifyObservers();
         }
     }
 }

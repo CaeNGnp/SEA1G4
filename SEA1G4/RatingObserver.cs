@@ -8,6 +8,6 @@ namespace SEA1G4
 {
     interface RatingObserver
     {
-        void update(Rating r);
+        void update(int r, string f);
     }
 }
