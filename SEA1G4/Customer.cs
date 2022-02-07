@@ -33,15 +33,18 @@ namespace SEA1G4 {
         }
 
         public void notifyObservers() {
-            throw new NotImplementedException();
+            foreach (customerObserver co in observers)
+            {
+                co.update(this);
+            }
         }
 
         public void registerObserver(CustomerObserver co) {
-            throw new NotImplementedException();
+            observers.Add(co);
         }
 
         public void removeObserver(CustomerObserver co) {
-            throw new NotImplementedException();
+            observers.Remove(co);
         }
     }
 }
