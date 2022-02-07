@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    interface VehicleIterator
+    public interface VehicleIterator
     {
         public Vehicle getNext();
-        
         public bool hasNext();
     }
 }

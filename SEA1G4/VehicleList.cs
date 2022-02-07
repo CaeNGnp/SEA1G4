@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    public class DefaultVehicleAggregate
+    public class VehicleList
     {
         public List<Vehicle> vList;
 
-        public DefaultVehicleAggregate()
+        public VehicleList()
         {
             vList = new List<Vehicle>();
         }
@@ -20,10 +20,9 @@ namespace SEA1G4
             vList.add(v);
         }
 
-        public DefaultVehicleIterator createIterator(bool available)
+        public VehicleIterator createIterator(bool available)
         {
-            return new DefaultVehicleIterator(this, available);
+            return new VehicleIterator(this, available);
         }
     }
 }
-

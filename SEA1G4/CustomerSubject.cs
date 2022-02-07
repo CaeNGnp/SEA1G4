@@ -8,8 +8,8 @@ namespace SEA1G4
 {
     interface CustomerSubject
     {
-        public registerObserver(CustomerObserver co);
-        public removeObserver(CustomerObserver co);
-        public notifyObservers();
+        void registerObserver(CustomerObserver co);
+        void removeObserver(CustomerObserver co);
+        void notifyObservers();
     }
 }
