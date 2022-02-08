@@ -34,6 +34,8 @@ namespace SEA1G4 {
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
 
+            // The current ride
+            Ride ride;
             
             // hihi if u can move ur codes below this while loop its appreciated tq!
             // leaving here to avoid conflict
@@ -236,6 +238,8 @@ namespace SEA1G4 {
                     //        }
                     //    }
                     //}
+
+                    // Populate Ride obj
 
                     // after choose driver
                     Console.Write("Accept driver? [Y/N] ");
