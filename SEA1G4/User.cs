@@ -12,6 +12,10 @@ namespace SEA1G4 {
 
         public string Name { get; private set; }
 
+        public string EmailAddress { get; private set; }
+
+        public string ContactNo { get; private set; }
+
         /// <param name="n">name</param>
         /// <param name="c">contactt</param>
         /// <param name="e">email</param>

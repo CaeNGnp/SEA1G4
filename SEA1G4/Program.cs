@@ -78,37 +78,39 @@ namespace SEA1G4 {
                     agg1.addVehicle(b2);
 
                     DefaultVehicleIterator iter = agg1.createIterator(true);
+                    
+
                     int i = 1;
                     while (iter.hasNext()) {
                         //Console.WriteLine("[" + i + "]Vehicle Type: " + iter.getNext().);
-                        Console.WriteLine("[" + i + "] License Plate: " + iter.getNext().LicensePlate);
-                        Console.WriteLine("[" + i + "] Brand: " + iter.getNext().Brand);
-                        Console.WriteLine("[" + i + "] Model: " + iter.getNext().Model);
+                        Vehicle vehi1 = iter.getNext();
+                        Console.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model);
                         i++;
                     }
-                    Console.WriteLine();
+                    /*Console.Write("Vehicle: ");
                     int opt = Convert.ToInt32(Console.ReadLine());
-                    //if (agg1.createIterator(true))
-                    //{
-                    //    for (int i = 1; i < opt+1; i++)
-                    //    {
-                    //        if (Vehicle is Van)
-                    //        {
-                    //            Console.WriteLine("Deposit amount to be paid: $5");
-                    //            Console.Write("Date and Time of booking:");
-                    //            string datetime = Console.ReadLine();
-                    //            Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
-                    //            Console.ReadLine();
-                    //            Console.WriteLine("Deposit Deducted.");
-                    //            Console.WriteLine("------Driver------");
-                    //            Console.WriteLine("You have a new Customer!");
-                    //            Console.WriteLine("Name: " + c.Name);
-                    //            Console.WriteLine("Phone Number: " + c.contactNo);
-                    //            Console.WriteLine("Email Address: " + c.emailAddress);
-                    //            Console.WriteLine("Date and Time: " + datetime);
-                    //        }
-                    //    }
-                    //}
+                    if (iter.getNext().isAvailable == true) {
+                        for (int v = 1; v < opt + 1; v++) {
+                            Ride r1 = new Ride("1234", pick, des);
+                            r1.driver.MyVehicle.Dri(d1);
+
+
+                            if (Vehicle is Van) {
+                                Console.WriteLine("Deposit amount to be paid: $5");
+                                Console.Write("Date and Time of booking:");
+                                string datetime = Console.ReadLine();
+                                Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                                Console.ReadLine();
+                                Console.WriteLine("Deposit Deducted.");
+                                Console.WriteLine("------Driver------");
+                                Console.WriteLine("You have a new Customer!");
+                                Console.WriteLine("Name: " + c.Name);
+                                Console.WriteLine("Phone Number: " + c.ContactNo);
+                                Console.WriteLine("Email Address: " + c.EmailAddress);
+                                Console.WriteLine("Date and Time: " + datetime);
+                            }
+                        }
+                    }*/
 
 
 
@@ -127,9 +129,13 @@ namespace SEA1G4 {
 
                             string ans = Console.ReadLine().Trim().ToLower();
                             if (ans == "y") {
-                            
-                            } else if (ans == "n") {
-                                continue;
+                                if (ans == "y") {
+                                    RideStartedState start = new RideStartedState();
+                                    start.startRide();
+                                    break;
+                                } else if (ans == "n") {
+                                    continue;
+                                }
                             }
                         }
                     } 
@@ -190,10 +196,16 @@ namespace SEA1G4 {
                 // TODO (DIY)
                 else if (option == "6") {
                     Console.WriteLine("Ride ended.");
-                    Console.Write("Rate driver [1-5] ");
+                    Console.Write("Rate driver [1-5]: ");
                     string rate = Console.ReadLine();
                     int rating = Convert.ToInt32(rate);
                     Rating r = new Rating(c, d1);
+                    r.setRating(rating);
+                    Console.Write("Give feedback: ");
+                    string feedback = Console.ReadLine();
+                    r.setFeedback(feedback);
+                    Console.Write("Ratings Done!");
+
                 }
 
                 // Process feedback
