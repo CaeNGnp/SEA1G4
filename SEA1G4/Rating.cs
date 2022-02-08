@@ -16,6 +16,12 @@ namespace SEA1G4 {
 
             Author = author;
             RatingFor = ratingFor;
+
+            if(author is Customer) {
+                feedbackStrategy = new FeedbackFromCustomer();
+            } else {
+                feedbackStrategy = new FeedbackFromDriver();
+            }
         }
 
         public void setRating(int rating) {

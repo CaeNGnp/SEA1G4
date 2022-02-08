@@ -14,8 +14,11 @@ namespace SEA1G4
         private bool hasDeposit;
         private bool hasFee;
         private bool available;
+        private Driver dri;
 
-        public Vehicle(string lp, string bd, string md, bool hd, bool hf, bool av)
+
+        public Driver Dri { get; set; }
+        public Vehicle(string lp, string bd, string md, bool hd, bool hf, bool av, Driver d)
         {
             licensePlate = lp;
             brand = bd;
@@ -23,6 +26,7 @@ namespace SEA1G4
             hasDeposit = hd;
             hasFee = hf;
             available = av;
+            dri = d;
         }
 
         public string LicensePlate {
