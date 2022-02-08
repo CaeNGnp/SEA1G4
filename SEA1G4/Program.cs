@@ -39,7 +39,7 @@ namespace SEA1G4 {
             ride1.customer = c;
             ride1.driver = d2;
             // The current ride
-            Ride ride;
+            Ride ride = null;
             
             // hihi if u can move ur codes below this while loop its appreciated tq!
             // leaving here to avoid conflict
@@ -344,19 +344,18 @@ namespace SEA1G4 {
                     Rating r = new Rating(c, d1);
                 })
 
-                // Drivers option // aaaaa
+                // Drivers option
                 .AddHeading("Driver")
                 .AddOption("Accept booking", (m) => {
-                    while (true) {
-                        Console.WriteLine("Do you want to accept booking? [Y/N] ");
-
-                        string ans = Console.ReadLine().Trim().ToLower();
-                        if (ans == "y") {
-
-                        } else if (ans == "n") {
-                            continue;
-                        }
+                    Driver d = ride?.driver;
+                    if (d == null) {
+                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                        return;
                     }
+
+                    // need this?
+                    ride.rideCtx.changeState(new DriverAssignedState(ride.rideCtx));
+                    ride.rideCtx.acceptBooking();
                 })
                 .AddOption("Start ride", (m) => {
                     while (true) {
@@ -374,6 +373,7 @@ namespace SEA1G4 {
                 // Admins option
                 .AddHeading("Admin")
                 .AddOption("Process rating", (m) => {
+                    // probably not needed since it's an observer
                 })
                 .AddHeading()
                 .AddExitOption("Exit");

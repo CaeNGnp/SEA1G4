@@ -31,7 +31,8 @@ namespace SEA1G4 {
         public Customer customer { get; set; }
 
         public RideContext rideCtx {
-            set { context = value; }
+            // readonly
+            //set { context = value; }
             get { return context; }
         }
 
