@@ -34,6 +34,10 @@ namespace SEA1G4 {
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
 
+            // dummy ride
+            Ride ride = new Ride("r1", "pickup", "destination");
+            ride.customer = c;
+            ride.driver = d2;
             
             // hihi if u can move ur codes below this while loop its appreciated tq!
             // leaving here to avoid conflict
@@ -148,8 +152,34 @@ namespace SEA1G4 {
                 // Make payment
                 // TODO (DIY)
                 else if (option == "5") {
-                    Console.WriteLine("Option 5. Make payment selected.");
+                    Console.WriteLine("== Make payment by Credit Card ==");
 
+                    // for testing
+                    ride.rideCtx.changeState(new RideDoneState(ride.rideCtx));
+
+                    // calculating
+                    Console.WriteLine("Calculating fare...");
+                    Console.WriteLine("Trip fare: " + ride.Fare);
+                    if (ride.driver.MyVehicle.getHasFee()) {
+                        Van vann = (Van)ride.driver.MyVehicle;
+                        Console.WriteLine("Booking fee: " + vann.BookingFee);
+                    }
+
+                    Console.Write("Pay by credit card? [Y/N] ");
+                    string pay = Console.ReadLine();
+                    Console.WriteLine();
+
+                    if (pay == "y" || pay =="Y") {
+                        ride.rideCtx.entry();
+                        Console.WriteLine("----");
+                        ride.rideCtx.exit();
+                    } else if (pay=="n" || pay =="N") {
+                        continue;
+                    } else {
+                        Console.WriteLine("Invalid input. Please try again.\n");
+                        continue;
+                    }
+                    
 
                     Console.WriteLine();
                 }
@@ -250,7 +280,45 @@ namespace SEA1G4 {
                 .AddOption("Cancel booking", (m) => {
                 })
                 .AddOption("Make payment", (m) => {
+                    // Make payment
+                    // TODO (DIY)
+                    while (true) {
+                        Console.WriteLine("== Make payment by Credit Card ==");
+
+                        // for testing
+                        ride.rideCtx.changeState(new RideDoneState(ride.rideCtx));
+
+                        // calculating
+                        Console.WriteLine("Calculating fare...");
+                        Console.WriteLine("Trip fare: " + ride.Fare);
+                        if (ride.driver.MyVehicle.getHasFee()) {
+                            Van vann = (Van)ride.driver.MyVehicle;
+                            Console.WriteLine("Booking fee: " + vann.BookingFee);
+                        }
+
+                        Console.Write("Pay by credit card? [Y/N] ");
+                        string pay = Console.ReadLine();
+                        Console.WriteLine();
+
+                        if (pay == "y" || pay == "Y") {
+                            ride.rideCtx.entry();
+                            Console.WriteLine("----");
+                            ride.rideCtx.exit();
+                            Console.WriteLine();
+                            //exit
+                            break;
+                        } else if (pay == "n" || pay == "N") {
+                            //exit
+                            Console.WriteLine();
+                            break;
+                        } else {
+                            Console.WriteLine("Invalid input. Please try again.\n");
+                            //retry
+                            continue;
+                        }                        
+                    }
                     
+
                 })
                 .AddOption("Rate driver", (m) => {
                     Console.WriteLine("Ride ended.");

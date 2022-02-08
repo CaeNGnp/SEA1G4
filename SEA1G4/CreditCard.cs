@@ -26,10 +26,10 @@ namespace SEA1G4 {
         }
 
         public bool checkBalance(double a) {
-            bool sufficient = false;
+            bool sufficient = true;
 
             if (a > balance) {
-                sufficient = true;
+                sufficient = false;
             }
 
             return sufficient;

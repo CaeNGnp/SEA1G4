@@ -13,11 +13,13 @@ namespace SEA1G4 {
 
         public RideContext(Ride ride) {
             this.ride = ride;
+            Ride = ride;
             state = new RideRequestedState(this);
         }
 
         public void changeState(RideState state) {
             this.state = state;
+            Console.WriteLine("state changed: " + state);
         }
 
         public void acceptBooking() {
@@ -41,11 +43,11 @@ namespace SEA1G4 {
         }
 
         public void entry() {
-
+            state.entry();
         }
 
         public void exit() {
-
+            state.exit();
         }
     }
 }

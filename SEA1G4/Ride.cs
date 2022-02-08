@@ -21,14 +21,22 @@ namespace SEA1G4 {
             referenceNo = n;
             pickupLoc = pl;
             destinationLoc = dl;
+            fare = 21; // for testing purposes
+            distance = 3; // for testing purposes
             context = new RideContext(this);
+            payment = new Payment(this);
         }
         
         public Driver driver { get; set; }
         public Customer customer { get; set; }
 
+        public RideContext rideCtx {
+            set { context = value; }
+            get { return context; }
+        }
+
         public double Distance {
-            set { distance = 5; } // for testing purposes
+            set { distance = value; } 
             get { return distance; }
         }
 
@@ -43,7 +51,7 @@ namespace SEA1G4 {
         }
         
         public double Fare {
-            set { fare = 10; } // for testing purposes
+            set { fare = value; } 
             get { return fare; }
         }
 

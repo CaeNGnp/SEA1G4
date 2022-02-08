@@ -26,24 +26,24 @@ namespace SEA1G4 {
         }
 
         public void entry() {
-            //// make payment for fare credit card
-            //double fare = context.Ride.Fare;
-            //context.Ride.Payment.payFare(fare);
-            context.Ride.Payment.payFare();
+            // make payment for fare credit card
+            double fare = context.Ride.Fare;
+            context.Ride.Payment.payFare(fare);
+            //context.Ride.Payment.payFare();
 
-            //// credit to driver
-            //context.Ride.Payment.creditToDriver(fare);
-            context.Ride.Payment.creditToDriver();
+            // credit to driver
+            context.Ride.Payment.creditToDriver(fare);
+            //context.Ride.Payment.creditToDriver();
 
-            //// check if have booking fee
-            //Vehicle v = context.Ride.driver.MyVehicle;
-            //if (v.getHasFee()) {
-            //    // make payment for fee
-            //    Van van = (Van)v;
-            //    double fee = van.BookingFee;
-            //    context.Ride.Payment.payBookingFee(fee);
-            //}
-            context.Ride.Payment.payBookingFee();
+            // check if have booking fee
+            Vehicle v = context.Ride.driver.MyVehicle;
+            if (v.getHasFee() == true) {
+                // make payment for fee
+                Van van = (Van)v;
+                double fee = van.BookingFee;
+                context.Ride.Payment.payBookingFee(fee);
+            }
+            //context.Ride.Payment.payBookingFee();
         }
 
         public void exit() {

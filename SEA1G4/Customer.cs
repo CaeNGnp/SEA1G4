@@ -22,7 +22,6 @@ namespace SEA1G4 {
         public void payWithCreditCard(double amt) {
             myCreditCard.deduct(amt);
             amountSpent += amt;
-            Console.WriteLine("$" + amt + " deducted from credit card.");
         }
 
         public void addPoints(double amount) {
