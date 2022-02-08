@@ -35,9 +35,11 @@ namespace SEA1G4 {
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
 
             // dummy ride
-            Ride ride = new Ride("r1", "pickup", "destination");
-            ride.customer = c;
-            ride.driver = d2;
+            Ride ride1 = new Ride("r1", "pickup", "destination");
+            ride1.customer = c;
+            ride1.driver = d2;
+            // The current ride
+            Ride ride;
             
             // hihi if u can move ur codes below this while loop its appreciated tq!
             // leaving here to avoid conflict
@@ -155,13 +157,13 @@ namespace SEA1G4 {
                     Console.WriteLine("== Make payment by Credit Card ==");
 
                     // for testing
-                    ride.rideCtx.changeState(new RideDoneState(ride.rideCtx));
+                    ride1.rideCtx.changeState(new RideDoneState(ride1.rideCtx));
 
                     // calculating
                     Console.WriteLine("Calculating fare...");
-                    Console.WriteLine("Trip fare: " + ride.Fare);
-                    if (ride.driver.MyVehicle.getHasFee()) {
-                        Van vann = (Van)ride.driver.MyVehicle;
+                    Console.WriteLine("Trip fare: " + ride1.Fare);
+                    if (ride1.driver.MyVehicle.getHasFee()) {
+                        Van vann = (Van)ride1.driver.MyVehicle;
                         Console.WriteLine("Booking fee: " + vann.BookingFee);
                     }
 
@@ -170,9 +172,9 @@ namespace SEA1G4 {
                     Console.WriteLine();
 
                     if (pay == "y" || pay =="Y") {
-                        ride.rideCtx.entry();
+                        ride1.rideCtx.entry();
                         Console.WriteLine("----");
-                        ride.rideCtx.exit();
+                        ride1.rideCtx.exit();
                     } else if (pay=="n" || pay =="N") {
                         continue;
                     } else {
@@ -267,6 +269,8 @@ namespace SEA1G4 {
                     //    }
                     //}
 
+                    // Populate Ride obj
+
                     // after choose driver
                     Console.Write("Accept driver? [Y/N] ");
 
@@ -286,13 +290,13 @@ namespace SEA1G4 {
                         Console.WriteLine("== Make payment by Credit Card ==");
 
                         // for testing
-                        ride.rideCtx.changeState(new RideDoneState(ride.rideCtx));
+                        ride1.rideCtx.changeState(new RideDoneState(ride1.rideCtx));
 
                         // calculating
                         Console.WriteLine("Calculating fare...");
-                        Console.WriteLine("Trip fare: " + ride.Fare);
-                        if (ride.driver.MyVehicle.getHasFee()) {
-                            Van vann = (Van)ride.driver.MyVehicle;
+                        Console.WriteLine("Trip fare: " + ride1.Fare);
+                        if (ride1.driver.MyVehicle.getHasFee()) {
+                            Van vann = (Van)ride1.driver.MyVehicle;
                             Console.WriteLine("Booking fee: " + vann.BookingFee);
                         }
 
@@ -301,9 +305,9 @@ namespace SEA1G4 {
                         Console.WriteLine();
 
                         if (pay == "y" || pay == "Y") {
-                            ride.rideCtx.entry();
+                            ride1.rideCtx.entry();
                             Console.WriteLine("----");
-                            ride.rideCtx.exit();
+                            ride1.rideCtx.exit();
                             Console.WriteLine();
                             //exit
                             break;
