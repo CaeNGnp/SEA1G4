@@ -28,6 +28,8 @@ namespace SEA1G4 {
                     return;
                 }
             }
+            
+            // Use case continue to customer cancel
 
             return;
         }
@@ -60,7 +62,8 @@ namespace SEA1G4 {
         }
 
         public void startRide() {
-            // No-op
+            // TRansition to ride start.
+            ride.changeState(new RideStartedState(ride));
             return;
         }
     }

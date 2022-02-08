@@ -18,11 +18,24 @@ namespace SEA1G4 {
 
         public void startRide() {
             //Start ride in this state
+            // TODO (DIY)
             Console.WriteLine("Ride Start");
+            while (true) {
+                Console.WriteLine("Do you want to start ride? [Y/N] ");
+
+                string ans = Console.ReadLine().Trim().ToLower();
+                if (ans == "y") {
+
+                } else if (ans == "n") {
+                    continue;
+                }
+            }
         }
 
         public void endRide() {
             Console.WriteLine("Unable to end ride as ride has not started");
+            // TODO (DIY) exit
+
         }
 
         public void giveRating(Rating rating) {

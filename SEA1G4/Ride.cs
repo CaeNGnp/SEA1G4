@@ -95,6 +95,22 @@ namespace SEA1G4 {
             state.exit();
         }
 
+        public void promptCustomerAccept() {
 
+            // todoo (DIY) input validat
+            Console.Write("accept? [y/n]");
+
+            string input = Console.ReadLine().Trim().ToLower();
+            if (input == "y") {
+                changeState(new RideStartedState(this));
+            }
+
+            // cancel booking(vandana)
+            // TODO (DIY)
+        }
+
+        internal void makePayment() {
+            throw new NotImplementedException();
+        }
     }
 }

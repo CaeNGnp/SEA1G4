@@ -157,14 +157,29 @@ namespace SEA1G4 {
                         //    }
                         //}
                     } else if (response == "n") {
-                        //cancel booking(vandana)
+                        //what happen here TODO (DIY)
                     }
                 })
-                .AddOption("Cancel booking", (m) => {
+                .AddOption("Accept/Cancel booking", (m) => {
+                    if (ride == null) {
+                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                        return;
+                    }
+
+                    ride.promptCustomerAccept();
+
                 })
                 .AddOption("Make payment", (m) => {
                     // Make payment
                     // TODO (DIY)
+                    if (ride == null) {
+                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                        return;
+                    }
+
+                    // TODO...
+                    //ride.makePayment();
+
                     while (true) {
                         Console.WriteLine("== Make payment by Credit Card ==");
 
@@ -228,16 +243,11 @@ namespace SEA1G4 {
                     ride.acceptBooking();
                 })
                 .AddOption("Start ride", (m) => {
-                    while (true) {
-                        Console.WriteLine("Do you want to start ride? [Y/N] ");
-
-                        string ans = Console.ReadLine().Trim().ToLower();
-                        if (ans == "y") {
-
-                        } else if (ans == "n") {
-                            continue;
-                        }
+                    if (ride == null) {
+                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                        return;
                     }
+                    ride.startRide();
                 })
 
                 // Admins option
