@@ -73,34 +73,34 @@ namespace SEA1G4 {
                     int i = 1;
                     while (iter.hasNext()) {
                         //Console.WriteLine("[" + i + "]Vehicle Type: " + iter.getNext().);
-                        Console.WriteLine("[" + i + "]License Plate: " + iter.getNext().LicensePlate);
-                        Console.WriteLine("[" + i + "]Brand: " + iter.getNext().Brand);
-                        Console.WriteLine("[" + i + "]Model: " + iter.getNext().Model);
+                        Console.WriteLine("[" + i + "] License Plate: " + iter.getNext().LicensePlate);
+                        Console.WriteLine("[" + i + "] Brand: " + iter.getNext().Brand);
+                        Console.WriteLine("[" + i + "] Model: " + iter.getNext().Model);
                         i++;
                     }
-                    Console.Write();
-                    int opt = Convert.ToInt32(Console.Readline());
-                    if (agg1.createIterator(true))
-                    {
-                        for (int i = 1; i < opt+1; i++)
-                        {
-                            if (Vehicle is Van)
-                            {
-                                Console.WriteLine("Deposit amount to be paid: $5");
-                                Console.Write("Date and Time of booking:");
-                                string datetime = Console.ReadLine();
-                                Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
-                                Console.Readline();
-                                Console.WriteLine("Deposit Deducted.");
-                                Console.WriteLine("------Driver------");
-                                Console.WriteLine("You have a new Customer!");
-                                Console.WriteLine("Name: " + c.Name);
-                                Console.WriteLine("Phone Number: " + c.contactNo);
-                                Console.WriteLine("Email Address: " + c.emailAddress);
-                                Console.WriteLine("Date and Time: " + datetime);
-                            }
-                        }
-                    }
+                    Console.WriteLine();
+                    int opt = Convert.ToInt32(Console.ReadLine());
+                    //if (agg1.createIterator(true))
+                    //{
+                    //    for (int i = 1; i < opt+1; i++)
+                    //    {
+                    //        if (Vehicle is Van)
+                    //        {
+                    //            Console.WriteLine("Deposit amount to be paid: $5");
+                    //            Console.Write("Date and Time of booking:");
+                    //            string datetime = Console.ReadLine();
+                    //            Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                    //            Console.ReadLine();
+                    //            Console.WriteLine("Deposit Deducted.");
+                    //            Console.WriteLine("------Driver------");
+                    //            Console.WriteLine("You have a new Customer!");
+                    //            Console.WriteLine("Name: " + c.Name);
+                    //            Console.WriteLine("Phone Number: " + c.contactNo);
+                    //            Console.WriteLine("Email Address: " + c.emailAddress);
+                    //            Console.WriteLine("Date and Time: " + datetime);
+                    //        }
+                    //    }
+                    //}
 
 
 
@@ -109,44 +109,64 @@ namespace SEA1G4 {
 
                 // Accept booking
 
-                Console.Write("Accept driver? [Y/N] ");
+                else if (option=="2") {
+                    Console.Write("Accept driver? [Y/N] ");
 
-                string response = Console.ReadLine().Trim().ToLower();
-                if (response == "y") {
-                    while (true) {
-                        Console.WriteLine("Do you want to start ride? [Y/N] ");
+                    string response = Console.ReadLine().Trim().ToLower();
+                    if (response == "y") {
+                        while (true) {
+                            Console.WriteLine("Do you want to start ride? [Y/N] ");
 
-                        string ans = Console.ReadLine().Trim().ToLower();
-                        if (ans == "y") {
+                            string ans = Console.ReadLine().Trim().ToLower();
+                            if (ans == "y") {
                             
-                        } else if (ans == "n") {
-                            continue;
+                            } else if (ans == "n") {
+                                continue;
+                            }
                         }
+                    } 
+                    else if (response == "n") {
+                        //cancel booking(vandana)
                     }
-                } 
-                else if (response == "n") {
-                    //cancel booking(vandana)
+
                 }
+
                 // Cancel booking(Customer)
                 // TODO (DIY)
+                else if (option == "3") {
+
+                }
 
                 // Start ride
                 // TODO (DIY)
+                else if (option == "4") {
+
+                }
 
                 // Make payment
                 // TODO (DIY)
+                else if (option == "5") {
+                    Console.WriteLine("Option 5. Make payment selected.");
+
+
+                    Console.WriteLine();
+                }
 
                 // Rate driver
                 // TODO (DIY)
-                Console.WriteLine("Ride ended.");
-                Console.Write("Rate driver [1-5] ");
-                string rate = Console.ReadLine();
-                int rating = Convert.ToInt32(rate);
-                Rating r = new Rating(c, d1);
-
+                else if (option == "6") {
+                    Console.WriteLine("Ride ended.");
+                    Console.Write("Rate driver [1-5] ");
+                    string rate = Console.ReadLine();
+                    int rating = Convert.ToInt32(rate);
+                    Rating r = new Rating(c, d1);
+                }
 
                 // Process feedback
                 // TODO (DIY)
+                else if (option == "7") {
+
+                }
 
             }
 

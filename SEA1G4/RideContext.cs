@@ -12,7 +12,7 @@ namespace SEA1G4 {
         public Ride Ride { get; private set; }
 
         public RideContext(Ride ride) {
-            Ride = ride;
+            this.ride = ride;
             state = new RideRequestedState(this);
         }
 
