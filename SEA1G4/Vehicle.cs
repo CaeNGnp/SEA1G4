@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SEA1G4
-{
-    public class Vehicle
-    {
+﻿namespace SEA1G4 {
+    public class Vehicle {
         private string licensePlate;
         private string brand;
         private string model;
         private bool hasDeposit;
         private bool hasFee;
         private bool available;
-        private Driver dri;
+        private Driver driver;
 
 
-        public Driver Dri { get; set; }
-        public Vehicle(string lp, string bd, string md, bool hd, bool hf, bool av, Driver d)
-        {
+        public Driver Driver {
+            get {
+                return driver;
+            }
+            set { driver = value; }
+        }
+
+        public Vehicle(string lp, string bd, string md, bool hd, bool hf, bool av) {
             licensePlate = lp;
             brand = bd;
             model = md;
             hasDeposit = hd;
             hasFee = hf;
             available = av;
-            dri = d;
         }
 
         public string LicensePlate {
@@ -49,9 +45,8 @@ namespace SEA1G4
             return hasFee;
         }
 
-        public bool isAvailable
-        {
-            set { available = value; } 
+        public bool isAvailable {
+            set { available = value; }
             get { return available; }
         }
     }

@@ -13,9 +13,10 @@ namespace SEA1G4 {
         private string referenceNo;
         private string pickupLoc;
         private string destinationLoc;
-        private RideContext context;
         private Payment payment;
         private Rating rating;
+
+        private RideState state;
 
         public Ride(string n, string pl, string dl) {
             referenceNo = n;
@@ -23,18 +24,14 @@ namespace SEA1G4 {
             destinationLoc = dl;
             fare = 21; // for testing purposes
             distance = 3; // for testing purposes
-            context = new RideContext(this);
             payment = new Payment(this);
+
+            // start
+            state = new RideRequestedState(this);
         }
         
         public Driver driver { get; set; }
         public Customer customer { get; set; }
-
-        public RideContext rideCtx {
-            // readonly
-            //set { context = value; }
-            get { return context; }
-        }
 
         public double Distance {
             set { distance = value; } 
@@ -63,6 +60,39 @@ namespace SEA1G4 {
 
         public void sendReceipt() {
             Console.WriteLine("E-receipt sent!");
+        }
+
+        public void changeState(RideState state) {
+            this.state = state;
+            Console.WriteLine("state changed: " + state);
+        }
+
+        public void acceptBooking() {
+            state.acceptBooking();
+        }
+
+        public void cancelBooking() {
+            state.cancelBooking();
+        }
+
+        public void startRide() {
+            state.startRide();
+        }
+
+        public void endRide() {
+            state.endRide();
+        }
+
+        public void giveRating(Rating rating) {
+            state.giveRating(rating);
+        }
+
+        public void entry() {
+            state.entry();
+        }
+
+        public void exit() {
+            state.exit();
         }
 
 

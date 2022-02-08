@@ -8,7 +8,7 @@ namespace SEA1G4
 {
     public class Car : Vehicle
     {
-        public Car(string lp, string bd, string md, bool hd, bool hf, bool av, Driver d) : base(lp, bd, md, hd, hf, av, d) { }
+        public Car(string lp, string bd, string md, bool hd, bool hf, bool av) : base(lp, bd, md, hd, hf, av) { }
             
     }
 }

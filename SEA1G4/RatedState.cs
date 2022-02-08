@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace SEA1G4 {
     public class RatedState : RideState {
 
-        private RideContext context;
+        private Ride ride;
 
-        public RatedState(RideContext c) {
-            this.context = c;
+        public RatedState(Ride ride) {
+            this.ride = ride;
         }
-
         public void acceptBooking() {
             Console.WriteLine("Cannot accept booking. Rating done");
         }

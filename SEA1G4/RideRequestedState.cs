@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SEA1G4
-{
-    class RideRequestedState : RideState
-    {
-        RideContext context;
-        RideState state;
+namespace SEA1G4 {
+    public class RideRequestedState : RideState {
+        private Ride ride;
 
-        public RideRequestedState(RideContext ctx) {
-            context = ctx;
+        public RideRequestedState(Ride ride) {
+            this.ride = ride;
         }
 
         public void acceptBooking() {

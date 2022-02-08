@@ -2,14 +2,14 @@
 
 namespace SEA1G4 {
     public class DriverAssignedState : RideState {
-        protected RideContext context;
+        private Ride ride;
 
-        public DriverAssignedState(RideContext context) {
-            this.context = context;
+        public DriverAssignedState(Ride ride) {
+            this.ride = ride;
         }
 
         public void acceptBooking() {
-            Driver d = context.Ride.driver;
+            Driver d = ride.driver;
             // 2.	System provides information about the booking
             // TODO customer name
             //d.WriteLine($"Pickup location: {context.Ride.PickupLoc}");
@@ -24,7 +24,7 @@ namespace SEA1G4 {
                     break;
                 } else if (response == "n") {
                     // 4.2.	Use case ends. TODO: ?
-                    context.changeState(null);
+                    ride.changeState(null);
                     return;
                 }
             }

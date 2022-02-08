@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace SEA1G4 {
     public class RideDoneState : RideState {
 
-        private RideContext context;
+        private Ride ride;
 
-        public RideDoneState(RideContext c) {
-            this.context = c;
+        public RideDoneState(Ride ride) {
+            this.ride = ride;
         }
 
         public void acceptBooking() {
@@ -27,38 +27,38 @@ namespace SEA1G4 {
 
         public void entry() {
             // make payment for fare credit card
-            double fare = context.Ride.Fare;
-            context.Ride.Payment.payFare(fare);
+            double fare = ride.Fare;
+            ride.Payment.payFare(fare);
             //context.Ride.Payment.payFare();
 
             // credit to driver
-            context.Ride.Payment.creditToDriver(fare);
+            ride.Payment.creditToDriver(fare);
             //context.Ride.Payment.creditToDriver();
 
             // check if have booking fee
-            Vehicle v = context.Ride.driver.MyVehicle;
+            Vehicle v = ride.driver.MyVehicle;
             if (v.getHasFee() == true) {
                 // make payment for fee
                 Van van = (Van)v;
                 double fee = van.BookingFee;
-                context.Ride.Payment.payBookingFee(fee);
+                ride.Payment.payBookingFee(fee);
             }
             //context.Ride.Payment.payBookingFee();
         }
 
         public void exit() {
             // send e-receipt
-            context.Ride.sendReceipt();
+            ride.sendReceipt();
             // add points
-            context.Ride.customer.addPoints(context.Ride.Fare);
+            ride.customer.addPoints(ride.Fare);
         }
 
         public void giveRating(Rating r) {
             // customer give rating
-            context.Ride.Rating = r;
+            ride.Rating = r;
 
             // change state
-            context.changeState(new RatedState(context));
+            ride.changeState(new RatedState(ride));
         }
 
         public void giveRating() {

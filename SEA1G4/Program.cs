@@ -4,12 +4,11 @@ using System.Collections.Generic;
 namespace SEA1G4 {
     class Program {
         static void Main(string[] args) {
-            string option = "10";
-
 
             // Populate a drivers list
             List<Driver> drivers = new List<Driver>();
             BankAccount ba1 = new BankAccount("1234567812345678", "abc bank", 1200);
+
             Car c1 = new Car("sd1234e", "brand a", "car 1", false, false, true);
             Driver d1 = new Driver("Driver 1", "87654321", "driver@email.com", "d1", ba1, c1);
             drivers.Add(d1);
@@ -23,8 +22,15 @@ namespace SEA1G4 {
             drivers.Add(d3);
             BankAccount ba4 = new BankAccount("4321567812345678", "abc bank", 1900);
             ExcursionBus b2 = new ExcursionBus("sq0000d", "brand e", "bus 1", false, false, false);
-            Driver d4 = new Driver("Driver 4", "87654321", "driver@email.com", "d4", ba3, b1);
+            Driver d4 = new Driver("Driver 4", "87654321", "driver@email.com", "d4", ba4, b2);
             drivers.Add(d4);
+
+            // POpulate a vehicles list
+            DefaultVehicleAggregate vehAgg = new DefaultVehicleAggregate();
+            vehAgg.addVehicle(c1);
+            vehAgg.addVehicle(van1);
+            vehAgg.addVehicle(b1);
+            vehAgg.addVehicle(b2);
 
             // Populate one customer
             // TODO (DIY)
@@ -34,186 +40,13 @@ namespace SEA1G4 {
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
 
-            // dummy ride
+            // dummy ride (to rmv)
             Ride ride1 = new Ride("r1", "pickup", "destination");
             ride1.customer = c;
             ride1.driver = d2;
+
             // The current ride
             Ride ride = null;
-
-            // hihi if u can move ur codes below this while loop its appreciated tq!
-            // leaving here to avoid conflict
-            while (false) {
-
-                Menu();
-                Console.Write("Enter your option: ");
-                option = Console.ReadLine();
-                Console.WriteLine();
-
-                // Make booking
-                // TODO (DIY)
-                if (option == "1") {
-                    Console.Write("Destination: ");
-                    string des = Console.ReadLine();
-                    Console.Write("Pickup Point: ");
-                    string pick = Console.ReadLine();
-
-                    //Console.WriteLine("Pick vehicle:");
-                    //Console.WriteLine("[a] Car");
-                    //Console.WriteLine("[b] Van");
-                    //Console.WriteLine("[c] Excursion Bus");
-                    //string veh = Console.ReadLine();
-
-                    Console.WriteLine("Available vehicles: ");
-                    //List<Vehicle> vList = new List<Vehicle>();
-                    //vList.Add(c1);
-                    //vList.Add(van1);
-                    //vList.Add(b1);
-                    //vList.Add(b2);
-
-                    DefaultVehicleAggregate agg1 = new DefaultVehicleAggregate();
-                    agg1.addVehicle(c1);
-                    agg1.addVehicle(van1);
-                    agg1.addVehicle(b1);
-                    agg1.addVehicle(b2);
-
-                    DefaultVehicleIterator iter = agg1.createIterator(true);
-
-
-                    int i = 1;
-                    while (iter.hasNext()) {
-                        //Console.WriteLine("[" + i + "]Vehicle Type: " + iter.getNext().);
-                        Vehicle vehi1 = iter.getNext();
-                        Console.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model);
-                        i++;
-                    }
-                    /*Console.Write("Vehicle: ");
-                    int opt = Convert.ToInt32(Console.ReadLine());
-                    if (iter.getNext().isAvailable == true) {
-                        for (int v = 1; v < opt + 1; v++) {
-                            Ride r1 = new Ride("1234", pick, des);
-                            r1.driver.MyVehicle.Dri(d1);
-
-
-                            if (Vehicle is Van) {
-                                Console.WriteLine("Deposit amount to be paid: $5");
-                                Console.Write("Date and Time of booking:");
-                                string datetime = Console.ReadLine();
-                                Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
-                                Console.ReadLine();
-                                Console.WriteLine("Deposit Deducted.");
-                                Console.WriteLine("------Driver------");
-                                Console.WriteLine("You have a new Customer!");
-                                Console.WriteLine("Name: " + c.Name);
-                                Console.WriteLine("Phone Number: " + c.ContactNo);
-                                Console.WriteLine("Email Address: " + c.EmailAddress);
-                                Console.WriteLine("Date and Time: " + datetime);
-                            }
-                        }
-                    }*/
-
-
-
-                }
-
-
-                // Accept booking
-
-                else if (option == "2") {
-                    Console.Write("Accept driver? [Y/N] ");
-
-                    string response = Console.ReadLine().Trim().ToLower();
-                    if (response == "y") {
-                        while (true) {
-                            Console.WriteLine("Do you want to start ride? [Y/N] ");
-
-                            string ans = Console.ReadLine().Trim().ToLower();
-                            if (ans == "y") {
-                                if (ans == "y") {
-                                    RideStartedState start = new RideStartedState();
-                                    start.startRide();
-                                    break;
-                                } else if (ans == "n") {
-                                    continue;
-                                }
-                            }
-                        }
-                    } else if (response == "n") {
-                        //cancel booking(vandana)
-                    }
-
-                }
-
-                // Cancel booking(Customer)
-                // TODO (DIY)
-                else if (option == "3") {
-
-                }
-
-                // Start ride
-                // TODO (DIY)
-                else if (option == "4") {
-
-                }
-
-                // Make payment
-                // TODO (DIY)
-                else if (option == "5") {
-                    Console.WriteLine("== Make payment by Credit Card ==");
-
-                    // for testing
-                    ride1.rideCtx.changeState(new RideDoneState(ride1.rideCtx));
-
-                    // calculating
-                    Console.WriteLine("Calculating fare...");
-                    Console.WriteLine("Trip fare: " + ride1.Fare);
-                    if (ride1.driver.MyVehicle.getHasFee()) {
-                        Van vann = (Van)ride1.driver.MyVehicle;
-                        Console.WriteLine("Booking fee: " + vann.BookingFee);
-                    }
-
-                    Console.Write("Pay by credit card? [Y/N] ");
-                    string pay = Console.ReadLine();
-                    Console.WriteLine();
-
-                    if (pay == "y" || pay == "Y") {
-                        ride1.rideCtx.entry();
-                        Console.WriteLine("----");
-                        ride1.rideCtx.exit();
-                    } else if (pay == "n" || pay == "N") {
-                        continue;
-                    } else {
-                        Console.WriteLine("Invalid input. Please try again.\n");
-                        continue;
-                    }
-
-
-                    Console.WriteLine();
-                }
-
-                // Rate driver
-                // TODO (DIY)
-                else if (option == "6") {
-                    Console.WriteLine("Ride ended.");
-                    Console.Write("Rate driver [1-5]: ");
-                    string rate = Console.ReadLine();
-                    int rating = Convert.ToInt32(rate);
-                    Rating r = new Rating(c, d1);
-                    r.setRating(rating);
-                    Console.Write("Give feedback: ");
-                    string feedback = Console.ReadLine();
-                    r.setFeedback(feedback);
-                    Console.Write("Ratings Done!");
-
-                }
-
-                // Process feedback
-                // TODO (DIY)
-                else if (option == "7") {
-
-                }
-
-            }
 
             ConsoleMenu menu = new ConsoleMenu()
                 .BeforeInteraction((m) => {
@@ -234,100 +67,95 @@ namespace SEA1G4 {
                     //Console.WriteLine("[c] Excursion Bus");
                     //string veh = Console.ReadLine();
 
-                    Console.WriteLine("Available vehicles: ");
-                    //List<Vehicle> vList = new List<Vehicle>();
-                    //vList.Add(c1);
-                    //vList.Add(van1);
-                    //vList.Add(b1);
-                    //vList.Add(b2);
+                    c.WriteLine("Available vehicles: ");
 
-                    DefaultVehicleAggregate agg1 = new DefaultVehicleAggregate();
-                    agg1.addVehicle(c1);
-                    agg1.addVehicle(van1);
-                    agg1.addVehicle(b1);
-                    agg1.addVehicle(b2);
+                    DefaultVehicleIterator iter = vehAgg.createIterator(true);
 
-                    DefaultVehicleIterator iter = agg1.createIterator(true);
-
-
-                    int i = 1;
+                    Vehicle chosen = null;
+                    int i = 0;
                     while (iter.hasNext()) {
-                        //Console.WriteLine("[" + i + "]Vehicle Type: " + iter.getNext().);
-                        Vehicle vehi1 = iter.getNext();
-                        Console.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model);
-                        ride.driver = vehi1.Dri;
                         i++;
-                    }
-                    Console.Write("Vehicle: ");
-                    int opt = Convert.ToInt32(Console.ReadLine());
-                    if (iter.getNext().isAvailable == true) {
-                        for (int v = 1; v < opt + 1; v++) {
-                            Ride r1 = new Ride("1234", pick, des);
-                                        Vehicle vehicle1 = r1.driver.MyVehicle;
 
+                        Vehicle vehi1 = iter.getNext();
+                        c.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model + "Driver: " + vehi1.Driver.Name);
 
-                                if (vehicle1 is Van) {
-                                    Console.WriteLine("Deposit amount to be paid: $5");
-                                    Console.Write("Date and Time of booking:");
-                                    string datetime = Console.ReadLine();
-                                    Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
-                                    Console.ReadLine();
-                                    Console.WriteLine("Deposit Deducted.");
-                                    Console.WriteLine("------Driver------");
-                                    Console.WriteLine("You have a new Customer!");
-                                    Console.WriteLine("Name: " + c.Name);
-                                    Console.WriteLine("Phone Number: " + c.ContactNo);
-                                    Console.WriteLine("Email Address: " + c.EmailAddress);
-                                    Console.WriteLine("Date and Time: " + datetime);
-                                }
-                                else if (vehicle1 is ExcursionBus) {
-                                    Console.WriteLine("Deposit amount to be paid: $12");
-                                    Console.Write("Date and Time of booking:");
-                                    string datetime = Console.ReadLine();
-                                    Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
-                                    Console.ReadLine();
-                                    Console.WriteLine("Deposit Deducted.");
-                                    Console.WriteLine("------Driver------");
-                                    Console.WriteLine("You have a new Customer!");
-                                    Console.WriteLine("Name: " + c.Name);
-                                    Console.WriteLine("Phone Number: " + c.ContactNo);
-                                    Console.WriteLine("Email Address: " + c.EmailAddress);
-                                    Console.WriteLine("Date and Time: " + datetime);
-                                } 
-                                else {
-                                    Console.WriteLine("------Driver------");
-                                    Console.WriteLine("You have a new Customer!");
-                                    Console.WriteLine("Name: " + c.Name);
-                                    Console.WriteLine("Phone Number: " + c.ContactNo);
-                                    Console.WriteLine("Email Address: " + c.EmailAddress);
-                                }
+                        c.Write("choose this vehicle? [Y/N] ");
+
+                        string inp = Console.ReadLine().Trim().ToLower();
+                        // TODO (DIY) input vali
+                        if (inp == "n") {
+                            continue;
                         }
+                        chosen = vehi1;
+                        break;
+
+                        
                     }
 
+                    // todo (DIY)
+                    //checked null chosen
+                    if (chosen is Van) {
+                        Console.WriteLine("Deposit amount to be paid: $5");
+                        Console.Write("Date and Time of booking:");
+                        string datetime = Console.ReadLine();
+                        Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                        Console.ReadLine();
+                        Console.WriteLine("Deposit Deducted.");
+                        Console.WriteLine("------Driver------");
+                        Console.WriteLine("You have a new Customer!");
+                        Console.WriteLine("Name: " + c.Name);
+                        Console.WriteLine("Phone Number: " + c.ContactNo);
+                        Console.WriteLine("Email Address: " + c.EmailAddress);
+                        Console.WriteLine("Date and Time: " + datetime);
+                    } else if (chosen is ExcursionBus) {
+                        Console.WriteLine("Deposit amount to be paid: $12");
+                        Console.Write("Date and Time of booking:");
+                        string datetime = Console.ReadLine();
+                        Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                        Console.ReadLine();
+                        Console.WriteLine("Deposit Deducted.");
+                        Console.WriteLine("------Driver------");
+                        Console.WriteLine("You have a new Customer!");
+                        Console.WriteLine("Name: " + c.Name);
+                        Console.WriteLine("Phone Number: " + c.ContactNo);
+                        Console.WriteLine("Email Address: " + c.EmailAddress);
+                        Console.WriteLine("Date and Time: " + datetime);
+                    } else {
+                        Console.WriteLine("------Driver------");
+                        Console.WriteLine("You have a new Customer!");
+                        Console.WriteLine("Name: " + c.Name);
+                        Console.WriteLine("Phone Number: " + c.ContactNo);
+                        Console.WriteLine("Email Address: " + c.EmailAddress);
+                    }
 
-
-
+                    
                     // Populate Ride obj
+                    ride = new Ride("1234", pick, des);
 
                     // after choose driver
                     Console.Write("Accept driver? [Y/N] ");
 
                     string response = Console.ReadLine().Trim().ToLower();
                     if (response == "y") {
-                        while (true) {
-                            Console.WriteLine("Do you want to start ride? [Y/N] ");
+                        ride.driver = chosen.Driver;
+                        ride.changeState(new DriverAssignedState(ride));
 
-                            string ans = Console.ReadLine().Trim().ToLower();
-                            if (ans == "y") {
-                                if (ans == "y") {
-                                    RideStartedState start = new RideStartedState();
-                                    start.startRide();
-                                    break;
-                                } else if (ans == "n") {
-                                    continue;
-                                }
-                            }
-                        }
+
+                        // start ride (k2)
+                        //while (true) {
+                        //    Console.WriteLine("Do you want to start ride? [Y/N] ");
+
+                        //    string ans = Console.ReadLine().Trim().ToLower();
+                        //    if (ans == "y") {
+                        //        if (ans == "y") {
+                        //            RideStartedState start = new RideStartedState();
+                        //            start.startRide();
+                        //            break;
+                        //        } else if (ans == "n") {
+                        //            continue;
+                        //        }
+                        //    }
+                        //}
                     } else if (response == "n") {
                         //cancel booking(vandana)
                     }
@@ -341,7 +169,7 @@ namespace SEA1G4 {
                         Console.WriteLine("== Make payment by Credit Card ==");
 
                         // for testing
-                        ride1.rideCtx.changeState(new RideDoneState(ride1.rideCtx));
+                        ride1.changeState(new RideDoneState(ride1));
 
                         // calculating
                         Console.WriteLine("Calculating fare...");
@@ -356,9 +184,9 @@ namespace SEA1G4 {
                         Console.WriteLine();
 
                         if (pay == "y" || pay == "Y") {
-                            ride1.rideCtx.entry();
+                            ride1.entry();
                             Console.WriteLine("----");
-                            ride1.rideCtx.exit();
+                            ride1.exit();
                             Console.WriteLine();
                             //exit
                             break;
@@ -370,9 +198,9 @@ namespace SEA1G4 {
                             Console.WriteLine("Invalid input. Please try again.\n");
                             //retry
                             continue;
-                        }                        
+                        }
                     }
-                    
+
 
                 })
                 .AddOption("Rate driver", (m) => {
@@ -386,21 +214,18 @@ namespace SEA1G4 {
                     string feedback = Console.ReadLine();
                     r.setFeedback(feedback);
                     Console.Write("Ratings Done!");
-                    ride.rideCtx.changeState(new RatedState(ride.rideCtx));
+                    ride.changeState(new RatedState(ride));
                 })
 
                 // Drivers option
                 .AddHeading("Driver")
                 .AddOption("Accept booking", (m) => {
-                    Driver d = ride?.driver;
-                    if (d == null) {
+                    if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
                     }
 
-                    // need this?
-                    ride.rideCtx.changeState(new DriverAssignedState(ride.rideCtx));
-                    ride.rideCtx.acceptBooking();
+                    ride.acceptBooking();
                 })
                 .AddOption("Start ride", (m) => {
                     while (true) {
@@ -429,20 +254,5 @@ namespace SEA1G4 {
             Console.ReadKey();
         }
 
-        static void Menu() {
-            Console.WriteLine("Hello welcome to PickUpNow!");
-            Console.WriteLine("===========================");
-            Console.WriteLine("MENU");
-            Console.WriteLine("=====");
-            Console.WriteLine("[1] Make booking");
-            Console.WriteLine("[2] Accept booking");
-            Console.WriteLine("[3] Cancel booking");
-            Console.WriteLine("[4] Start ride");
-            Console.WriteLine("[5] Make payment");
-            Console.WriteLine("[6] Rate driver");
-            Console.WriteLine("[7] Process rating");
-            Console.WriteLine("[0] Exit");
-            Console.WriteLine();
-        }
     }
 }
