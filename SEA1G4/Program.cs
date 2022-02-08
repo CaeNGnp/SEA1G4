@@ -35,7 +35,9 @@ namespace SEA1G4 {
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
 
             
-            while (option != "0") {
+            // hihi if u can move ur codes below this while loop its appreciated tq!
+            // leaving here to avoid conflict
+            while (false) {
 
                 Menu();
                 Console.Write("Enter your option: ");
@@ -170,7 +172,132 @@ namespace SEA1G4 {
 
             }
 
+            ConsoleMenu menu = new ConsoleMenu()
+                .BeforeInteraction((m) => {
+                    Console.WriteLine("Hello welcome to PickUpNow!\n" + new string('=', 28));
+                })
 
+                // Customer options
+                .AddHeading("Customer")
+                .AddOption("Make booking", (m) => {
+                    Console.Write("Destination: ");
+                    string des = Console.ReadLine();
+                    Console.Write("Pickup Point: ");
+                    string pick = Console.ReadLine();
+
+                    //Console.WriteLine("Pick vehicle:");
+                    //Console.WriteLine("[a] Car");
+                    //Console.WriteLine("[b] Van");
+                    //Console.WriteLine("[c] Excursion Bus");
+                    //string veh = Console.ReadLine();
+
+                    Console.WriteLine("Available vehicles: ");
+                    //List<Vehicle> vList = new List<Vehicle>();
+                    //vList.Add(c1);
+                    //vList.Add(van1);
+                    //vList.Add(b1);
+                    //vList.Add(b2);
+
+                    DefaultVehicleAggregate agg1 = new DefaultVehicleAggregate();
+                    agg1.addVehicle(c1);
+                    agg1.addVehicle(van1);
+                    agg1.addVehicle(b1);
+                    agg1.addVehicle(b2);
+
+                    DefaultVehicleIterator iter = agg1.createIterator(true);
+                    int i = 1;
+                    while (iter.hasNext()) {
+                        //Console.WriteLine("[" + i + "]Vehicle Type: " + iter.getNext().);
+                        Console.WriteLine("[" + i + "] License Plate: " + iter.getNext().LicensePlate);
+                        Console.WriteLine("[" + i + "] Brand: " + iter.getNext().Brand);
+                        Console.WriteLine("[" + i + "] Model: " + iter.getNext().Model);
+                        i++;
+                    }
+                    Console.WriteLine();
+                    int opt = Convert.ToInt32(Console.ReadLine());
+                    //if (agg1.createIterator(true))
+                    //{
+                    //    for (int i = 1; i < opt+1; i++)
+                    //    {
+                    //        if (Vehicle is Van)
+                    //        {
+                    //            Console.WriteLine("Deposit amount to be paid: $5");
+                    //            Console.Write("Date and Time of booking:");
+                    //            string datetime = Console.ReadLine();
+                    //            Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                    //            Console.ReadLine();
+                    //            Console.WriteLine("Deposit Deducted.");
+                    //            Console.WriteLine("------Driver------");
+                    //            Console.WriteLine("You have a new Customer!");
+                    //            Console.WriteLine("Name: " + c.Name);
+                    //            Console.WriteLine("Phone Number: " + c.contactNo);
+                    //            Console.WriteLine("Email Address: " + c.emailAddress);
+                    //            Console.WriteLine("Date and Time: " + datetime);
+                    //        }
+                    //    }
+                    //}
+
+                    // after choose driver
+                    Console.Write("Accept driver? [Y/N] ");
+
+                    string response = Console.ReadLine().Trim().ToLower();
+                    if (response == "y") {
+                        // accept booking (cae)
+                    } else if (response == "n") {
+                        //cancel booking(vandana)
+                    }
+                })
+                .AddOption("Cancel booking", (m) => {
+                })
+                .AddOption("Make payment", (m) => {
+                    
+                })
+                .AddOption("Rate driver", (m) => {
+                    Console.WriteLine("Ride ended.");
+                    Console.Write("Rate driver [1-5] ");
+                    string rate = Console.ReadLine();
+                    int rating = Convert.ToInt32(rate);
+                    Rating r = new Rating(c, d1);
+                })
+
+                // Drivers option // aaaaa
+                .AddHeading("Driver")
+                .AddOption("Accept booking", (m) => {
+                    while (true) {
+                        Console.WriteLine("Do you want to accept booking? [Y/N] ");
+
+                        string ans = Console.ReadLine().Trim().ToLower();
+                        if (ans == "y") {
+
+                        } else if (ans == "n") {
+                            continue;
+                        }
+                    }
+                })
+                .AddOption("Start ride", (m) => {
+                    while (true) {
+                        Console.WriteLine("Do you want to start ride? [Y/N] ");
+
+                        string ans = Console.ReadLine().Trim().ToLower();
+                        if (ans == "y") {
+
+                        } else if (ans == "n") {
+                            continue;
+                        }
+                    }
+                })
+
+                // Admins option
+                .AddHeading("Admin")
+                .AddOption("Process rating", (m) => {
+                })
+                .AddHeading()
+                .AddExitOption("Exit");
+
+            menu.DisplayInteraction();
+
+            Console.WriteLine("Until next time! Press any key to exit the program.");
+            Console.ReadKey();
         }
 
         static void Menu() {
