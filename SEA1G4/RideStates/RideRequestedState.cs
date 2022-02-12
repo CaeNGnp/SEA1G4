@@ -90,19 +90,19 @@ namespace SEA1G4 {
 
         public void endRide() {
             ride.driver.WriteLine(
-                "You may not end the ride as it has not been accepted yet."
+                "You may not end the ride as it has not started."
             );
         }
 
         public void giveRating() {
             ride.customer.WriteLine(
-                "You may not rate the driver as it has not been accepted yet."
+                "You may not rate the driver as the ride has not been completed."
             );
         }
 
         public void makePayment() {
             ride.customer.WriteLine(
-                "You may not pay for the ride as it has not been accepted yet."
+                "You may not pay for the ride as it has not been completed."
             );
         }
 
