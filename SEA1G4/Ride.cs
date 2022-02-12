@@ -29,6 +29,8 @@ namespace SEA1G4 {
             distance = 3; // for testing purposes
             payment = new Payment(this);
             observers = new List<RideObserver>();
+            ratingObservers = new List<RatingObserver>();
+
             // start
             state = new RideRequestedState(this);
         }
