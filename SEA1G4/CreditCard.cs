@@ -19,7 +19,7 @@ namespace SEA1G4 {
         public void deduct(double a) {
             if (checkBalance(a)) {
                 balance = balance - a;
-                Console.WriteLine("$" + a + " deducted from credit card.");
+                Console.WriteLine("$" + a + " deducted from " + accountName + "'s credit card.");
             } else {
                 Console.WriteLine("Insufficient balance.");
             }

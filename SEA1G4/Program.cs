@@ -7,25 +7,24 @@ namespace SEA1G4 {
 
             // Populate a drivers list
             List<Driver> drivers = new List<Driver>();
-            BankAccount ba1 = new BankAccount("1234567812345678", "abc bank", 1200);
-
+            BankAccount ba1 = new BankAccount("Driver 1", "1234567812345678", "abc bank", 1200);
             Car c1 = new Car("sd1234e", "brand a", "car 1", false, false, true);
             Driver d1 = new Driver("Driver 1", "87654321", "driver@email.com", "d1", ba1, c1);
             drivers.Add(d1);
-            BankAccount ba2 = new BankAccount("3214567812345678", "abc bank", 2200);
+            BankAccount ba2 = new BankAccount("Driver 2", "3214567812345678", "abc bank", 2200);
             Van van1 = new Van("sw3245f", "brand b", "van 2", false, false, true);
             Driver d2 = new Driver("Driver 2", "87654321", "driver@email.com", "d2", ba2, van1);
             drivers.Add(d2);
-            BankAccount ba3 = new BankAccount("2314567812345678", "abc bank", 1900);
+            BankAccount ba3 = new BankAccount("Driver 3", "2314567812345678", "abc bank", 1900);
             ExcursionBus b1 = new ExcursionBus("sh5678d", "brand c", "bus 3", false, false, true);
             Driver d3 = new Driver("Driver 3", "87654321", "driver@email.com", "d3", ba3, b1);
             drivers.Add(d3);
-            BankAccount ba4 = new BankAccount("4321567812345678", "abc bank", 1900);
+            BankAccount ba4 = new BankAccount("Driver 4", "4321567812345678", "abc bank", 1900);
             ExcursionBus b2 = new ExcursionBus("sq0000d", "brand e", "bus 1", false, false, false);
             Driver d4 = new Driver("Driver 4", "87654321", "driver@email.com", "d4", ba4, b2);
             drivers.Add(d4);
 
-            // POpulate a vehicles list
+            // Populate a vehicles list
             DefaultVehicleAggregate vehAgg = new DefaultVehicleAggregate();
             vehAgg.addVehicle(c1);
             vehAgg.addVehicle(van1);
@@ -186,39 +185,42 @@ namespace SEA1G4 {
                     //ride.makePayment();
 
                     while (true) {
-                        Console.WriteLine("== Make payment by Credit Card ==");
-
                         // for testing
                         ride1.changeState(new RideDoneState(ride1));
 
                         // calculating
                         Console.WriteLine("Calculating fare...");
-                        Console.WriteLine("Trip fare: " + ride1.Fare);
+                        double rideFare = ride1.Fare;
+                        double rideFee = 0;
+                        Console.WriteLine("Trip fare: $" + rideFare);
                         if (ride1.driver.MyVehicle.getHasFee()) {
                             Van vann = (Van)ride1.driver.MyVehicle;
-                            Console.WriteLine("Booking fee: " + vann.BookingFee);
+                            rideFee = vann.BookingFee;
+                            Console.WriteLine("Booking fee: $" + rideFee);
                         }
-
-                        Console.Write("Pay by credit card? [Y/N] ");
-                        string pay = Console.ReadLine();
+                        double rideTotal = rideFare + rideFee;
+                        Console.WriteLine("Total: $" + rideTotal);
                         Console.WriteLine();
 
-                        if (pay == "y" || pay == "Y") {
-                            //ride1.entry(); // TODOD move to state.makePAyment
+                        // payment method
+                        Console.WriteLine("Select payment method: ");
+                        Console.WriteLine("[1] Credit Card");
+                        Console.WriteLine("[2] PickUpNow Points (not implemented)");
+                        Console.WriteLine("[3] Gift Card (not implemented)");
+                        Console.Write("Pay with: ");
+                        string pm = Console.ReadLine();
+                        Console.WriteLine();
+
+                        if (pm == "1") { 
+                            Console.WriteLine("Payment in process...");
+
+                            // transaction
                             Console.WriteLine("----");
-                            //ride1.exit(); // TODOD move to state.makePAyment
                             Console.WriteLine();
                             //exit
                             break;
-                        } else if (pay == "n" || pay == "N") {
-                            //exit
-                            Console.WriteLine();
-                            break;
-                        } else {
-                            Console.WriteLine("Invalid input. Please try again.\n");
-                            //retry
-                            continue;
                         }
+
                     }
 
 
