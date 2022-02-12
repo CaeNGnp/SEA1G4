@@ -105,12 +105,14 @@ namespace SEA1G4 {
             // TODO (DIY)
         }
 
+        /// <summary>
+        /// Logs the current ride state and sends a notification if any.
+        /// </summary>
         public void sendNotification() {
             // Log the current ride state
             Console.WriteLine("Current ride state: " + state);
             // Send notification if any
             state.sendNotification();
-
         }
     }
 }
