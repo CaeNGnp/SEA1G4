@@ -10,15 +10,18 @@ namespace SEA1G4 {
         public double amountSpent;
         public double points;
         private CreditCard myCreditCard;
+        
+        /// <summary>
+        /// The customer's premium privellege. Null if not premium.
+        /// </summary>
+        public PremiumCustomerPrivilege PremiumPrivilege { get; private set; }
 
-        public bool isPremium { get; set; }
-
-        public Customer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id) {
+        public Customer(string n, string c, string e, string id, CreditCard cc, PremiumCustomerPrivilege pp = null) : base(n, c, e, id) {
             observers = new List<CustomerObserver>();
             myCreditCard = cc;
             amountSpent = 0;
             points = 0;
-            isPremium = false;
+            PremiumPrivilege = pp;
         }
 
         public void payWithCreditCard(double amt) {
@@ -32,9 +35,8 @@ namespace SEA1G4 {
         }
 
         public void upgradePremium() {
-            if (amountSpent >= 500 && isPremium == false) {
-                new PremiumCustomer(Name, ContactNo, EmailAddress, UserId, myCreditCard);
-                isPremium = true;
+            if (amountSpent >= 500 && PremiumPrivilege == null) {
+                PremiumPrivilege = new PremiumCustomerPrivilege(this);
                 Console.WriteLine(Name + " upgraded to Premium Customer.");
             } 
         }
