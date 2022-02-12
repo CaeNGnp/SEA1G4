@@ -11,12 +11,13 @@ namespace SEA1G4 {
         public double points;
         private CreditCard myCreditCard;
 
+        public bool isPremium { get; set; }
+
         public Customer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id) {
             myCreditCard = cc;
-        }
-
-        public void payWithPoints() {
-            // to be implemented
+            amountSpent = 0;
+            points = 0;
+            isPremium = false;
         }
 
         public void payWithCreditCard(double amt) {
@@ -27,6 +28,14 @@ namespace SEA1G4 {
         public void addPoints(double amount) {
             points += Convert.ToInt32(Math.Floor(amount));
             Console.WriteLine(Convert.ToInt32(Math.Floor(amount)) + " PickUpNow points added");
+        }
+
+        public void upgradePremium() {
+            if (amountSpent >= 500 && isPremium == false) {
+                new PremiumCustomer(Name, ContactNo, EmailAddress, UserId, myCreditCard);
+                isPremium = true;
+                Console.WriteLine(Name + " upgraded to Premium Customer.");
+            } 
         }
 
         public void notifyObservers() {

@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class PremiumCustomer {
-        private GiftCard[] GiftCardList;
+    public class PremiumCustomer : Customer {
+        private GiftCard[] giftCardList;
 
         // edit after customer class is added
-        public PremiumCustomer() { }
+        public PremiumCustomer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id, cc) { }
 
         public void purchaseGiftCard() {
 

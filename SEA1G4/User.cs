@@ -15,6 +15,7 @@ namespace SEA1G4 {
         public string EmailAddress { get; private set; }
 
         public string ContactNo { get; private set; }
+        public string UserId { get; private set; }
 
         /// <param name="n">name</param>
         /// <param name="c">contactt</param>
@@ -22,9 +23,9 @@ namespace SEA1G4 {
         /// <param name="id">id</param>
         public User(string n, string c, string e, string id) {
             Name = n;
-            contactNo = c;
-            emailAddress = e;
-            userId = id;
+            ContactNo = c;
+            EmailAddress = e;
+            UserId = id;
         }
 
         /// <summary>
