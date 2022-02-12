@@ -69,18 +69,27 @@ namespace SEA1G4 {
                         ride.customer.upgradePremium();
                         ride.customer.addPoints(rideFare);
                         ride.sendReceipt();
+                        ride.Payment.hasPaid = true;
                         Console.WriteLine("\nPayment complete.");
                         break;
                     } else if (pm == "2") {
                         Console.WriteLine("Payment in process...");
                         // transaction
-
+                        ride.Payment.payFareWithPoints(rideTotal);
+                        ride.Payment.creditToDriver(rideFare);
+                        ride.customer.upgradePremium();
+                        ride.sendReceipt();
+                        ride.Payment.hasPaid = true;
+                        Console.WriteLine("\nPayment complete.");
+                        break;
                     } else {
                         Console.WriteLine("Invalid input. Please try again.");
                         continue;
                     }
                 }
-            }        
+            } else {
+                Console.WriteLine("Payment has already been made for this ride.");
+            }       
         }
 
         public void sendNotification() {
