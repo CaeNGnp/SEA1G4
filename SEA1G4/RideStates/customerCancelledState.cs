@@ -1,11 +1,11 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class cancelBookingState : RideState {
+    *//*public class cancelBookingState : RideState {
 
         private Ride ride;
       
@@ -18,33 +18,33 @@ namespace SEA1G4 {
         }
         public static DateTime Now { get; }
        
-        public void cancelBooking() {
-            Console.WriteLine("Ride Start");
-            while (true) {
-                Console.WriteLine("Do you want to start ride? [Y/N] ");
-                int TotalDays = (Now - ride.startDate).TotalDays;
-                string ans = Console.ReadLine().Trim().ToLower();
-                if (ans == "y") {
+        //public void cancelBooking() {
+        //    Console.WriteLine("Ride Start");
+        //    while (true) {
+        //        Console.WriteLine("Do you want to start ride? [Y/N] ");
+        //        int TotalDays = (Now - ride.startDate).TotalDays;
+        //        string ans = Console.ReadLine().Trim().ToLower();
+        //        if (ans == "y") {
                                  
-                    if (TotalDays < 0) {
-                        if (ride.driver.MyVehicle == ExcursionBus) {
-                            amount = "0";
-                           ride.customer.cc.deposit(amount);
-                        }
-                    }
+        //            if (TotalDays < 0) {
+        //                if (ride.driver.MyVehicle == ExcursionBus) {
+        //                    amount = "0";
+        //                   ride.customer.cc.deposit(amount);
+        //                }
+        //            }
 
-                    else if (ride.startDate < Now) {
-                        if (ride.driver.MyVehicle == Van) { 
-                            amount = "0";
-                            ride.customer.cc.deposit(amount);
-                        }
-                    }
+        //            else if (ride.startDate < Now) {
+        //                if (ride.driver.MyVehicle == Van) { 
+        //                    amount = "0";
+        //                    ride.customer.cc.deposit(amount);
+        //                }
+        //            }
 
-                } else if (ans == "n") {
-                    continue;
-                }
-            }
-        }
+        //        } else if (ans == "n") {
+        //            continue;
+        //        }
+        //    }
+        //}
 
         public void endRide() {
             throw new NotImplementedException();
@@ -68,3 +68,4 @@ namespace SEA1G4 {
     }
 
 }
+*/

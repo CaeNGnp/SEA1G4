@@ -8,8 +8,8 @@ namespace SEA1G4
 {
     public interface RideSubject
     {
-        void registerObserver(RideObserver co);
-        void removeObserver(RideObserver co);
-        void notifyObservers();
+        void registerRideObserver(RideObserver co);
+        void removeRideObserver(RideObserver co);
+        void notifyRideObservers();
     }
 }

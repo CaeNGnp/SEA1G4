@@ -27,7 +27,7 @@ namespace SEA1G4 {
             get { return myVehicle; }
         }
 
-        public void update(Ride r) {
+        public void onRideRequested(Ride r) {
             WriteLine($"------Driver------");
             WriteLine($"You have a ride waiting to be accepted!");
             WriteLine($"Customer Name: {r.customer.Name}");
