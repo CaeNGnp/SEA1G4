@@ -34,5 +34,10 @@ namespace SEA1G4 {
 
             return sufficient;
         }
+
+        public void deposit(double a) {
+            balance += a;
+            Console.WriteLine("$" + a + " deposited to " + accountName + "'s credit card.");
+        }
     }
 }

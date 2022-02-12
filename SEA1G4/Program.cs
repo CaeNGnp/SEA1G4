@@ -167,55 +167,19 @@ namespace SEA1G4 {
 
                 })
                 .AddOption("Make payment", (m) => {
-                    // Make payment
-                    // TODO (DIY)
-                    if (ride == null) {
-                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
-                        return;
-                    }
+                    //// Make payment
+                    //// TODO (DIY)
+                    //if (ride == null) {
+                    //    Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                    //    return;
+                    //}
 
-                    // TODO...
+                    //// TODO...
                     //ride.makePayment();
 
-                    while (true) {
-                        // for testing
-                        ride1.changeState(new RideDoneState(ride1));
-
-                        // calculating
-                        Console.WriteLine("Calculating fare...");
-                        double rideFare = ride1.Fare;
-                        double rideFee = 0;
-                        Console.WriteLine("Trip fare: $" + rideFare);
-                        if (ride1.driver.MyVehicle.getHasFee()) {
-                            Van vann = (Van)ride1.driver.MyVehicle;
-                            rideFee = vann.BookingFee;
-                            Console.WriteLine("Booking fee: $" + rideFee);
-                        }
-                        double rideTotal = rideFare + rideFee;
-                        Console.WriteLine("Total: $" + rideTotal);
-                        Console.WriteLine();
-
-                        // payment method
-                        Console.WriteLine("Select payment method: ");
-                        Console.WriteLine("[1] Credit Card");
-                        Console.WriteLine("[2] PickUpNow Points (not implemented)");
-                        Console.WriteLine("[3] Gift Card (not implemented)");
-                        Console.Write("Pay with: ");
-                        string pm = Console.ReadLine();
-                        Console.WriteLine();
-
-                        if (pm == "1") { 
-                            Console.WriteLine("Payment in process...");
-
-                            // transaction
-                            Console.WriteLine("----");
-                            Console.WriteLine();
-                            //exit
-                            break;
-                        }
-
-                    }
-
+                    // testing
+                    ride1.changeState(new RideDoneState(ride1));
+                    ride1.makePayment();
 
                 })
                 .AddOption("Rate driver", (m) => {

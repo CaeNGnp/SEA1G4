@@ -25,34 +25,6 @@ namespace SEA1G4 {
             Console.WriteLine("Ride has already ended.");
         }
 
-        public void entry() {
-            // make payment for fare credit card
-            double fare = ride.Fare;
-            ride.Payment.payFare(fare);
-            //context.Ride.Payment.payFare();
-
-            // credit to driver
-            ride.Payment.creditToDriver(fare);
-            //context.Ride.Payment.creditToDriver();
-
-            // check if have booking fee
-            Vehicle v = ride.driver.MyVehicle;
-            if (v.getHasFee() == true) {
-                // make payment for fee
-                Van van = (Van)v;
-                double fee = van.BookingFee;
-                ride.Payment.payBookingFee(fee);
-            }
-            //context.Ride.Payment.payBookingFee();
-        }
-
-        public void exit() {
-            // send e-receipt
-            ride.sendReceipt();
-            // add points
-            ride.customer.addPoints(ride.Fare);
-        }
-
         public void giveRating() {
             // customer give rating
             //ride.Rating = r;
@@ -62,7 +34,50 @@ namespace SEA1G4 {
         }
 
         public void makePayment() {
-            throw new NotImplementedException();
+            // display fare
+            Console.WriteLine("Calculating fare...");
+            double rideFare = ride.Fare;
+            double rideFee = 0;
+            Console.WriteLine("Fee Type      | Amount ($)");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Trip fare          " + rideFare);
+            if (ride.driver.MyVehicle.getHasFee()) {
+                Van vann = (Van)ride.driver.MyVehicle;
+                rideFee = vann.BookingFee;
+                Console.WriteLine("Booking fee        " + rideFee);
+            }
+            Console.WriteLine("---------------------------");
+            double rideTotal = rideFare + rideFee;
+            Console.WriteLine("TOTAL              " + rideTotal + "\n");
+
+            // choose payment method
+            Console.WriteLine("Select payment method: ");
+            Console.WriteLine("[1] Credit Card");
+            Console.WriteLine("[2] PickUpNow Points (not implemented)");
+            Console.WriteLine("[3] Gift Card (not implemented)");
+            Console.WriteLine("[0] Cancel Payment");
+            Console.Write("Pay with: ");
+            string pm = Console.ReadLine();
+            Console.WriteLine();
+            while (pm != "0") {
+                if (pm == "1") {
+                    Console.WriteLine("Payment in process...");
+
+                    // transaction
+                    ride.Payment.payFare(rideTotal);
+                    ride.Payment.creditToDriver(rideFare);
+                    ride.customer.upgradePremium();
+                    ride.customer.addPoints(rideFare);
+                    ride.sendReceipt();
+                    Console.WriteLine("\nPayment complete.\n");
+                    break;
+                } else {
+                    Console.WriteLine("Invalid input. Please try again.");
+                    break;
+                }
+
+            }
+        
         }
 
         public void sendNotification() {

@@ -13,7 +13,7 @@ namespace SEA1G4 {
         }
 
         public void cancelBooking() {
-            Console.WriteLine("Booking is unable to be cancelled here");
+            Console.WriteLine("Booking is unable to be cancelled as ride has already started");
         }
 
         public void startRide() {
@@ -33,17 +33,9 @@ namespace SEA1G4 {
         }
 
         public void endRide() {
-            Console.WriteLine("Unable to end ride as ride has not started");
             // TODO (DIY) exit
-
-        }
-
-        public void entry() {
-
-        }
-
-        public void exit() {
-
+            Console.WriteLine("End ride.");
+            ride.changeState(new RideDoneState(ride));
         }
 
         public void giveRating() {
@@ -51,11 +43,11 @@ namespace SEA1G4 {
         }
 
         public void makePayment() {
-            throw new NotImplementedException();
+            Console.WriteLine("Unable to make payment as ride has not ended");
         }
 
         public void sendNotification() {
-            throw new NotImplementedException();
+            Console.WriteLine("Unable to send notification as ride has not ended");
         }
     }
 }

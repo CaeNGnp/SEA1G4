@@ -31,13 +31,13 @@ namespace SEA1G4 {
                     break;
                 } else if (response == "n") {
                     // 4.2.	Use case ends.
-                    // TODO: should we just create a DriverCancelled state for this
-                    ride.changeState(null);
+                    ride.changeState(new DriverCancelledState(ride));
                     return;
                 }
             }
 
-            // Use case continue to customer cancel
+            // 5. System transitions ride into DriverAssigned state
+            ride.changeState(new DriverAssignedState(ride));
 
             return;
         }
@@ -47,14 +47,6 @@ namespace SEA1G4 {
         }
 
         public void endRide() {
-            throw new NotImplementedException();
-        }
-
-        public void entry() {
-            throw new NotImplementedException();
-        }
-
-        public void exit() {
             throw new NotImplementedException();
         }
 

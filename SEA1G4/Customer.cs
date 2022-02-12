@@ -10,14 +10,18 @@ namespace SEA1G4 {
         public double amountSpent;
         public double points;
         private CreditCard myCreditCard;
+        
+        /// <summary>
+        /// The customer's premium privellege. Null if not premium.
+        /// </summary>
+        public PremiumCustomerPrivilege PremiumPrivilege { get; private set; }
 
-        public Customer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id) {
+        public Customer(string n, string c, string e, string id, CreditCard cc, PremiumCustomerPrivilege pp = null) : base(n, c, e, id) {
+            observers = new List<CustomerObserver>();
             myCreditCard = cc;
-            //observers = new List<RideObserver>();
-        }
-
-        public void payWithPoints() {
-            // to be implemented
+            amountSpent = 0;
+            points = 0;
+            PremiumPrivilege = pp;
         }
 
         public void payWithCreditCard(double amt) {
@@ -30,12 +34,18 @@ namespace SEA1G4 {
             Console.WriteLine(Convert.ToInt32(Math.Floor(amount)) + " PickUpNow points added");
         }
 
-        public void update(Ride r) {
-            // System notifies customer about driver accepted
-            WriteLine($"Driver Name: {r.driver.Name}");
-            WriteLine($"Contact No.: {r.driver.ContactNo}");
-            WriteLine($"Email Address: {r.driver.EmailAddress}");
-            //Console.WriteLine("test");
+        public void upgradePremium() {
+            if (amountSpent >= 500 && PremiumPrivilege == null) {
+                PremiumPrivilege = new PremiumCustomerPrivilege(this);
+                Console.WriteLine(Name + " upgraded to Premium Customer.");
+            } 
+        }
+
+        public void notifyObservers() {
+            foreach (CustomerObserver co in observers)
+            {
+                co.update(this);
+            }
         }
         
 

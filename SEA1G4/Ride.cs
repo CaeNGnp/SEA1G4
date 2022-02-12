@@ -126,7 +126,6 @@ namespace SEA1G4 {
             Console.WriteLine("Current ride state: " + state);
             // Send notification if any
             state.sendNotification();
-
         }
     }
 }
