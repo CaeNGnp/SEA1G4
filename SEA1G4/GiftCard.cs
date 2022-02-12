@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace SEA1G4 {
     public class GiftCard {
-        private double value;
-        private string cardId;
+        public double value { get; set; }
+        public string cardId { get; set; }
+        public double price { get; set; }
 
-        public GiftCard(double v, string id) {
+        public GiftCard(double v, string id, double p) {
             value = v;
             cardId = id;
+            price = p;
         }
     }
 }

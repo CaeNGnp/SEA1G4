@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SEA1G4 {
     public class Customer : User {
+        private List<GiftCard> giftCardList;
         public double amountSpent;
         public double points;
         private CreditCard myCreditCard;
@@ -19,11 +20,23 @@ namespace SEA1G4 {
             //observers = new List<RideObserver>();
             myCreditCard = cc;
             amountSpent = 0;
-            points = 5;
+            points = 0;
             PremiumPrivilege = pp;
+            giftCardList = new List<GiftCard>();
+            GiftCard gc = new GiftCard(10, "GC001", 8);
+            giftCardList.Add(gc);
+        }
+
+        public List<GiftCard> GList {
+            set { giftCardList = value; }
+            get { return giftCardList; }
         }
 
         public void payWithCreditCard(double amt) {
+            myCreditCard.deduct(amt);
+        }
+
+        public void payFareWithCreditCard(double amt) {
             myCreditCard.deduct(amt);
             amountSpent += amt;
         }
@@ -56,15 +69,51 @@ namespace SEA1G4 {
             } else if (points > 0 && points >= amt / 2) { // sufficient points to pay half by points
                 double amount = amt / 2;
                 deductPoints(amount);
-                payWithCreditCard(amount);
+                payFareWithCreditCard(amount);
                 addPoints(amount);
             } else if (points > 0 && points <= amt / 2) { // exisitng points
                 double amount = amt - points;
                 deductPoints(points);
-                payWithCreditCard(amount);
+                payFareWithCreditCard(amount);
                 addPoints(amount);
             } else if (points == 0) {
                 // insufficient points
+                success = false;
+            }
+            return success;
+        }
+
+        public bool payWithGiftCard(double amt) {
+            bool success = true;
+            if (giftCardList.Count != 0) { // have gift cards
+                Console.WriteLine("Your gift cards: ");
+                int x = 1;
+                foreach (GiftCard g in giftCardList) {
+                    Console.WriteLine("[" + x + "] ID: " + g.cardId + "   Value: $" + g.value);
+                    x++;
+                }
+                while (true) {
+                    Console.Write("Select gift card: ");
+                    int card = Convert.ToInt32(Console.ReadLine());
+                    if (card <= giftCardList.Count) {
+                        GiftCard gc = giftCardList[card - 1];
+                        double amount = amt - gc.value;
+                        giftCardList.RemoveAt(card - 1);
+                        Console.WriteLine("Gift card " + gc.cardId + " with value $" + gc.value + " redeemed.");
+                        if (gc.value <= amt) {
+                            payFareWithCreditCard(amount);
+                            addPoints(amount);
+                            break;
+                        } else {
+                            addPoints(amt);
+                            break;
+                        }
+                    } else {
+                        Console.WriteLine("Invalid input. Please try again.");
+                        continue;
+                    }
+                }
+            } else { // no gift cards
                 success = false;
             }
             return success;

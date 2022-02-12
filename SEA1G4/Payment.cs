@@ -15,11 +15,15 @@ namespace SEA1G4 {
         }
 
         public void payFareWithCreditCard(double fare) {
-            ride.customer.payWithCreditCard(fare);
+            ride.customer.payFareWithCreditCard(fare);
         }
 
         public bool payFareWithPoints(double fare) {
             return ride.customer.payWithPoints(fare);
+        }
+
+        public bool payFareWithGiftCard(double fare) {
+            return ride.customer.payWithGiftCard(fare);
         }
 
         public void creditToDriver(double fare) {
