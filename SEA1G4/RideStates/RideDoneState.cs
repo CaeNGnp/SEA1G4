@@ -61,7 +61,7 @@ namespace SEA1G4 {
                     string pm = Console.ReadLine();
                     Console.WriteLine();
                     if (pm == "1") {
-                        Console.WriteLine("Payment in process...");
+                        Console.WriteLine("Payment with credit card in process...");
 
                         // transaction
                         ride.Payment.payFareWithCreditCard(rideTotal);
@@ -73,7 +73,7 @@ namespace SEA1G4 {
                         Console.WriteLine("\nPayment complete.");
                         break;
                     } else if (pm == "2") {
-                        Console.WriteLine("Payment in process...");
+                        Console.WriteLine("Payment with points in process...");
                         // transaction
                         bool paid = ride.Payment.payFareWithPoints(rideTotal);
                         if (paid) {
@@ -86,6 +86,10 @@ namespace SEA1G4 {
                         } else {
                             continue;
                         }
+                    } else if (pm == "3") {
+                        Console.WriteLine("Payment with points in process...");
+                        // transaction
+
                     } else {
                         Console.WriteLine("Invalid input. Please try again.");
                         continue;
