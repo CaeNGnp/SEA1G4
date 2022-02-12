@@ -29,14 +29,32 @@ namespace SEA1G4 {
         /// </summary>
         public void Write(string value) {
             string title = "User";
-            //if (this is Customer) {
-            //    title = "Customer";
-            if (this is Driver) {
+            ConsoleColor bgTitleColor = Console.BackgroundColor;
+            ConsoleColor fgTitleColor = Console.ForegroundColor;
+
+            if (this is Customer) {
                 title = "Customer";
+                bgTitleColor = ConsoleColor.Green;
+                fgTitleColor = ConsoleColor.Black;
+            } else if (this is Driver) {
+                title = "Driver";
+                bgTitleColor = ConsoleColor.Blue;
+                fgTitleColor = ConsoleColor.White;
             } else if (this is Admin) {
                 title = "Admin";
+                bgTitleColor = ConsoleColor.Red;
+                fgTitleColor = ConsoleColor.White;
             }
-            Console.Write($"> [{title} {Name}] {value}");
+
+            Console.Write("> [");
+
+            // Color the title
+            Console.BackgroundColor = bgTitleColor;
+            Console.ForegroundColor = fgTitleColor;
+            Console.Write($"{title}");
+            Console.ResetColor();
+
+            Console.Write($" {Name}] {value}");
         }
 
         /// <summary>
