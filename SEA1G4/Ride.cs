@@ -19,7 +19,7 @@ namespace SEA1G4 {
         private List<RideObserver> observers;
         private List<RatingObserver> ratingObservers;
 
-        
+
         private RideState state;
 
         public Ride(string n, string pl, string dl, Customer c, DateTime sd, string st) {
@@ -38,7 +38,7 @@ namespace SEA1G4 {
             // start
             state = new RideRequestedState(this);
         }
-        
+
         public Driver driver { get; set; }
         public Customer customer { get; set; }
 
@@ -52,7 +52,7 @@ namespace SEA1G4 {
         }
 
         public double Distance {
-            set { distance = value; } 
+            set { distance = value; }
             get { return distance; }
         }
 
@@ -65,9 +65,9 @@ namespace SEA1G4 {
             set { rating = value; }
             get { return rating; }
         }
-        
+
         public double Fare {
-            set { fare = value; } 
+            set { fare = value; }
             get { return fare; }
         }
 
@@ -117,10 +117,10 @@ namespace SEA1G4 {
 
         public void giveRating() {
             state.giveRating();
-        }
-
-
-     /*  public void promptCustomerAccept() {
+        
+    } 
+/*
+      public void promptCustomerAccept() {
 
             // todoo (DIY) input validat
             //    Console.Write("accept? [y/n]");
@@ -132,12 +132,12 @@ namespace SEA1G4 {
 
             // cancel booking(vandana)
             // TODO (DIY)
-         /*   Console.Write("You want to cancel booking? [y/n]");
+            Console.Write("You want to cancel booking? [y/n]");
             string answer = Console.ReadLine().Trim().ToLower();
             if (input == "y") {
                 changeState(new cancelBookingState(this));
             }
-        }
+        }*/
 
         public void notifyRideObservers() {
             foreach (RideObserver co in observers) {
