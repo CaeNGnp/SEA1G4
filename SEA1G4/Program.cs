@@ -85,10 +85,11 @@ namespace SEA1G4 {
                         c.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model + "Driver: " + vehi1.Driver.Name);
 
                         c.Write("choose this vehicle? [Y/N] ");
-
+                       
                         string inp = Console.ReadLine().Trim().ToLower();
                         // TODO (DIY) input vali
                         if (inp == "n") {
+
                             continue;
                         }
                         chosen = vehi1;
@@ -101,9 +102,9 @@ namespace SEA1G4 {
                     //checked null chosen
                     if (chosen is Van) {
                         Console.WriteLine("Deposit amount to be paid: $5");
-                        Console.Write("Date of booking (DD/MM/YYY):");
+                        Console.Write("Date of Ride (e.g. 12/2/2022):");
                         DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
-                        Console.Write("Time of booking:");
+                        Console.Write("Time of Ride:");
                         DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");   
                         Console.ReadLine();
@@ -113,9 +114,9 @@ namespace SEA1G4 {
                    
                     } else if (chosen is ExcursionBus) {
                         Console.WriteLine("Deposit amount to be paid: 12");
-                        Console.Write("Date of booking (DD/MM/YYY):");
+                        Console.Write("Date of Ride (e.g. 12/2/2022):");
                         DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
-                        Console.Write("Time of booking:");
+                        Console.Write("Time of Ride:");
                         DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");
                         Console.ReadLine();
