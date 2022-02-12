@@ -79,7 +79,7 @@ namespace SEA1G4 {
                     Console.WriteLine("Select payment method: ");
                     Console.WriteLine("[1] Credit Card");
                     Console.WriteLine("[2] PickUpNow Points");
-                    Console.WriteLine("[3] Gift Card (not implemented)");
+                    Console.WriteLine("[3] Gift Card");
                     Console.Write("Pay with: ");
                     string pm = Console.ReadLine();
                     Console.WriteLine();
@@ -107,12 +107,24 @@ namespace SEA1G4 {
                             Console.WriteLine("\nPayment complete.");
                             break;
                         } else {
+                            Console.WriteLine("Insufficient points. Please select another payment method.\n");
                             continue;
                         }
                     } else if (pm == "3") {
                         Console.WriteLine("Payment with points in process...");
                         // transaction
-
+                        bool paid = ride.Payment.payFareWithGiftCard(rideTotal);
+                        if (paid) {
+                            ride.Payment.creditToDriver(rideFare);
+                            ride.customer.upgradePremium();
+                            ride.sendReceipt();
+                            ride.Payment.hasPaid = true;
+                            Console.WriteLine("\nPayment complete.");
+                            break;
+                        } else {
+                            Console.WriteLine("Insufficient gift cards. Please select another payment method.\n");
+                            continue;
+                        }
                     } else {
                         Console.WriteLine("Invalid input. Please try again.");
                         continue;

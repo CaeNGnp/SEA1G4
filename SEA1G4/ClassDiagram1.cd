@@ -1,57 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SEA1G4.Admin">
-    <Position X="2" Y="5.75" Width="1.5" />
+    <Position X="5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Admin.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FollowUps" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.BankAccount" Collapsed="true">
-    <Position X="16.25" Y="1.5" Width="1.5" />
+    <Position X="11.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAIAAAAEAAAgAAAAAAEAAA=</HashCode>
       <FileName>BankAccount.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Car" Collapsed="true">
-    <Position X="11" Y="5.75" Width="1.5" />
+    <Position X="14" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vehicles\Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.ConsoleMenuOption" Collapsed="true">
-    <Position X="21.5" Y="1.5" Width="1.5" />
+    <Position X="24.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>ConsoleMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.ConsoleMenuHeading" Collapsed="true">
-    <Position X="19.75" Y="1.5" Width="1.5" />
+    <Position X="22.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ConsoleMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.ConsoleMenu" Collapsed="true">
-    <Position X="18" Y="1.5" Width="1.5" />
+    <Position X="21" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAACAAAoAAAAAAIAAQQABAAAABBEAIAAIAAAAEAA=</HashCode>
       <FileName>ConsoleMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.CreditCard" Collapsed="true">
-    <Position X="23.25" Y="1.5" Width="1.5" />
+    <Position X="26.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAICAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAgAEAAA=</HashCode>
       <FileName>CreditCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Customer">
-    <Position X="4.25" Y="5.75" Width="1.5" />
+    <Position X="7.25" Y="5.75" Width="1.5" />
     <AssociationLine Name="PremiumPrivilege" Type="SEA1G4.PremiumCustomerPrivilege">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="-1.475" Y="0.192" />
@@ -65,22 +68,25 @@
       <Property Name="PremiumPrivilege" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SEA1G4.DefaultVehicleAggregate" Collapsed="true">
-    <Position X="16.25" Y="2.5" Width="1.5" />
+  <Class Name="SEA1G4.DefaultVehicleAggregate">
+    <Position X="16.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DefaultVehicleAggregate.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="vList" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="SEA1G4.DefaultVehicleIterator" Collapsed="true">
-    <Position X="18" Y="2.5" Width="1.5" />
+  <Class Name="SEA1G4.DefaultVehicleIterator">
+    <Position X="16.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAEAAIAAACAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>DefaultVehicleIterator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Driver">
-    <Position X="6.5" Y="5.75" Width="1.5" />
+    <Position X="9.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAABIAAAAQAAAAAAAAACIAAAAA=</HashCode>
       <FileName>Driver.cs</FileName>
@@ -91,7 +97,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SEA1G4.DriverAssignedState" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9" Y="15.5" Width="1.5" />
+    <Position X="12" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACAAAAAA=</HashCode>
       <FileName>RideStates\DriverAssignedState.cs</FileName>
@@ -99,14 +105,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.ExcursionBus" Collapsed="true">
-    <Position X="8.75" Y="5.75" Width="1.5" />
+    <Position X="11.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
       <FileName>Vehicles\ExcursionBus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.FeedbackFromCustomer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.5" Y="2.5" Width="1.5" />
+    <Position X="24.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FeedbackStrategies\FeedbackFromCustomer.cs</FileName>
@@ -115,7 +121,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SEA1G4.FeedbackFromDriver" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="23.25" Y="2.5" Width="1.5" />
+    <Position X="26.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FeedbackStrategies\FeedbackFromDriver.cs</FileName>
@@ -123,43 +129,43 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="SEA1G4.FollowUp" Collapsed="true">
-    <Position X="16.25" Y="3.5" Width="1.5" />
+  <Class Name="SEA1G4.FollowUp">
+    <Position X="2" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQ=</HashCode>
       <FileName>FollowUp.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.GiftCard" Collapsed="true">
-    <Position X="18" Y="3.5" Width="1.5" />
+    <Position X="21" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>GiftCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Payment" Collapsed="true">
-    <Position X="19.75" Y="3.5" Width="1.5" />
+    <Position X="22.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAIAAAQAQAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Payment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.PremiumCustomerPrivilege">
-    <Position X="1.25" Y="9" Width="2.25" />
+    <Position X="4.25" Y="9" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAIAACAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>PremiumCustomerPrivilege.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Program" Collapsed="true">
-    <Position X="19.75" Y="2.5" Width="1.5" />
+    <Position X="22.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.RatedState" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9" Y="13.5" Width="1.5" />
+    <Position X="12" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACAAAAAA=</HashCode>
       <FileName>RideStates\RatedState.cs</FileName>
@@ -167,14 +173,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.Rating" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.25" Y="14.5" Width="1.5" />
+    <Position X="14.25" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAIAAAAAgEAQAgAgAACAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rating.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Ride">
-    <Position X="5.75" Y="10.5" Width="1.5" />
+    <Position X="8.75" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAIAJEBAIARQwgCAIwgBCCAJURAAAFEAgAACEEAAAA=</HashCode>
       <FileName>Ride.cs</FileName>
@@ -187,7 +193,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.RideDoneState" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.25" Y="15.5" Width="1.5" />
+    <Position X="14.25" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACAAAAAA=</HashCode>
       <FileName>RideStates\RideDoneState.cs</FileName>
@@ -195,7 +201,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.RideRequestedState" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9" Y="14.5" Width="1.5" />
+    <Position X="12" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACAAAAAA=</HashCode>
       <FileName>RideStates\RideRequestedState.cs</FileName>
@@ -203,7 +209,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.RideStartedState" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.25" Y="13.5" Width="1.5" />
+    <Position X="14.25" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACAAAAAA=</HashCode>
       <FileName>RideStates\RideStartedState.cs</FileName>
@@ -211,77 +217,88 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.User" Collapsed="true">
-    <Position X="4.25" Y="4.25" Width="1.5" />
+    <Position X="7.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAwAAAAAAAAAAAAAggEAAAA=</HashCode>
       <FileName>User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Van" Collapsed="true">
-    <Position X="13.25" Y="5.75" Width="1.5" />
+    <Position X="16.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
       <FileName>Vehicles\Van.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Vehicle">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="14" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAEAAAQBAAAAAAEAAAACAAAAAgBAAgAgBAAAJAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SEA1G4.FollowUpEnumerable">
+    <Position X="2" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAACAIAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>FollowUpEnumerator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="followUps" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="SEA1G4.CustomerObserver" Collapsed="true">
-    <Position X="16" Y="6.75" Width="1.5" />
+    <Position X="19" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>CustomerObserver.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.CustomerSubject" Collapsed="true">
-    <Position X="17.75" Y="6.75" Width="1.5" />
+    <Position X="20.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>CustomerSubject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.FeedbackStrategy" Collapsed="true">
-    <Position X="19.5" Y="6.75" Width="1.5" />
+    <Position X="22.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FeedbackStrategy.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.RatingObserver" Collapsed="true">
-    <Position X="21.25" Y="6.75" Width="1.5" />
+    <Position X="24.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RatingObserver.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.RatingSubject" Collapsed="true">
-    <Position X="23" Y="6.75" Width="1.5" />
+    <Position X="26" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>RatingSubject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.RideState">
-    <Position X="9" Y="10.5" Width="1.5" />
+    <Position X="12" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACAAAAAA=</HashCode>
       <FileName>RideState.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.VehicleAggregate" Collapsed="true">
-    <Position X="17.75" Y="7.5" Width="1.5" />
+    <Position X="20.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleAggregate.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.VehicleIterator" Collapsed="true">
-    <Position X="19.5" Y="7.5" Width="1.5" />
+    <Position X="22.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>VehicleIterator.cs</FileName>
