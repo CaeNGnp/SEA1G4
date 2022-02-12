@@ -34,50 +34,53 @@ namespace SEA1G4 {
         }
 
         public void makePayment() {
-            // display fare
-            Console.WriteLine("Calculating fare...");
-            double rideFare = ride.Fare;
-            double rideFee = 0;
-            Console.WriteLine("Fee Type      | Amount ($)");
-            Console.WriteLine("---------------------------");
-            Console.WriteLine("Trip fare          " + rideFare);
-            if (ride.driver.MyVehicle.getHasFee()) {
-                Van vann = (Van)ride.driver.MyVehicle;
-                rideFee = vann.BookingFee;
-                Console.WriteLine("Booking fee        " + rideFee);
-            }
-            Console.WriteLine("---------------------------");
-            double rideTotal = rideFare + rideFee;
-            Console.WriteLine("TOTAL              " + rideTotal + "\n");
-
-            // choose payment method
-            Console.WriteLine("Select payment method: ");
-            Console.WriteLine("[1] Credit Card");
-            Console.WriteLine("[2] PickUpNow Points (not implemented)");
-            Console.WriteLine("[3] Gift Card (not implemented)");
-            Console.WriteLine("[0] Cancel Payment");
-            Console.Write("Pay with: ");
-            string pm = Console.ReadLine();
-            Console.WriteLine();
-            while (pm != "0") {
-                if (pm == "1") {
-                    Console.WriteLine("Payment in process...");
-
-                    // transaction
-                    ride.Payment.payFare(rideTotal);
-                    ride.Payment.creditToDriver(rideFare);
-                    ride.customer.upgradePremium();
-                    ride.customer.addPoints(rideFare);
-                    ride.sendReceipt();
-                    Console.WriteLine("\nPayment complete.\n");
-                    break;
-                } else {
-                    Console.WriteLine("Invalid input. Please try again.");
-                    break;
+            if (!ride.Payment.hasPaid) {
+                // display fare
+                Console.WriteLine("Calculating fare...");
+                double rideFare = ride.Fare;
+                double rideFee = 0;
+                Console.WriteLine("Fee Type      | Amount ($)");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("Trip fare          " + rideFare);
+                if (ride.driver.MyVehicle.HasFee) {
+                    Van van = (Van)ride.driver.MyVehicle;
+                    rideFee = van.BookingFee;
+                    Console.WriteLine("Booking fee        " + rideFee);
                 }
+                Console.WriteLine("---------------------------");
+                double rideTotal = rideFare + rideFee;
+                Console.WriteLine("TOTAL              " + rideTotal + "\n");
 
-            }
-        
+                while (true) {
+                    // choose payment method
+                    Console.WriteLine("Select payment method: ");
+                    Console.WriteLine("[1] Credit Card");
+                    Console.WriteLine("[2] PickUpNow Points (not implemented)");
+                    Console.WriteLine("[3] Gift Card (not implemented)");
+                    Console.Write("Pay with: ");
+                    string pm = Console.ReadLine();
+                    Console.WriteLine();
+                    if (pm == "1") {
+                        Console.WriteLine("Payment in process...");
+
+                        // transaction
+                        ride.Payment.payFareWithCreditCard(rideTotal);
+                        ride.Payment.creditToDriver(rideFare);
+                        ride.customer.upgradePremium();
+                        ride.customer.addPoints(rideFare);
+                        ride.sendReceipt();
+                        Console.WriteLine("\nPayment complete.");
+                        break;
+                    } else if (pm == "2") {
+                        Console.WriteLine("Payment in process...");
+                        // transaction
+
+                    } else {
+                        Console.WriteLine("Invalid input. Please try again.");
+                        continue;
+                    }
+                }
+            }        
         }
 
         public void sendNotification() {

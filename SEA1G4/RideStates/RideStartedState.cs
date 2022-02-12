@@ -33,7 +33,7 @@ namespace SEA1G4 {
         }
 
         public void endRide() {
-            // TODO (DIY) exit
+            // end ride
             ride.changeState(new RideDoneState(ride));
         }
 
