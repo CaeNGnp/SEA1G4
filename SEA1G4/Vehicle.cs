@@ -39,10 +39,9 @@
             get { return model; }
         }
 
-        public bool getHasFee() {
-            bool hasFee = true;
-
-            return hasFee;
+        public bool HasFee {
+            set { hasFee = value; }
+            get { return hasFee; }
         }
 
         public bool isAvailable {
