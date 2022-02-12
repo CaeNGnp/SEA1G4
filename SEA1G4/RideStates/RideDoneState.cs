@@ -14,7 +14,7 @@ namespace SEA1G4 {
         }
 
         public void acceptBooking() {
-            Console.WriteLine("Cannot accept booking. Rating is still pending.");
+            ride.driver.WriteLine("Cannot accept booking. Rating is still pending.");
         }
 
         public void cancelBooking() {

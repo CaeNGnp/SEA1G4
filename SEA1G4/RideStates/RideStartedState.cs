@@ -9,7 +9,7 @@ namespace SEA1G4 {
         }
 
         public void acceptBooking() {
-            Console.WriteLine("Booking is accepted already");
+            ride.driver.WriteLine("Booking is accepted already");
         }
 
         public void cancelBooking() {

@@ -9,7 +9,35 @@ namespace SEA1G4 {
         }
 
         public void acceptBooking() {
-            throw new NotImplementedException();
+            // UC-2: Accept booking
+
+            Driver d = ride.driver;
+            // 2.	System provides information about the booking
+            // TODO customer name
+            //d.WriteLine($"Pickup location: {context.Ride.PickupLoc}");
+
+
+            while (true) {
+                // 3.	System prompts admin whether to accept the booking.
+                d.Write("Accept the booking? [Y/N]");
+
+                string response = Console.ReadLine().Trim().ToLower();
+                if (response == "y") {
+                    // 4. Driver replies with “Yes”. 
+                    // 5. System transitions ride into DriverAssigned state
+                    ride.changeState(new DriverAssignedState(ride));
+                    break;
+                } else if (response == "n") {
+                    // 4.2.	Use case ends.
+                    // TODO: should we just create a DriverCancelled state for this
+                    ride.changeState(null);
+                    return;
+                }
+            }
+
+            // Use case continue to customer cancel
+
+            return;
         }
 
         public void cancelBooking() {
@@ -37,7 +65,7 @@ namespace SEA1G4 {
         }
 
         public void sendNotification() {
-            throw new NotImplementedException();
+            ride.driver.WriteLine("There is a ride waiting to be accepted!");
         }
 
         public void startRide() {

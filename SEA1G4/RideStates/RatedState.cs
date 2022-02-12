@@ -13,7 +13,7 @@ namespace SEA1G4 {
             this.ride = ride;
         }
         public void acceptBooking() {
-            Console.WriteLine("Cannot accept booking. Rating done");
+            ride.driver.WriteLine("Cannot accept booking. Rating done");
         }
 
         public void cancelBooking() {

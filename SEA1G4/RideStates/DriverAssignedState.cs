@@ -9,29 +9,7 @@ namespace SEA1G4 {
         }
 
         public void acceptBooking() {
-            Driver d = ride.driver;
-            // 2.	System provides information about the booking
-            // TODO customer name
-            //d.WriteLine($"Pickup location: {context.Ride.PickupLoc}");
-
-            
-            while (true) {
-                // 3.	System prompts admin whether to accept the booking.
-                d.Write("Accept the booking? [Y/N]");
-
-                string response = Console.ReadLine().Trim().ToLower();
-                if (response == "y") {
-                    break;
-                } else if (response == "n") {
-                    // 4.2.	Use case ends. TODO: ?
-                    ride.changeState(null);
-                    return;
-                }
-            }
-            
-            // Use case continue to customer cancel
-
-            return;
+            ride.driver.WriteLine("Cannot accept booking as you have already done so.");
         }
 
         public void cancelBooking() {

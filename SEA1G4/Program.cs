@@ -136,33 +136,26 @@ namespace SEA1G4 {
                     // Populate Ride obj
                     ride = new Ride("1234", pick, des);
 
-                    // after choose driver
-                    Console.Write("Accept driver? [Y/N] ");
+                    // no need to accept driver as already picked based on vehicle
+                    ride.driver = chosen.Driver;
 
-                    string response = Console.ReadLine().Trim().ToLower();
-                    if (response == "y") {
-                        ride.driver = chosen.Driver;
-                        ride.changeState(new DriverAssignedState(ride));
+                    // 8. Use case continue at Accept Booking
 
+                    // start ride (k2)
+                    //while (true) {
+                    //    Console.WriteLine("Do you want to start ride? [Y/N] ");
 
-                        // start ride (k2)
-                        //while (true) {
-                        //    Console.WriteLine("Do you want to start ride? [Y/N] ");
-
-                        //    string ans = Console.ReadLine().Trim().ToLower();
-                        //    if (ans == "y") {
-                        //        if (ans == "y") {
-                        //            RideStartedState start = new RideStartedState();
-                        //            start.startRide();
-                        //            break;
-                        //        } else if (ans == "n") {
-                        //            continue;
-                        //        }
-                        //    }
-                        //}
-                    } else if (response == "n") {
-                        //what happen here TODO (DIY)
-                    }
+                    //    string ans = Console.ReadLine().Trim().ToLower();
+                    //    if (ans == "y") {
+                    //        if (ans == "y") {
+                    //            RideStartedState start = new RideStartedState();
+                    //            start.startRide();
+                    //            break;
+                    //        } else if (ans == "n") {
+                    //            continue;
+                    //        }
+                    //    }
+                    //}
                 })
                 .AddOption("Accept/Cancel booking", (m) => {
                     if (ride == null) {
