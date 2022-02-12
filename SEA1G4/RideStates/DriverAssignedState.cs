@@ -61,6 +61,10 @@ namespace SEA1G4 {
             throw new NotImplementedException();
         }
 
+        public void makePayment() {
+            throw new NotImplementedException();
+        }
+
         public void startRide() {
             // TRansition to ride start.
             ride.changeState(new RideStartedState(ride));

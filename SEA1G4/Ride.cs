@@ -87,14 +87,6 @@ namespace SEA1G4 {
             state.giveRating(rating);
         }
 
-        public void entry() {
-            state.entry();
-        }
-
-        public void exit() {
-            state.exit();
-        }
-
         public void promptCustomerAccept() {
 
             // todoo (DIY) input validat

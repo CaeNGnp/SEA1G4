@@ -54,6 +54,9 @@ namespace SEA1G4 {
 
         }
 
+        public void makePayment() {
+            throw new NotImplementedException();
+        }
     }
 }
 

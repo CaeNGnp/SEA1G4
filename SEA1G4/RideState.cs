@@ -16,11 +16,9 @@ namespace SEA1G4 {
         void endRide();
 
         void giveRating(Rating r);
-
-        void entry();
-
-        void exit();
         
         void giveRating();
+
+        void makePayment();
     }
 }

@@ -65,6 +65,10 @@ namespace SEA1G4 {
             throw new NotImplementedException();
         }
 
+        public void makePayment() {
+            throw new NotImplementedException();
+        }
+
         public void startRide() {
             Console.WriteLine("Cannot start ride. Ride has already ended.");
         }

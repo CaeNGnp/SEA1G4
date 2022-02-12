@@ -43,5 +43,9 @@ namespace SEA1G4 {
         public void giveRating() {
             throw new NotImplementedException();
         }
+
+        public void makePayment() {
+            throw new NotImplementedException();
+        }
     }
 }
