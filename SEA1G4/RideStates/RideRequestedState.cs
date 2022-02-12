@@ -25,9 +25,10 @@ namespace SEA1G4 {
                 string response = Console.ReadLine().Trim().ToLower();
                 if (response == "y") {
                     // 4. Driver replies with “Yes”. 
-                    // 5. System transitions ride into DriverAssigned state
+                    
+                    // Edit by Shixuan
                     ride.customer.update(ride);
-                    ride.changeState(new DriverAssignedState(ride));
+
                     break;
                 } else if (response == "n") {
                     // 4.2.	Use case ends.
