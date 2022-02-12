@@ -107,7 +107,6 @@ namespace SEA1G4 {
                             Console.WriteLine("\nPayment complete.");
                             break;
                         } else {
-                            Console.WriteLine("Insufficient points. Please select another payment method.\n");
                             continue;
                         }
                     } else if (pm == "3") {

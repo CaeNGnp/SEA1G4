@@ -34,6 +34,8 @@ namespace SEA1G4 {
             // Populate one customer
             CreditCard card = new CreditCard("2341123443211234", "John", 5000);
             Customer c = new Customer("John", "98765432", "john@email.com", "c1", card);
+            GiftCard gc = new GiftCard(10, "GC001", 8); // add gift card to customer
+            c.GList.Add(gc);
 
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");

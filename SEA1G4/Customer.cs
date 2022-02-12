@@ -20,11 +20,9 @@ namespace SEA1G4 {
             //observers = new List<RideObserver>();
             myCreditCard = cc;
             amountSpent = 0;
-            points = 0;
+            points = 5;
             PremiumPrivilege = pp;
             giftCardList = new List<GiftCard>();
-            GiftCard gc = new GiftCard(10, "GC001", 8);
-            giftCardList.Add(gc);
         }
 
         public List<GiftCard> GList {
@@ -64,21 +62,37 @@ namespace SEA1G4 {
 
         public bool payWithPoints(double amt) {
             bool success = true;
-            if (points >= amt && PremiumPrivilege != null) { // premium customer
-                deductPoints(amt);
-            } else if (points > 0 && points >= amt / 2) { // sufficient points to pay half by points
-                double amount = amt / 2;
-                deductPoints(amount);
-                payFareWithCreditCard(amount);
-                addPoints(amount);
-            } else if (points > 0 && points <= amt / 2) { // exisitng points
-                double amount = amt - points;
-                deductPoints(points);
-                payFareWithCreditCard(amount);
-                addPoints(amount);
-            } else if (points == 0) {
-                // insufficient points
-                success = false;
+            while (true) {
+                Console.WriteLine("Your PickUpNow points: " + points);
+                Console.Write("Do you want to pay with points? [Y/N] ");
+                string pay = Console.ReadLine();
+                if (pay == "Y" || pay == "y") {
+                    if (points >= amt && PremiumPrivilege != null) { // premium customer
+                        deductPoints(amt);
+                        break;
+                    } else if (points > 0 && points >= amt / 2) { // sufficient points to pay half by points
+                        double amount = amt / 2;
+                        deductPoints(amount);
+                        payFareWithCreditCard(amount);
+                        addPoints(amount);
+                        break;
+                    } else if (points > 0 && points <= amt / 2) { // exisitng points
+                        double amount = amt - points;
+                        deductPoints(points);
+                        payFareWithCreditCard(amount);
+                        addPoints(amount);
+                        break;
+                    } else if (points == 0) {
+                        // insufficient points
+                        Console.WriteLine("Insufficient points. Please select another payment method.\n");
+                        success = false;
+                        break;
+                    }
+                } else if (pay == "N" || pay == "n") {
+                    Console.WriteLine();
+                    success = false;
+                    break;
+                }
             }
             return success;
         }
@@ -100,11 +114,11 @@ namespace SEA1G4 {
                         double amount = amt - gc.value;
                         giftCardList.RemoveAt(card - 1);
                         Console.WriteLine("Gift card " + gc.cardId + " with value $" + gc.value + " redeemed.");
-                        if (gc.value <= amt) {
+                        if (gc.value <= amt) { // gift card less than fare
                             payFareWithCreditCard(amount);
                             addPoints(amount);
                             break;
-                        } else {
+                        } else { // gift card more than equals to fare
                             addPoints(amt);
                             break;
                         }
