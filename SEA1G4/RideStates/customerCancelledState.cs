@@ -20,30 +20,30 @@ namespace SEA1G4 {
        
         public void cancelBooking() {
             Console.WriteLine("Ride Start");
-            while (true) {
-                Console.WriteLine("Do you want to start ride? [Y/N] ");
-                int TotalDays = (Now - ride.startDate).TotalDays;
-                string ans = Console.ReadLine().Trim().ToLower();
-                if (ans == "y") {
+            //while (true) {
+            //    Console.WriteLine("Do you want to start ride? [Y/N] ");
+            //    int TotalDays = (Now - ride.startDate).TotalDays;
+            //    string ans = Console.ReadLine().Trim().ToLower();
+            //    if (ans == "y") {
                                  
-                    if (TotalDays < 0) {
-                        if (ride.driver.MyVehicle == ExcursionBus) {
-                            amount = "0";
-                           ride.customer.cc.deposit(amount);
-                        }
-                    }
+            //        if (TotalDays < 0) {
+            //            if (ride.driver.MyVehicle == ExcursionBus) {
+            //                amount = "0";
+            //               ride.customer.cc.deposit(amount);
+            //            }
+            //        }
 
-                    else if (ride.startDate < Now) {
-                        if (ride.driver.MyVehicle == Van) { 
-                            amount = "0";
-                            ride.customer.cc.deposit(amount);
-                        }
-                    }
+            //        else if (ride.startDate < Now) {
+            //            if (ride.driver.MyVehicle == Van) { 
+            //                amount = "0";
+            //                ride.customer.cc.deposit(amount);
+            //            }
+            //        }
 
-                } else if (ans == "n") {
-                    continue;
-                }
-            }
+            //    } else if (ans == "n") {
+            //        continue;
+            //    }
+            //}
         }
 
         public void endRide() {

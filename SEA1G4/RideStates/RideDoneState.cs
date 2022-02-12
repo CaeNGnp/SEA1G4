@@ -64,13 +64,17 @@ namespace SEA1G4 {
                         Console.WriteLine("Payment in process...");
 
                         // transaction
-                        ride.Payment.payFare(rideTotal);
+                        ride.Payment.payFareWithCreditCard(rideTotal);
                         ride.Payment.creditToDriver(rideFare);
                         ride.customer.upgradePremium();
                         ride.customer.addPoints(rideFare);
                         ride.sendReceipt();
-                        Console.WriteLine("\nPayment complete.\n");
+                        Console.WriteLine("\nPayment complete.");
                         break;
+                    } else if (pm == "2") {
+                        Console.WriteLine("Payment in process...");
+                        // transaction
+
                     } else {
                         Console.WriteLine("Invalid input. Please try again.");
                         continue;

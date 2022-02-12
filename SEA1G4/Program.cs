@@ -32,18 +32,11 @@ namespace SEA1G4 {
             vehAgg.addVehicle(b2);
 
             // Populate one customer
-            // TODO (DIY)
             CreditCard card = new CreditCard("2341123443211234", "John", 5000);
             Customer c = new Customer("John", "98765432", "john@email.com", "c1", card);
 
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
-            var date = new DateTime(2022, 2, 16);
-            string time = "2:00";
-            // dummy ride (to rmv)
-            Ride ride1 = new Ride("r1", "pickup", "destination", c, date, time);
-            ride1.customer = c;
-            ride1.driver = d2;
 
             // The current ride
             Ride ride = null;
@@ -180,19 +173,12 @@ namespace SEA1G4 {
                
                 .AddOption("Make payment", (m) => {
                     // Make payment
-                    // TODO (DIY)
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
                     }
 
-                    // TODO...
                     ride.makePayment();
-
-                    // testing
-                    //ride1.changeState(new RideDoneState(ride1));
-                    //ride1.makePayment();
-
                 })
                 .AddOption("Rate driver", (m) => {
                     Console.WriteLine("Ride ended.");
