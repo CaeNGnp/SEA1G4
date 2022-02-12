@@ -3,7 +3,7 @@
   <Class Name="SEA1G4.Admin">
     <Position X="2" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Admin.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -46,7 +46,7 @@
   <Class Name="SEA1G4.CreditCard" Collapsed="true">
     <Position X="23.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAICAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AACAICAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAgAEAAA=</HashCode>
       <FileName>CreditCard.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -58,7 +58,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAIABCACAAAIAAAAAQAAAAAIgAAAAAAQAAACAAEAAA=</HashCode>
+      <HashCode>AAAIABCAAAAAAAAAAAQAAAAAIAAAAAAAQAAAAAAEAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -87,8 +87,8 @@
       <FileName>Driver.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="MyVehicle" />
       <Property Name="MyBankAccount" />
+      <Property Name="MyVehicle" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SEA1G4.DriverAssignedState" Collapsed="true" BaseTypeListCollapsed="true">
@@ -168,15 +168,14 @@
   <Class Name="SEA1G4.Rating" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.25" Y="14.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAIAAAACgEAYAgAgAACAAAAIAAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>ACAIAAAAAgEAQAgAgAACAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rating.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.Ride">
     <Position X="5.75" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAJABAoAAQQAAAIQgBCCABUQAAAFEAgAACAEAAAA=</HashCode>
+      <HashCode>AAAIAJABCoAAYwgCAIQgBCCABUQAAAFEAgAACAEAAAA=</HashCode>
       <FileName>Ride.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -184,11 +183,12 @@
       <Property Name="driver" />
       <Property Name="customer" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.RideDoneState" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.25" Y="15.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACCAAEAA=</HashCode>
+      <HashCode>AAAAAIAAAIAAQAAAAAQAAAAABAAAAAAAAgAACAAAAAA=</HashCode>
       <FileName>RideStates\RideDoneState.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -254,14 +254,14 @@
   <Interface Name="SEA1G4.RatingObserver" Collapsed="true">
     <Position X="21.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RatingObserver.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SEA1G4.RatingSubject" Collapsed="true">
     <Position X="23" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>RatingSubject.cs</FileName>
     </TypeIdentifier>
   </Interface>

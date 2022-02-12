@@ -139,6 +139,9 @@ namespace SEA1G4 {
                     // no need to accept driver as already picked based on vehicle
                     ride.driver = chosen.Driver;
 
+                    // Edit by Caelan - register admin to observe any rating updates
+                    ride.registerRatingObserver(adm);
+
                     // 8. Use case continue at Accept Booking
 
                     // start ride (k2)
@@ -194,6 +197,9 @@ namespace SEA1G4 {
                     r.setFeedback(feedback);
                     Console.Write("Ratings Done!");
                     ride.changeState(new RatedState(ride));
+
+                    // Edit by Caelan - update observers about rating done
+                    ride.notifyRatingObservers(r);
                 })
 
                 // Drivers option
