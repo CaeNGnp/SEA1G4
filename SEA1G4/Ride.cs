@@ -103,6 +103,11 @@ namespace SEA1G4 {
 
             // cancel booking(vandana)
             // TODO (DIY)
+            Console.Write("You want to cancel booking? [y/n]");
+            string answer = Console.ReadLine().Trim().ToLower();
+            if (input == "y") {
+                changeState(new cancelBookingState(this));
+            }
         }
 
         /// <summary>
