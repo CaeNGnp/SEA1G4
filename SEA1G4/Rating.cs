@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace SEA1G4 {
-    public class Rating : RatingSubject {
+    public class Rating {
         protected FeedbackStrategy feedbackStrategy;
         private List<RatingObserver> observers;
 
@@ -32,20 +32,5 @@ namespace SEA1G4 {
             Feedback = feedbackStrategy.processFeedback(feedback);
         }
 
-        public void registerObserver(RatingObserver o) {
-            observers.Add(o);
-        }
-
-        public void removeObserver(RatingObserver o) {
-            observers.Remove(o);
-        }
-
-        public void notifyObservers() {
-            foreach (RatingObserver o in observers) {
-                o.update(this);
-            }
-        }
-
-        
     }
 }

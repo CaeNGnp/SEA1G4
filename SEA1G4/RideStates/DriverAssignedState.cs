@@ -9,36 +9,42 @@ namespace SEA1G4 {
         }
 
         public void acceptBooking() {
-            ride.driver.WriteLine("Cannot accept booking as you have already done so.");
+            ride.driver.WriteLine(
+                "You may not accept the booking as you have already accepted it."
+            );
         }
 
         public void cancelBooking() {
-            // No-op
-            return;
+            ride.customer.WriteLine(
+                "You may not cancel the booking as your ride has not started."
+            );
         }
 
         public void endRide() {
-            // No-op
-            return;
+            ride.driver.WriteLine(
+                "You may not end the ride as it has not started."
+            );
         }
 
         public void giveRating() {
-            // No-op
-            return;
+            ride.customer.WriteLine(
+                "You may not rate the driver as the ride has not started."
+            );
         }
 
         public void makePayment() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not pay for the ride as the trip has not started."
+            );
         }
 
         public void sendNotification() {
-            throw new NotImplementedException();
+            ride.driver.WriteLine("Start the ride once you have picked up your passenger!");
         }
 
         public void startRide() {
             // TRansition to ride start.
             ride.changeState(new RideStartedState(ride));
-            return;
         }
     }
 }

@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class Ride {
+    public class Ride : RatingSubject {
         private DateTime endTime;
-        private DateTime startTime;
+        private string startTime;
+        private DateTime startDate;
         private double fare;
         private double distance; // in km
         private string referenceNo;
@@ -15,16 +16,24 @@ namespace SEA1G4 {
         private string destinationLoc;
         private Payment payment;
         private Rating rating;
+        private List<RideObserver> observers;
+        private List<RatingObserver> ratingObservers;
 
+        
         private RideState state;
 
-        public Ride(string n, string pl, string dl) {
+        public Ride(string n, string pl, string dl, Customer c, DateTime sd, string st) {
+            startTime = st;
+            startDate = sd;
+            customer = c;
             referenceNo = n;
             pickupLoc = pl;
             destinationLoc = dl;
             fare = 21; // for testing purposes
             distance = 3; // for testing purposes
             payment = new Payment(this);
+            observers = new List<RideObserver>();
+            ratingObservers = new List<RatingObserver>();
 
             // start
             state = new RideRequestedState(this);
@@ -32,6 +41,15 @@ namespace SEA1G4 {
         
         public Driver driver { get; set; }
         public Customer customer { get; set; }
+
+        public string PickUpLoc {
+            set { pickupLoc = value; }
+            get { return pickupLoc; }
+        }
+        public string DestinationLoc {
+            set { destinationLoc = value; }
+            get { return destinationLoc; }
+        }
 
         public double Distance {
             set { distance = value; } 
@@ -56,6 +74,16 @@ namespace SEA1G4 {
         public Payment Payment {
             set { payment = value; }
             get { return payment; }
+        }
+
+        public DateTime StartDate {
+            set { startDate = value; }
+            get { return startDate; }
+        }
+
+        public string StartTime {
+            set { startTime = value; }
+            get { return startTime; }
         }
 
         public void sendReceipt() {
@@ -91,6 +119,7 @@ namespace SEA1G4 {
             state.giveRating();
         }
 
+
         public void promptCustomerAccept() {
 
             // todoo (DIY) input validat
@@ -98,7 +127,7 @@ namespace SEA1G4 {
 
             string input = Console.ReadLine().Trim().ToLower();
             if (input == "y") {
-                changeState(new RideStartedState(this));
+                changeState(new RideStartedState(this));         
             }
 
             // cancel booking(vandana)
@@ -110,14 +139,38 @@ namespace SEA1G4 {
             }
         }
 
-        /// <summary>
-        /// Logs the current ride state and sends a notification if any.
-        /// </summary>
+        public void notifyObservers() {
+            foreach (RideObserver co in observers) {
+                co.update(this);
+            }
+        }
+
+        public void registerObserver(RideObserver co) {
+            observers.Add(co);
+        }
+
+        public void removeObserver(RideObserver co) {
+            observers.Remove(co);
+        }
         public void sendNotification() {
             // Log the current ride state
             Console.WriteLine("Current ride state: " + state);
             // Send notification if any
             state.sendNotification();
+        }
+
+        public void registerRatingObserver(RatingObserver o) {
+            ratingObservers.Add(o);
+        }
+
+        public void removeRatingObserver(RatingObserver o) {
+            ratingObservers.Remove(o);
+        }
+
+        public void notifyRatingObservers(Rating rating) {
+            foreach (RatingObserver o in ratingObservers) {
+                o.onRatingUpdated(rating);
+            }
         }
     }
 }

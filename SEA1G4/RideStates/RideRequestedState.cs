@@ -8,6 +8,7 @@ namespace SEA1G4 {
             this.ride = ride;
         }
 
+
         public void acceptBooking() {
             // UC-2: Accept booking
 
@@ -23,7 +24,9 @@ namespace SEA1G4 {
 
                 string response = Console.ReadLine().Trim().ToLower();
                 if (response == "y") {
-                    // 4. Driver replies with “Yes”.
+                    // 4. Driver replies with “Yes”. 
+                    // 5. System transitions ride into DriverAssigned state                  
+                    ride.changeState(new DriverAssignedState(ride));
                     break;
                 } else if (response == "n") {
                     // 4.2.	Use case ends.
@@ -55,7 +58,7 @@ namespace SEA1G4 {
         }
 
         public void sendNotification() {
-            ride.driver.WriteLine("There is a ride waiting to be accepted!");
+            ride.driver.update(ride);        
         }
 
         public void startRide() {

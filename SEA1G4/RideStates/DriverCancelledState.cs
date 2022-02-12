@@ -33,7 +33,7 @@ namespace SEA1G4 {
 
         public void giveRating() {
             ride.customer.WriteLine(
-                "You may not end the ride as it has been cancelled."
+                "You may not rate the driver as the ride has been cancelled."
             );
         }
 

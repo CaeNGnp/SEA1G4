@@ -34,7 +34,6 @@ namespace SEA1G4 {
 
         public void endRide() {
             // TODO (DIY) exit
-            Console.WriteLine("End ride.");
             ride.changeState(new RideDoneState(ride));
         }
 
@@ -47,7 +46,7 @@ namespace SEA1G4 {
         }
 
         public void sendNotification() {
-            Console.WriteLine("Unable to send notification as ride has not ended");
+            Console.WriteLine("Ride has started");
         }
     }
 }

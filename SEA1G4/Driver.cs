@@ -26,5 +26,17 @@ namespace SEA1G4 {
             set { myVehicle = value; }
             get { return myVehicle; }
         }
+
+        public void update(Ride r) {
+            WriteLine($"------Driver------");
+            WriteLine($"You have a ride waiting to be accepted!");
+            WriteLine($"Customer Name: {r.customer.Name}");
+            WriteLine($"Contact No.: {r.customer.ContactNo}");
+            WriteLine($"Email Address: {r.customer.EmailAddress}");
+            WriteLine($"Date: {r.StartDate.ToString("dd/MM/yyyy")}");
+            WriteLine($"Pick Up Location: {r.PickUpLoc}");
+            WriteLine($"Destination Location: {r.DestinationLoc}");
+
+        }
     }
 }

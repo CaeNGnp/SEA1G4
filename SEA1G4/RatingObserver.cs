@@ -4,6 +4,6 @@
         /// Triggered when rating updated.
         /// </summary>
         /// <param name="r"></param>
-        void update(Rating r);
+        void onRatingUpdated(Rating r);
     }
 }

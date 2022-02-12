@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class Customer : User, CustomerSubject {
-        private List<CustomerObserver> observers;
+    public class Customer : User {
         public double amountSpent;
         public double points;
         private CreditCard myCreditCard;
@@ -17,7 +16,7 @@ namespace SEA1G4 {
         public PremiumCustomerPrivilege PremiumPrivilege { get; private set; }
 
         public Customer(string n, string c, string e, string id, CreditCard cc, PremiumCustomerPrivilege pp = null) : base(n, c, e, id) {
-            observers = new List<CustomerObserver>();
+            //observers = new List<RideObserver>();
             myCreditCard = cc;
             amountSpent = 0;
             points = 0;
@@ -41,23 +40,7 @@ namespace SEA1G4 {
             } 
         }
 
-        public void notifyObservers() {
-            foreach (CustomerObserver co in observers)
-            {
-                co.update(this);
-            }
-        }
 
-        public void registerObserver(CustomerObserver co) {
-            observers.Add(co);
-        }
 
-        public void removeObserver(CustomerObserver co) {
-            observers.Remove(co);
-        }
-
-        public void driverAccepted() {
-            notifyObservers();
-        }
     }
 }

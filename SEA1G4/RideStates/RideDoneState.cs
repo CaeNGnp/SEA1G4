@@ -81,7 +81,8 @@ namespace SEA1G4 {
         }
 
         public void sendNotification() {
-            throw new NotImplementedException();
+            //ride.driver.WriteLine("Ride ended.");
+            ride.customer.WriteLine("Destination reached. You may make your payment and give your driver a rating.");
         }
 
         public void startRide() {
