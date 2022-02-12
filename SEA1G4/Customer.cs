@@ -13,6 +13,7 @@ namespace SEA1G4 {
 
         public Customer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id) {
             myCreditCard = cc;
+            observers = new List<CustomerObserver>();
         }
 
         public void payWithPoints() {
@@ -42,6 +43,10 @@ namespace SEA1G4 {
 
         public void removeObserver(CustomerObserver co) {
             observers.Remove(co);
+        }
+
+        public void driverAccepted() {
+            notifyObservers();
         }
     }
 }
