@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace SEA1G4 {
     public class Admin : User, RatingObserver {
-        private List<FollowUp> followUps;
+        private FollowUpEnumerable followUps;
+
+        public FollowUpEnumerable FollowUps {
+            get {
+                return followUps;
+            }
+        }
 
         public Admin(string n, string c, string e, string id) : base(n, c, e, id) {
-            followUps = new List<FollowUp>();
+            followUps = new FollowUpEnumerable();
         }
 
         public void onRatingUpdated(Rating r) {
@@ -29,15 +34,15 @@ namespace SEA1G4 {
                 }
             }
 
-            string followUp;
+            string action;
 
             while (true) {
                 // 3.	System prompts admin whether to create a follow-up action.
                 Write("Write your follow up action description: ");
 
                 // 6.	Admin supplies the follow-up description.
-                followUp = Console.ReadLine().Trim();
-                if (followUp.Length == 0) {
+                action = Console.ReadLine().Trim();
+                if (action.Length == 0) {
                     // 6.1.	System sends an error message to supply a description
                     continue;
                 }
@@ -45,7 +50,7 @@ namespace SEA1G4 {
             }
 
             // 7. System adds the follow-up action into the admin’s archive
-            followUps.Add(new FollowUp(followUp));
+            followUps.addFollowUp(new FollowUp(action, DateTime.Now));
         }
     }
 }

@@ -200,8 +200,25 @@ namespace SEA1G4 {
 
                 // Admins option
                 .AddHeading("Admin")
-                .AddOption("Process rating", (m) => {
-                    // probably not needed since it's an observer
+                // Don't need option for "Process Rating" as it is an observer.
+                .AddOption("View Follow Ups", (m) => {
+                    // TODO temp testing need2rmv
+                    //adm.FollowUps.addFollowUp(new FollowUp("test", DateTime.Now));
+
+                    // UC-9: View Follow Ups 
+                    // 2.	System displays the admin’s follow up record.
+
+                    // Heading
+                    string fmt = "{0,25} | {1,-20}";
+                    adm.WriteLine(string.Format(fmt, "Date / Time", "Follow-up action made"));
+
+                    IEnumerator<FollowUp> iter = (IEnumerator<FollowUp>)adm.FollowUps.GetEnumerator();
+                    while (iter.MoveNext()) {
+                        FollowUp fu = iter.Current;
+                        // Print the record
+                        adm.WriteLine(string.Format(fmt, fu.SubmittedTime, fu.Action));
+                    }
+
                 })
                 .AddHeading()
                 .AddExitOption("Exit");

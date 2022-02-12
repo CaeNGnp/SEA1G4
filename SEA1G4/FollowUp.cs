@@ -1,11 +1,13 @@
-﻿namespace SEA1G4 {
+﻿using System;
+
+namespace SEA1G4 {
     public class FollowUp {
-        private string action;
+        public string Action { get; private set; }
+        public DateTime SubmittedTime { get; private set; }
 
-        private Admin admin;
-
-        public FollowUp(string action) {
-            this.action = action;
+        public FollowUp(string action, DateTime submittedTime) {
+            Action = action;
+            SubmittedTime = submittedTime;
         }
     }
 }
