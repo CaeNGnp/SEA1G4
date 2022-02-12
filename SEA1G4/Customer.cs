@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class Customer : User, RideObserver {
-        //private List<RideObserver> observers;
+    public class Customer : User {
         public double amountSpent;
         public double points;
         private CreditCard myCreditCard;
@@ -39,12 +38,6 @@ namespace SEA1G4 {
                 PremiumPrivilege = new PremiumCustomerPrivilege(this);
                 Console.WriteLine(Name + " upgraded to Premium Customer.");
             } 
-        }
-
-        public void update(Ride r) {
-            WriteLine($"Driver Name: {r.driver.Name}");
-            WriteLine($"Contact No.: {r.driver.ContactNo}");
-            WriteLine($"Email Address: {r.driver.EmailAddress}");
         }
 
 

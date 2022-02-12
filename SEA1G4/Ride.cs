@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace SEA1G4 {
     public class Ride {
         private DateTime endTime;
-        private DateTime startTime;
+        private string startTime;
+        private DateTime startDate;
         private double fare;
         private double distance; // in km
         private string referenceNo;
@@ -15,11 +16,13 @@ namespace SEA1G4 {
         private string destinationLoc;
         private Payment payment;
         private Rating rating;
-        private List<RideObserver> observers;
 
+        private List<RideObserver> observers;
         private RideState state;
 
-        public Ride(string n, string pl, string dl, Customer c) {
+        public Ride(string n, string pl, string dl, Customer c, DateTime sd, string st) {
+            startTime = st;
+            startDate = sd;
             customer = c;
             referenceNo = n;
             pickupLoc = pl;
@@ -27,13 +30,21 @@ namespace SEA1G4 {
             fare = 21; // for testing purposes
             distance = 3; // for testing purposes
             payment = new Payment(this);
-            observers = new List<RideObserver>();
             // start
             state = new RideRequestedState(this);
         }
         
         public Driver driver { get; set; }
         public Customer customer { get; set; }
+
+        public string PickUpLoc {
+            set { pickupLoc = value; }
+            get { return pickupLoc; }
+        }
+        public string DestinationLoc {
+            set { destinationLoc = value; }
+            get { return destinationLoc; }
+        }
 
         public double Distance {
             set { distance = value; } 
@@ -58,6 +69,16 @@ namespace SEA1G4 {
         public Payment Payment {
             set { payment = value; }
             get { return payment; }
+        }
+
+        public DateTime StartDate {
+            set { startDate = value; }
+            get { return startDate; }
+        }
+
+        public string StartTime {
+            set { startTime = value; }
+            get { return startTime; }
         }
 
         public void sendReceipt() {
@@ -93,6 +114,7 @@ namespace SEA1G4 {
             state.giveRating();
         }
 
+
         public void promptCustomerAccept() {
 
             // todoo (DIY) input validat
@@ -120,7 +142,6 @@ namespace SEA1G4 {
         public void removeObserver(RideObserver co) {
             observers.Remove(co);
         }
-
         public void sendNotification() {
             // Log the current ride state
             Console.WriteLine("Current ride state: " + state);

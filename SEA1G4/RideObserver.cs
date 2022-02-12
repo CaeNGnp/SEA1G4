@@ -8,6 +8,6 @@ namespace SEA1G4
 {
     public interface RideObserver
     {
-        public abstract void update(Ride r);
+        public void update(Ride r);
     }
 }

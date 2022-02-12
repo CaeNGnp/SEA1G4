@@ -38,9 +38,10 @@ namespace SEA1G4 {
 
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
-
+            var date = new DateTime(2022, 2, 16);
+            string time = "2:00";
             // dummy ride (to rmv)
-            Ride ride1 = new Ride("r1", "pickup", "destination", c);
+            Ride ride1 = new Ride("r1", "pickup", "destination", c, date, time);
             ride1.customer = c;
             ride1.driver = d2;
 
@@ -100,41 +101,40 @@ namespace SEA1G4 {
                     //checked null chosen
                     if (chosen is Van) {
                         Console.WriteLine("Deposit amount to be paid: $5");
-                        Console.Write("Date and Time of booking:");
-                        string datetime = Console.ReadLine();
-                        Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                        Console.Write("Date of booking (DD/MM/YYY):");
+                        DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
+                        Console.Write("Time of booking:");
+                        DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");   
                         Console.ReadLine();
-                        Console.WriteLine("Deposit Deducted.");
-                        Console.WriteLine("------Driver------");
-                        Console.WriteLine("You have a new Customer!");
-                        Console.WriteLine("Name: " + c.Name);
-                        Console.WriteLine("Phone Number: " + c.ContactNo);
-                        Console.WriteLine("Email Address: " + c.EmailAddress);
-                        Console.WriteLine("Date and Time: " + datetime);
+                        Van va = (Van)chosen;
+                        c.payWithCreditCard(va.Deposit);
+                        ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime.ToString("HH:mm"));
+                   
                     } else if (chosen is ExcursionBus) {
-                        Console.WriteLine("Deposit amount to be paid: $12");
-                        Console.Write("Date and Time of booking:");
-                        string datetime = Console.ReadLine();
-                        Console.Write("Date and Time: " + datetime + " Type any key to confirm.");
+                        Console.WriteLine("Deposit amount to be paid: 12");
+                        Console.Write("Date of booking (DD/MM/YYY):");
+                        DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
+                        Console.Write("Time of booking:");
+                        DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");
                         Console.ReadLine();
-                        Console.WriteLine("Deposit Deducted.");
-                        Console.WriteLine("------Driver------");
-                        Console.WriteLine("You have a new Customer!");
-                        Console.WriteLine("Name: " + c.Name);
-                        Console.WriteLine("Phone Number: " + c.ContactNo);
-                        Console.WriteLine("Email Address: " + c.EmailAddress);
-                        Console.WriteLine("Date and Time: " + datetime);
+                        ExcursionBus eb = (ExcursionBus)chosen;
+                        c.payWithCreditCard(eb.Deposit);
+                       
+                      
+                        ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime.ToString("HH:mm"));
                     } else {
-                        Console.WriteLine("------Driver------");
-                        Console.WriteLine("You have a new Customer!");
-                        Console.WriteLine("Name: " + c.Name);
-                        Console.WriteLine("Phone Number: " + c.ContactNo);
-                        Console.WriteLine("Email Address: " + c.EmailAddress);
+                        DateTime booking = DateTime.Now;
+                        DateTime bookingDate = booking.Date;
+                        string bookingTime = booking.ToString("HH:mm");
+                       
+                        ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime);
                     }
 
                     
                     // Populate Ride obj
-                    ride = new Ride("1234", pick, des, c);
+                    //ride = new Ride("1234", pick, des, c, bookingDate);
 
                     // no need to accept driver as already picked based on vehicle
                     ride.driver = chosen.Driver;
