@@ -34,7 +34,7 @@ namespace SEA1G4 {
             WriteLine($"Contact No.: {r.customer.ContactNo}");
             WriteLine($"Email Address: {r.customer.EmailAddress}");
             WriteLine($"Date: {r.StartTime.ToString("dd/MM/yyyy")}");
-            WriteLine($"Date: {r.StartTime.ToString("HH:mm")}");
+            WriteLine($"Time: {r.StartTime.ToString("HH:mm")}");
             WriteLine($"Pick Up Location: {r.PickUpLoc}");
             WriteLine($"Destination Location: {r.DestinationLoc}");
 

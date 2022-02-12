@@ -40,7 +40,7 @@ namespace SEA1G4 {
 
             // The current ride
             Ride ride = null;
-
+            
             ConsoleMenu menu = new ConsoleMenu()
                 .BeforeInteraction((m) => {
                     Console.WriteLine("Hello welcome to PickUpNow!\n" + new string('=', 28));
@@ -54,6 +54,10 @@ namespace SEA1G4 {
                 // Customer options
                 .AddHeading("Customer")
                 .AddOption("Make booking", (m) => {
+                if (ride != null) {
+                        Console.WriteLine("There is already an ongoing ride!");
+                        return;
+                    }                    
                     Console.Write("Destination: ");
                     string des = Console.ReadLine();
                     Console.Write("Pickup Point: ");
@@ -148,7 +152,7 @@ namespace SEA1G4 {
                     // 8. Use case continue at Accept Booking
                    
                 })
-                
+               
                 
 
                 .AddOption("Cancel booking", (m) => {
