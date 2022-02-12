@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace SEA1G4 {
     public abstract class User {
-        private string contactNo;
-        private string emailAddress;
-        private string userId;
-
         public string Name { get; private set; }
 
         public string EmailAddress { get; private set; }
