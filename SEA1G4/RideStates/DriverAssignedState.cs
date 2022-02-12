@@ -52,7 +52,7 @@ namespace SEA1G4 {
                             }
                         }
                         Console.WriteLine("Ride cancelled");
-                        ride.changeState(new customerCancelledState(ride));
+                     //   ride.changeState(new customerCancelledState(ride));
                         break;
                     } else if (ans == "n") {
                         return;
