@@ -40,7 +40,7 @@ namespace SEA1G4 {
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
 
             // dummy ride (to rmv)
-            Ride ride1 = new Ride("r1", "pickup", "destination");
+            Ride ride1 = new Ride("r1", "pickup", "destination", c);
             ride1.customer = c;
             ride1.driver = d2;
 
@@ -134,7 +134,7 @@ namespace SEA1G4 {
 
                     
                     // Populate Ride obj
-                    ride = new Ride("1234", pick, des);
+                    ride = new Ride("1234", pick, des, c);
 
                     // no need to accept driver as already picked based on vehicle
                     ride.driver = chosen.Driver;

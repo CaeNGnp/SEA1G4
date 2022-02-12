@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class Customer : User, CustomerSubject {
-        private List<CustomerObserver> observers;
+    public class Customer : User, RideObserver {
+        //private List<RideObserver> observers;
         public double amountSpent;
         public double points;
         private CreditCard myCreditCard;
 
         public Customer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id) {
             myCreditCard = cc;
-            observers = new List<CustomerObserver>();
+            //observers = new List<RideObserver>();
         }
 
         public void payWithPoints() {
@@ -30,23 +30,15 @@ namespace SEA1G4 {
             Console.WriteLine(Convert.ToInt32(Math.Floor(amount)) + " PickUpNow points added");
         }
 
-        public void notifyObservers() {
-            foreach (CustomerObserver co in observers)
-            {
-                co.update(this);
-            }
+        public void update(Ride r) {
+            // System notifies customer about driver accepted
+            WriteLine($"Driver Name: {r.driver.Name}");
+            WriteLine($"Contact No.: {r.driver.ContactNo}");
+            WriteLine($"Email Address: {r.driver.EmailAddress}");
+            //Console.WriteLine("test");
         }
+        
 
-        public void registerObserver(CustomerObserver co) {
-            observers.Add(co);
-        }
-
-        public void removeObserver(CustomerObserver co) {
-            observers.Remove(co);
-        }
-
-        public void driverAccepted() {
-            notifyObservers();
-        }
+       
     }
 }

@@ -15,17 +15,19 @@ namespace SEA1G4 {
         private string destinationLoc;
         private Payment payment;
         private Rating rating;
+        private List<RideObserver> observers;
 
         private RideState state;
 
-        public Ride(string n, string pl, string dl) {
+        public Ride(string n, string pl, string dl, Customer c) {
+            customer = c;
             referenceNo = n;
             pickupLoc = pl;
             destinationLoc = dl;
             fare = 21; // for testing purposes
             distance = 3; // for testing purposes
             payment = new Payment(this);
-
+            observers = new List<RideObserver>();
             // start
             state = new RideRequestedState(this);
         }
@@ -98,11 +100,25 @@ namespace SEA1G4 {
 
             string input = Console.ReadLine().Trim().ToLower();
             if (input == "y") {
-                changeState(new RideStartedState(this));
+                changeState(new RideStartedState(this));         
             }
 
             // cancel booking(vandana)
             // TODO (DIY)
+        }
+
+        public void notifyObservers() {
+            foreach (RideObserver co in observers) {
+                co.update(this);
+            }
+        }
+
+        public void registerObserver(RideObserver co) {
+            observers.Add(co);
+        }
+
+        public void removeObserver(RideObserver co) {
+            observers.Remove(co);
         }
 
         public void sendNotification() {

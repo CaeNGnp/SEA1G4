@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    public interface CustomerSubject
+    public interface RideSubject
     {
-        void registerObserver(CustomerObserver co);
-        void removeObserver(CustomerObserver co);
+        void registerObserver(RideObserver co);
+        void removeObserver(RideObserver co);
         void notifyObservers();
     }
 }

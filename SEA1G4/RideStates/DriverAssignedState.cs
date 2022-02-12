@@ -40,7 +40,7 @@ namespace SEA1G4 {
         }
 
         public void sendNotification() {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void startRide() {

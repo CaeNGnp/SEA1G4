@@ -8,6 +8,7 @@ namespace SEA1G4 {
             this.ride = ride;
         }
 
+
         public void acceptBooking() {
             // UC-2: Accept booking
 
@@ -25,6 +26,7 @@ namespace SEA1G4 {
                 if (response == "y") {
                     // 4. Driver replies with “Yes”. 
                     // 5. System transitions ride into DriverAssigned state
+                    ride.customer.update(ride);
                     ride.changeState(new DriverAssignedState(ride));
                     break;
                 } else if (response == "n") {

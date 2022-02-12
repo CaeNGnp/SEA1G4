@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SEA1G4
 {
-    public interface CustomerObserver
+    public interface RideObserver
     {
-        public void update(Customer c);
+        public abstract void update(Ride r);
     }
 }
