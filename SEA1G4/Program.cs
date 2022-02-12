@@ -12,7 +12,7 @@ namespace SEA1G4 {
             Driver d1 = new Driver("Driver 1", "87654321", "driver@email.com", "d1", ba1, c1);
             drivers.Add(d1);
             BankAccount ba2 = new BankAccount("Driver 2", "3214567812345678", "abc bank", 2200);
-            Van van1 = new Van("sw3245f", "brand b", "van 2", false, false, true);
+            Van van1 = new Van("sw3245f", "brand b", "van 2", false, true, true);
             Driver d2 = new Driver("Driver 2", "87654321", "driver@email.com", "d2", ba2, van1);
             drivers.Add(d2);
             BankAccount ba3 = new BankAccount("Driver 3", "2314567812345678", "abc bank", 1900);
@@ -32,18 +32,11 @@ namespace SEA1G4 {
             vehAgg.addVehicle(b2);
 
             // Populate one customer
-            // TODO (DIY)
             CreditCard card = new CreditCard("2341123443211234", "John", 5000);
             Customer c = new Customer("John", "98765432", "john@email.com", "c1", card);
 
             // Populate one admin
             Admin adm = new Admin("Supreme Leader", "84272813", "supreme@kim.kp", "34faba12");
-            var date = new DateTime(2022, 2, 16);
-            string time = "2:00";
-            // dummy ride (to rmv)
-            Ride ride1 = new Ride("r1", "pickup", "destination", c, date, time);
-            ride1.customer = c;
-            ride1.driver = d2;
 
             // The current ride
             Ride ride = null;
@@ -104,7 +97,7 @@ namespace SEA1G4 {
                         Console.WriteLine("Deposit amount to be paid: $5");
                         Console.Write("Date of Ride (e.g. 12/2/2022):");
                         DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
-                        Console.Write("Time of Ride:");
+                        Console.Write("Time of Ride (e.g. 12:00pm):");
                         DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");   
                         Console.ReadLine();
@@ -179,20 +172,13 @@ namespace SEA1G4 {
 
                
                 .AddOption("Make payment", (m) => {
-                    //// Make payment
-                    //// TODO (DIY)
-                    //if (ride == null) {
-                    //    Console.WriteLine("No ride or assigned driver yet. Make a booking first");
-                    //    return;
-                    //}
+                    // Make payment
+                    if (ride == null) {
+                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                        return;
+                    }
 
-                    //// TODO...
-                    //ride.makePayment();
-
-                    // testing
-                    ride1.changeState(new RideDoneState(ride1));
-                    ride1.makePayment();
-
+                    ride.makePayment();
                 })
                 .AddOption("Rate driver", (m) => {
                     Console.WriteLine("Ride ended.");

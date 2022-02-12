@@ -28,9 +28,18 @@ namespace SEA1G4 {
             amountSpent += amt;
         }
 
+        public void addToCreditCard(double amt) {
+            myCreditCard.deposit(amt);
+        }
+
         public void addPoints(double amount) {
-            points += Convert.ToInt32(Math.Floor(amount));
-            Console.WriteLine(Convert.ToInt32(Math.Floor(amount)) + " PickUpNow points added");
+            points += amount;
+            Console.WriteLine(amount + " PickUpNow points added.");
+        }
+
+        public void deductPoints(double amount) {
+            points -= amount;
+            Console.WriteLine(amount + " PickUpNow points deducted.");
         }
 
         public void upgradePremium() {
@@ -38,6 +47,22 @@ namespace SEA1G4 {
                 PremiumPrivilege = new PremiumCustomerPrivilege(this);
                 Console.WriteLine(Name + " upgraded to Premium Customer.");
             } 
+        }
+
+        public void payWithPoints(double amt) {
+            if (points >= amt && PremiumPrivilege != null) {
+                deductPoints(amt);
+            } else if (points > 0 && points >= amt / 2) {
+                double amount = amt / 2;
+                deductPoints(amount);
+                payWithCreditCard(amount);
+                addPoints(amount);
+            } else if (points > 0 && points <= amt / 2) {
+                double amount = amt - points;
+                deductPoints(points);
+                payWithCreditCard(amount);
+                addPoints(amount);
+            }
         }
 
     }

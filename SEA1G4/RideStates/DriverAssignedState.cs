@@ -43,7 +43,7 @@ namespace SEA1G4 {
         }
 
         public void startRide() {
-            // TRansition to ride start.
+            // Transition to ride start.
             ride.changeState(new RideStartedState(ride));
         }
     }
