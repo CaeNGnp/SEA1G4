@@ -199,9 +199,9 @@ namespace SEA1G4 {
                         Console.WriteLine();
 
                         if (pay == "y" || pay == "Y") {
-                            ride1.entry();
+                            //ride1.entry(); // TODOD move to state.makePAyment
                             Console.WriteLine("----");
-                            ride1.exit();
+                            //ride1.exit(); // TODOD move to state.makePAyment
                             Console.WriteLine();
                             //exit
                             break;

@@ -83,6 +83,10 @@ namespace SEA1G4 {
             state.endRide();
         }
 
+        public void makePayment() {
+            state.makePayment();
+        }
+
         public void giveRating(Rating rating) {
             state.giveRating(rating);
         }
@@ -99,10 +103,6 @@ namespace SEA1G4 {
 
             // cancel booking(vandana)
             // TODO (DIY)
-        }
-
-        internal void makePayment() {
-            throw new NotImplementedException();
         }
     }
 }
