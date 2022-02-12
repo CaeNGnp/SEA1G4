@@ -19,7 +19,7 @@ namespace SEA1G4 {
             //observers = new List<RideObserver>();
             myCreditCard = cc;
             amountSpent = 0;
-            points = 0;
+            points = 5;
             PremiumPrivilege = pp;
         }
 
@@ -49,20 +49,25 @@ namespace SEA1G4 {
             } 
         }
 
-        public void payWithPoints(double amt) {
-            if (points >= amt && PremiumPrivilege != null) {
+        public bool payWithPoints(double amt) {
+            bool success = true;
+            if (points >= amt && PremiumPrivilege != null) { // premium customer
                 deductPoints(amt);
-            } else if (points > 0 && points >= amt / 2) {
+            } else if (points > 0 && points >= amt / 2) { // sufficient points to pay half by points
                 double amount = amt / 2;
                 deductPoints(amount);
                 payWithCreditCard(amount);
                 addPoints(amount);
-            } else if (points > 0 && points <= amt / 2) {
+            } else if (points > 0 && points <= amt / 2) { // exisitng points
                 double amount = amt - points;
                 deductPoints(points);
                 payWithCreditCard(amount);
                 addPoints(amount);
+            } else if (points == 0) {
+                // insufficient points
+                success = false;
             }
+            return success;
         }
 
     }
