@@ -71,43 +71,72 @@ namespace SEA1G4 {
                         c.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model + " Driver: " + vehi1.Driver.Name);
 
                         c.Write("Choose this vehicle? [Y/N] ");
-
+                        
+                        //if (iter.lastVehicle()) {
+                        //    Console.WriteLine("No more vehicles left!");
+                        //    //break;
+                        //}
                         string inp = Console.ReadLine().Trim().ToLower();
                         if (inp == "n") {
                             continue;
                         }
                         chosen = vehi1;
                         break;
+                        
+                        
                     }
 
                     //checked null chosen
                     if (chosen is Van) {
                         Console.WriteLine("Deposit amount to be paid: $5");
-                        Console.Write("Date of Ride (e.g. 12/2/2022):");
-                        DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
-                        Console.Write("Time of Ride (e.g. 12:00pm):");
-                        DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
-                        Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");
-                        Console.ReadLine();
-                        Van va = (Van)chosen;
-                        c.payWithCreditCard(va.Deposit);
-                        ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime.ToString("HH:mm"));
+                        while (true) {
+                            Console.Write("Date and Time of Ride (e.g. 12/2/2022 2pm):");
+                            DateTime bookingDateTime = Convert.ToDateTime(Console.ReadLine());
+                            if (bookingDateTime < DateTime.Now) {
+                                Console.WriteLine("Please enter a valid date!");
+                            } else {
+                                Console.WriteLine("Date: " + bookingDateTime.ToString("dd/MM/yyyy") + " Time: " + bookingDateTime.ToString("HH:mm") + " Type any key to confirm.");
+                                Console.ReadLine();
+                                Van va = (Van)chosen;
+                                c.payWithCreditCard(va.Deposit);
+                                ride = new Ride("1234", pick, des, c, bookingDateTime);
+                                break;
+                            }
+
+                        }
                     } else if (chosen is ExcursionBus) {
                         Console.WriteLine("Deposit amount to be paid: 12");
-                        Console.Write("Date of Ride (e.g. 12/2/2022):");
-                        DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
-                        Console.Write("Time of Ride:");
-                        DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
-                        Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");
-                        Console.ReadLine();
-                        ExcursionBus eb = (ExcursionBus)chosen;
-                        c.payWithCreditCard(eb.Deposit);
-                        ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime.ToString("HH:mm"));
+                        while (true) {
+                            Console.Write("Date and Time of Ride (e.g. 12/2/2022 2pm):");
+                            DateTime bookingDateTime = Convert.ToDateTime(Console.ReadLine());
+                            if (bookingDateTime < DateTime.Now) {
+                                Console.WriteLine("Please enter a valid date!");
+                            } else {
+                                Console.WriteLine("Date: " + bookingDateTime.ToString("dd/MM/yyyy") + " Time: " + bookingDateTime.ToString("HH:mm") + " Type any key to confirm.");
+                                Console.ReadLine();
+                                ExcursionBus eb = (ExcursionBus)chosen;
+                                c.payWithCreditCard(eb.Deposit);
+                                ride = new Ride("1234", pick, des, c, bookingDateTime);
+                                break;
+                            }
+
+                        }
                     } else {
-                        DateTime booking = DateTime.Now;
-                        DateTime bookingDate = booking.Date;
-                        string bookingTime = booking.ToString("HH:mm");
-                        ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime);
+                        while(true) {
+                            Console.Write("Date and Time of Ride (e.g. 12/2/2022 2pm):");
+                            DateTime bookingDateTime = Convert.ToDateTime(Console.ReadLine());
+                            if (bookingDateTime < DateTime.Now) {
+                                Console.WriteLine("Please enter a valid date!");
+                            } else {
+                                Console.WriteLine("Date: " + bookingDateTime.ToString("dd/MM/yyyy") + " Time: " + bookingDateTime.ToString("HH:mm") + " Type any key to confirm.");
+                                Console.ReadLine();
+                                ride = new Ride("1234", pick, des, c, bookingDateTime);
+                                break;
+                            }                                                      
+                            
+                        }
+                        
+
                     }
 
                     // no need to accept driver as already picked based on vehicle
@@ -117,10 +146,7 @@ namespace SEA1G4 {
                     ride.registerRatingObserver(adm);
 
                     // 8. Use case continue at Accept Booking
-
-                    // start ride (k2)
-                    RideStartedState start = new RideStartedState(ride);
-                    start.startRide();
+                   
                 })
                 
                 

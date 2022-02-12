@@ -29,7 +29,12 @@ namespace SEA1G4
 
         public bool hasNext()
         {
-            return position < vehicleList.Count();
+            return position <= vehicleList.Count();
+        }
+
+        public bool lastVehicle() {
+            //int pos = vehicleList.Count();
+            return position == vehicleList.Count()+1;
         }
     }
 }

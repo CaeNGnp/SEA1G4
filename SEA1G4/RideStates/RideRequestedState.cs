@@ -46,14 +46,14 @@ namespace SEA1G4 {
                 DateTime Now=DateTime.Now;
 
                 Console.WriteLine("Do you want to cancel ride? [Y/N] in riderequestedstate ");
-                double TotalDays = (Now - ride.StartDate).TotalDays;
+                double TotalDays = (Now - ride.StartTime).TotalDays;
                 string option = Console.ReadLine().Trim().ToLower();
                 if (option == "y") {
 
                     Console.WriteLine("Ride Booking details: ");
                     Console.WriteLine("Pick up Location: " + ride.PickUpLoc);
                     Console.WriteLine("Destination: " + ride.DestinationLoc);
-                    Console.WriteLine("Ride Date: " + ride.StartDate);
+                    Console.WriteLine("Ride Date: " + ride.StartTime);
 
                     Console.WriteLine("Vehicle Selected: " + ride.driver.MyVehicle.Model);
                     Console.WriteLine("Are you sure you would like to cancel this booking? [Y/N]");

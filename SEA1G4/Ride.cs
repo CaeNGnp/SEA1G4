@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace SEA1G4 {
     public class Ride : RatingSubject {
         private DateTime endTime;
-        private string startTime;
-        private DateTime startDate;
+        private DateTime startTime;
+        //private DateTime startDate;
         private double fare;
         private double distance; // in km
         private string referenceNo;
@@ -22,9 +22,9 @@ namespace SEA1G4 {
 
         private RideState state;
 
-        public Ride(string n, string pl, string dl, Customer c, DateTime sd, string st) {
+        public Ride(string n, string pl, string dl, Customer c, DateTime st) {
             startTime = st;
-            startDate = sd;
+            //startDate = sd;
             customer = c;
             referenceNo = n;
             pickupLoc = pl;
@@ -76,12 +76,12 @@ namespace SEA1G4 {
             get { return payment; }
         }
 
-        public DateTime StartDate {
-            set { startDate = value; }
-            get { return startDate; }
-        }
+        //public DateTime StartDate {
+        //    set { startDate = value; }
+        //    get { return startDate; }
+        //}
 
-        public string StartTime {
+        public DateTime StartTime {
             set { startTime = value; }
             get { return startTime; }
         }
