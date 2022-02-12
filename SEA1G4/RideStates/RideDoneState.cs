@@ -141,7 +141,7 @@ namespace SEA1G4 {
         }
 
         public void startRide() {
-            Console.WriteLine("Cannot start ride. Ride has already ended.");
+            ride.driver.WriteLine("Cannot start ride. Ride has already ended.");
         }
     }
 }

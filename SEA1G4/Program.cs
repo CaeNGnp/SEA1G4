@@ -215,10 +215,7 @@ namespace SEA1G4 {
                 // Admins option
                 .AddHeading("Admin")
                 // Don't need option for "Process Rating" as it is an observer.
-                .AddOption("View Follow Ups", (m) => {
-                    // TODO temp testing need2rmv
-                    //adm.FollowUps.addFollowUp(new FollowUp("test", DateTime.Now));
-
+                .AddOption("View follow-ups", (m) => {
                     // UC-9: View Follow Ups 
                     // 2.	System displays the admin’s follow up record.
 

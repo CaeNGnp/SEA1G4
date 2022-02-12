@@ -19,13 +19,11 @@ namespace SEA1G4 {
 
             while (true) {
                 // 3.	System prompts admin whether to accept the booking.
-                d.Write("Accept the booking? [Y/N]");
+                d.Write("Accept the booking? [Y/N] ");
 
                 string response = Console.ReadLine().Trim().ToLower();
                 if (response == "y") {
-                    // 4. Driver replies with “Yes”. 
-                    // 5. System transitions ride into DriverAssigned state                  
-                    ride.changeState(new DriverAssignedState(ride));
+                    // 4. Driver replies with “Yes”.
                     break;
                 } else if (response == "n") {
                     // 4.2.	Use case ends.

@@ -14,7 +14,9 @@ namespace SEA1G4 {
             this.ride = ride;
         }
         public void acceptBooking() {
-            throw new NotImplementedException();
+            ride.driver.WriteLine(
+                "You may not accept the booking as the customer has cancelled it."
+            );
         }
         public static DateTime Now { get; }
 
@@ -46,16 +48,22 @@ namespace SEA1G4 {
             //}
         }
        
-            public void endRide() {
-            throw new NotImplementedException();
+        public void endRide() {
+            ride.driver.WriteLine(
+                "You may not end the ride as the customer has cancelled it."
+            );
         }
 
         public void giveRating() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not rate the driver as you have cancelled the ride."
+            );
         }
 
         public void makePayment() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not pay for the ride as you have cancelled it."
+            );
         }
 
         public void sendNotification() {
@@ -63,8 +71,10 @@ namespace SEA1G4 {
         }
 
         public void startRide() {
-            throw new NotImplementedException();
+            ride.driver.WriteLine(
+                "You may not start the ride as the customer has cancelled it."
+            );
         }
-}
+    }
 
 }

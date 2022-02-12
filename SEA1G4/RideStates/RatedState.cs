@@ -26,19 +26,25 @@ namespace SEA1G4 {
         }
 
         public void giveRating() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not rate the driver as you have already done so."
+            );
         }
 
         public void makePayment() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not pay for the ride as it has already been paid for."
+            );
         }
 
         public void sendNotification() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine("Thank you for your rating, we hope you enjoyed using PickUpNow!");
         }
 
         public void startRide() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not pay for the ride as it has already ended."
+            );
         }
     }
 }
