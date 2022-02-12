@@ -19,24 +19,29 @@ namespace SEA1G4 {
         public static DateTime Now { get; }
        
         public void cancelBooking() {
-            Console.WriteLine("Ride Start");
+            Console.WriteLine("Ride Cancel");
             while (true) {
-                Console.WriteLine("Do you want to start ride? [Y/N] ");
-                int TotalDays = (Now - ride.startDate).TotalDays;
+                Console.WriteLine("Do you want to cancel ride? [Y/N] ");
+                double TotalDays = (Now - ride.StartDate).TotalDays;
                 string ans = Console.ReadLine().Trim().ToLower();
                 if (ans == "y") {
                                  
                     if (TotalDays < 0) {
-                        if (ride.driver.MyVehicle == ExcursionBus) {
+                        Vehicle v = ride.driver.MyVehicle;
+                        ExcursionBus bus = (ExcursionBus)v;
+                        if (ride.driver.MyVehicle == bus) {
                             amount = "0";
-                           ride.customer.cc.deposit(amount);
+                         //  ride.customer.myCreditCard.deposit(amount);
                         }
                     }
 
-                    else if (ride.startDate < Now) {
-                        if (ride.driver.MyVehicle == Van) { 
+                    else if (ride.StartDate < Now) {
+                        Vehicle v = ride.driver.MyVehicle;
+                        Van va = (Van)v;
+
+                        if (ride.driver.MyVehicle == va) { 
                             amount = "0";
-                            ride.customer.cc.deposit(amount);
+                           // ride.customer.myCreditCard.deposit(amount);
                         }
                     }
 
