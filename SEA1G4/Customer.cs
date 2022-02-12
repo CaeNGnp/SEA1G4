@@ -17,7 +17,7 @@ namespace SEA1G4 {
         public PremiumCustomerPrivilege PremiumPrivilege { get; private set; }
 
         public Customer(string n, string c, string e, string id, CreditCard cc, PremiumCustomerPrivilege pp = null) : base(n, c, e, id) {
-            observers = new List<CustomerObserver>();
+            //observers = new List<RideObserver>();
             myCreditCard = cc;
             amountSpent = 0;
             points = 0;
@@ -41,14 +41,13 @@ namespace SEA1G4 {
             } 
         }
 
-        public void notifyObservers() {
-            foreach (CustomerObserver co in observers)
-            {
-                co.update(this);
-            }
+        public void update(Ride r) {
+            WriteLine($"Driver Name: {r.driver.Name}");
+            WriteLine($"Contact No.: {r.driver.ContactNo}");
+            WriteLine($"Email Address: {r.driver.EmailAddress}");
         }
-        
 
-       
+
+
     }
 }
