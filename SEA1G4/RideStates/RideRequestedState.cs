@@ -8,7 +8,6 @@ namespace SEA1G4 {
             this.ride = ride;
         }
 
-
         public void acceptBooking() {
             // UC-2: Accept booking
 
@@ -90,23 +89,31 @@ namespace SEA1G4 {
         }
 
         public void endRide() {
-            throw new NotImplementedException();
+            ride.driver.WriteLine(
+                "You may not end the ride as it has not been accepted yet."
+            );
         }
 
         public void giveRating() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not rate the driver as it has not been accepted yet."
+            );
         }
 
         public void makePayment() {
-            throw new NotImplementedException();
+            ride.customer.WriteLine(
+                "You may not pay for the ride as it has not been accepted yet."
+            );
         }
 
         public void sendNotification() {
-            ride.driver.onRideRequested(ride);        
+            ride.driver.onRideRequested(ride);
         }
 
         public void startRide() {
-            throw new NotImplementedException();
+            ride.driver.WriteLine(
+                "You may not start the ride as it has not been accepted yet."
+            );
         }
     }
 }
