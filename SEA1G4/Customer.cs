@@ -14,6 +14,7 @@ namespace SEA1G4 {
         public bool isPremium { get; set; }
 
         public Customer(string n, string c, string e, string id, CreditCard cc) : base(n, c, e, id) {
+            observers = new List<CustomerObserver>();
             myCreditCard = cc;
             amountSpent = 0;
             points = 0;
