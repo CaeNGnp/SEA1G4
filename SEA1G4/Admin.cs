@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace SEA1G4 {
@@ -9,7 +9,7 @@ namespace SEA1G4 {
             followUps = new List<FollowUp>();
         }
 
-        public void update(Rating r) {
+        public void onRatingUpdated(Rating r) {
             // 2. System notifies admin about the rating and its details
             WriteLine($"Author: {r.Author.Name}");
             WriteLine($"Rating for: {r.RatingFor.Name}");

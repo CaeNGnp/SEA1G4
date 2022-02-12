@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class Ride {
+    public class Ride : RatingSubject {
         private DateTime endTime;
         private DateTime startTime;
         private double fare;
@@ -16,6 +16,7 @@ namespace SEA1G4 {
         private Payment payment;
         private Rating rating;
         private List<RideObserver> observers;
+        private List<RatingObserver> ratingObservers;
 
         private RideState state;
 
@@ -126,6 +127,20 @@ namespace SEA1G4 {
             Console.WriteLine("Current ride state: " + state);
             // Send notification if any
             state.sendNotification();
+        }
+
+        public void registerRatingObserver(RatingObserver o) {
+            ratingObservers.Add(o);
+        }
+
+        public void removeRatingObserver(RatingObserver o) {
+            ratingObservers.Remove(o);
+        }
+
+        public void notifyRatingObservers(Rating rating) {
+            foreach (RatingObserver o in ratingObservers) {
+                o.onRatingUpdated(rating);
+            }
         }
     }
 }
