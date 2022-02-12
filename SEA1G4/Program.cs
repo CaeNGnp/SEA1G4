@@ -179,24 +179,12 @@ namespace SEA1G4 {
                     ride.makePayment();
                 })
                 .AddOption("Rate driver", (m) => {
-                    Console.WriteLine("Ride ended.");
-                    Console.Write("Rate driver [1-5]: ");
-                    string rate = Console.ReadLine();
-                    int rating = Convert.ToInt32(rate);
-                    Rating r = new Rating(c, d1);
-                    r.setRating(rating);
-                    Console.Write("Any feedback to give? [Y/N]");
-                    string res = Console.ReadLine().ToLower();
-                    if(res == "y") {
-                        Console.Write("Give feedback: ");
-                        string feedback = Console.ReadLine();
-                        r.setFeedback(feedback);
+                    if (ride == null) {
+                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                        return;
                     }
-                    Console.Write("Ratings Done!");
-                    ride.changeState(new RatedState(ride));
 
-                    // Edit by Caelan - update observers about rating done
-                    ride.notifyRatingObservers(r);
+                    ride.giveRating();
                 })
 
                 // Drivers option
