@@ -159,14 +159,15 @@ namespace SEA1G4 {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
                     }
-                    else {
+                    /*else {
                         Console.WriteLine("Are you sure you want to cancel your Booking! [Y/N]");
                         string answer= Console.ReadLine().Trim().ToLower();
                         if (answer == "y") { 
                         
                         }
-                    }
-                    ride.promptCustomerAccept();
+                    }*/
+                    ride.cancelBooking();
+                  //  ride.promptCustomerAccept();
 
                 })
 

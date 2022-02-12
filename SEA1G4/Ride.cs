@@ -120,24 +120,24 @@ namespace SEA1G4 {
         }
 
 
-        public void promptCustomerAccept() {
+     /*  public void promptCustomerAccept() {
 
             // todoo (DIY) input validat
-            Console.Write("accept? [y/n]");
+            //    Console.Write("accept? [y/n]");
 
-            string input = Console.ReadLine().Trim().ToLower();
-            if (input == "y") {
-                changeState(new RideStartedState(this));         
-            }
+            *//*  string input = Console.ReadLine().Trim().ToLower();
+              if (input == "y") {
+                  changeState(new RideStartedState(this));         
+              }*//*
 
             // cancel booking(vandana)
             // TODO (DIY)
             Console.Write("You want to cancel booking? [y/n]");
             string answer = Console.ReadLine().Trim().ToLower();
-            if (input == "y") {
-                changeState(new cancelBookingState(this));
+            if (answer == "y") {
+                changeState(new customerCancelledState(this));
             }
-        }
+        }*/
 
         public void notifyObservers() {
             foreach (RideObserver co in observers) {
