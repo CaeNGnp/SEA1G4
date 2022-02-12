@@ -22,14 +22,6 @@ namespace SEA1G4 {
             return;
         }
 
-        public void entry() {
-            throw new NotImplementedException();
-        }
-
-        public void exit() {
-            throw new NotImplementedException();
-        }
-
         public void giveRating() {
             // No-op
             return;

@@ -52,5 +52,9 @@ namespace SEA1G4 {
         public void removeObserver(CustomerObserver co) {
             observers.Remove(co);
         }
+
+        public void driverAccepted() {
+            notifyObservers();
+        }
     }
 }

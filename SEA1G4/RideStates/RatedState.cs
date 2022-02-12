@@ -12,6 +12,7 @@ namespace SEA1G4 {
         public RatedState(Ride ride) {
             this.ride = ride;
         }
+
         public void acceptBooking() {
             ride.driver.WriteLine("Cannot accept booking. Rating done");
         }
@@ -24,18 +25,6 @@ namespace SEA1G4 {
             Console.WriteLine("Ride has ended. Rating done");
         }
 
-        public void entry() {
-            throw new NotImplementedException();
-        }
-
-        public void exit() {
-            throw new NotImplementedException();
-        }
-
-        public void startRide() {
-            throw new NotImplementedException();
-        }
-
         public void giveRating() {
             throw new NotImplementedException();
         }
@@ -45,6 +34,10 @@ namespace SEA1G4 {
         }
 
         public void sendNotification() {
+            throw new NotImplementedException();
+        }
+
+        public void startRide() {
             throw new NotImplementedException();
         }
     }
