@@ -87,8 +87,8 @@ namespace SEA1G4 {
             state.makePayment();
         }
 
-        public void giveRating(Rating rating) {
-            state.giveRating(rating);
+        public void giveRating() {
+            state.giveRating();
         }
 
         public void promptCustomerAccept() {
@@ -103,6 +103,14 @@ namespace SEA1G4 {
 
             // cancel booking(vandana)
             // TODO (DIY)
+        }
+
+        public void sendNotification() {
+            // Log the current ride state
+            Console.WriteLine("Current ride state: " + state);
+            // Send notification if any
+            state.sendNotification();
+
         }
     }
 }

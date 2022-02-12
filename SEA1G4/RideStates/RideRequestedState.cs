@@ -28,15 +28,15 @@ namespace SEA1G4 {
             throw new NotImplementedException();
         }
 
-        public void giveRating(Rating r) {
-            throw new NotImplementedException();
-        }
-
         public void giveRating() {
             throw new NotImplementedException();
         }
 
         public void makePayment() {
+            throw new NotImplementedException();
+        }
+
+        public void sendNotification() {
             throw new NotImplementedException();
         }
 

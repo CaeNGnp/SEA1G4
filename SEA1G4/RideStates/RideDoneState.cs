@@ -53,19 +53,19 @@ namespace SEA1G4 {
             ride.customer.addPoints(ride.Fare);
         }
 
-        public void giveRating(Rating r) {
+        public void giveRating() {
             // customer give rating
-            ride.Rating = r;
+            //ride.Rating = r;
 
             // change state
             ride.changeState(new RatedState(ride));
         }
 
-        public void giveRating() {
+        public void makePayment() {
             throw new NotImplementedException();
         }
 
-        public void makePayment() {
+        public void sendNotification() {
             throw new NotImplementedException();
         }
 

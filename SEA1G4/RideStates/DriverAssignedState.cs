@@ -52,16 +52,16 @@ namespace SEA1G4 {
             throw new NotImplementedException();
         }
 
-        public void giveRating(Rating r) {
+        public void giveRating() {
             // No-op
             return;
         }
 
-        public void giveRating() {
+        public void makePayment() {
             throw new NotImplementedException();
         }
 
-        public void makePayment() {
+        public void sendNotification() {
             throw new NotImplementedException();
         }
 

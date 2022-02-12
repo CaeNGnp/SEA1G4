@@ -32,10 +32,6 @@ namespace SEA1G4 {
             throw new NotImplementedException();
         }
 
-        public void giveRating(Rating r) {
-            throw new NotImplementedException();
-        }
-
         public void startRide() {
             throw new NotImplementedException();
         }
@@ -45,6 +41,10 @@ namespace SEA1G4 {
         }
 
         public void makePayment() {
+            throw new NotImplementedException();
+        }
+
+        public void sendNotification() {
             throw new NotImplementedException();
         }
     }

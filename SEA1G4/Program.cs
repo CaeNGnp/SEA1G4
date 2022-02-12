@@ -51,6 +51,11 @@ namespace SEA1G4 {
             ConsoleMenu menu = new ConsoleMenu()
                 .BeforeInteraction((m) => {
                     Console.WriteLine("Hello welcome to PickUpNow!\n" + new string('=', 28));
+
+                    // Send notification if any
+                    if (ride != null) {
+                        ride.sendNotification();
+                    }
                 })
 
                 // Customer options

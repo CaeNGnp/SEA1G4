@@ -38,10 +38,6 @@ namespace SEA1G4 {
 
         }
 
-        public void giveRating(Rating rating) {
-            Console.WriteLine("Unable to give rating as ride has not ended");
-        }
-
         public void entry() {
 
         }
@@ -51,10 +47,14 @@ namespace SEA1G4 {
         }
 
         public void giveRating() {
-
+            Console.WriteLine("Unable to give rating as ride has not ended");
         }
 
         public void makePayment() {
+            throw new NotImplementedException();
+        }
+
+        public void sendNotification() {
             throw new NotImplementedException();
         }
     }
