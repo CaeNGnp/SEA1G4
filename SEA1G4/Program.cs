@@ -58,13 +58,6 @@ namespace SEA1G4 {
                     string des = Console.ReadLine();
                     Console.Write("Pickup Point: ");
                     string pick = Console.ReadLine();
-
-                    //Console.WriteLine("Pick vehicle:");
-                    //Console.WriteLine("[a] Car");
-                    //Console.WriteLine("[b] Van");
-                    //Console.WriteLine("[c] Excursion Bus");
-                    //string veh = Console.ReadLine();
-
                     c.WriteLine("Available vehicles: ");
 
                     DefaultVehicleIterator iter = vehAgg.createIterator(true);
@@ -75,23 +68,18 @@ namespace SEA1G4 {
                         i++;
 
                         Vehicle vehi1 = iter.getNext();
-                        c.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model + "Driver: " + vehi1.Driver.Name);
+                        c.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model + " Driver: " + vehi1.Driver.Name);
 
-                        c.Write("choose this vehicle? [Y/N] ");
-                       
+                        c.Write("Choose this vehicle? [Y/N] ");
+
                         string inp = Console.ReadLine().Trim().ToLower();
-                        // TODO (DIY) input vali
                         if (inp == "n") {
-
                             continue;
                         }
                         chosen = vehi1;
                         break;
-
-                        
                     }
 
-                    // todo (DIY)
                     //checked null chosen
                     if (chosen is Van) {
                         Console.WriteLine("Deposit amount to be paid: $5");
@@ -99,12 +87,11 @@ namespace SEA1G4 {
                         DateTime bookingDate = Convert.ToDateTime(Console.ReadLine());
                         Console.Write("Time of Ride (e.g. 12:00pm):");
                         DateTime bookingTime = Convert.ToDateTime(Console.ReadLine());
-                        Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");   
+                        Console.WriteLine("Date: " + bookingDate.ToString("dd/MM/yyyy") + " Time: " + bookingTime.ToString("HH:mm") + " Type any key to confirm.");
                         Console.ReadLine();
                         Van va = (Van)chosen;
                         c.payWithCreditCard(va.Deposit);
                         ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime.ToString("HH:mm"));
-                   
                     } else if (chosen is ExcursionBus) {
                         Console.WriteLine("Deposit amount to be paid: 12");
                         Console.Write("Date of Ride (e.g. 12/2/2022):");
@@ -115,20 +102,13 @@ namespace SEA1G4 {
                         Console.ReadLine();
                         ExcursionBus eb = (ExcursionBus)chosen;
                         c.payWithCreditCard(eb.Deposit);
-                       
-                      
                         ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime.ToString("HH:mm"));
                     } else {
                         DateTime booking = DateTime.Now;
                         DateTime bookingDate = booking.Date;
                         string bookingTime = booking.ToString("HH:mm");
-                       
                         ride = new Ride("1234", pick, des, c, bookingDate.Date, bookingTime);
                     }
-
-                    
-                    // Populate Ride obj
-                    //ride = new Ride("1234", pick, des, c, bookingDate);
 
                     // no need to accept driver as already picked based on vehicle
                     ride.driver = chosen.Driver;
@@ -139,21 +119,12 @@ namespace SEA1G4 {
                     // 8. Use case continue at Accept Booking
 
                     // start ride (k2)
-                    //while (true) {
-                    //    Console.WriteLine("Do you want to start ride? [Y/N] ");
-
-                    //    string ans = Console.ReadLine().Trim().ToLower();
-                    //    if (ans == "y") {
-                    //        if (ans == "y") {
-                    //            RideStartedState start = new RideStartedState();
-                    //            start.startRide();
-                    //            break;
-                    //        } else if (ans == "n") {
-                    //            continue;
-                    //        }
-                    //    }
-                    //}
+                    RideStartedState start = new RideStartedState(ride);
+                    start.startRide();
                 })
+                
+                
+
                 .AddOption("Cancel booking", (m) => {
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
@@ -188,9 +159,13 @@ namespace SEA1G4 {
                     int rating = Convert.ToInt32(rate);
                     Rating r = new Rating(c, d1);
                     r.setRating(rating);
-                    Console.Write("Give feedback: ");
-                    string feedback = Console.ReadLine();
-                    r.setFeedback(feedback);
+                    Console.Write("Any feedback to give? [Y/N]");
+                    string res = Console.ReadLine().ToLower();
+                    if(res == "y") {
+                        Console.Write("Give feedback: ");
+                        string feedback = Console.ReadLine();
+                        r.setFeedback(feedback);
+                    }
                     Console.Write("Ratings Done!");
                     ride.changeState(new RatedState(ride));
 

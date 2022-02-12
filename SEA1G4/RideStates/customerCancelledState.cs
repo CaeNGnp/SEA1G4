@@ -1,11 +1,11 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SEA1G4 {
-    public class customerCancelledState : RideState {
+    public class cancelBookingState : RideState {
 
         private Ride ride;
       
@@ -19,33 +19,31 @@ namespace SEA1G4 {
         public static DateTime Now { get; }
 
         public void cancelBooking() {
-         //   Console.WriteLine("Ride Cancelled");
-          /*  while (true) {
+            Console.WriteLine("Ride Start");
+            //while (true) {
+            //    Console.WriteLine("Do you want to start ride? [Y/N] ");
+            //    int TotalDays = (Now - ride.startDate).TotalDays;
+            //    string ans = Console.ReadLine().Trim().ToLower();
+            //    if (ans == "y") {
+                                 
+            //        if (TotalDays < 0) {
+            //            if (ride.driver.MyVehicle == ExcursionBus) {
+            //                amount = "0";
+            //               ride.customer.cc.deposit(amount);
+            //            }
+            //        }
 
-                Console.WriteLine("Do you want to cancel ride? [Y/N] ");
-                double TotalDays = (Now - ride.StartDate).TotalDays;
-                string ans = Console.ReadLine().Trim().ToLower();
-                if (ans == "y") {
-                    Vehicle v = ride.driver.MyVehicle;
+            //        else if (ride.startDate < Now) {
+            //            if (ride.driver.MyVehicle == Van) { 
+            //                amount = "0";
+            //                ride.customer.cc.deposit(amount);
+            //            }
+            //        }
 
-                    if (TotalDays > 3) {
-                        if (v is ExcursionBus) {
-                            ExcursionBus bus = (ExcursionBus)v;
-                            ride.customer.addToCreditCard(bus.Deposit);
-                            Console.WriteLine("Deposit refunded and your ride has been cancelled");
-
-                        } else if (v is Van) {
-                            Van va = (Van)v;
-                            ride.customer.addToCreditCard(va.Deposit);
-                            Console.WriteLine("Deposit refunded and your ride has been cancelled");
-
-                        } else if (v is Car) {
-                            Console.WriteLine("Ride cancelled!");
-                        }
-
-                    }
-                }
-            }*/
+            //    } else if (ans == "n") {
+            //        continue;
+            //    }
+            //}
         }
        
             public void endRide() {
@@ -70,8 +68,3 @@ namespace SEA1G4 {
 }
 
 }
-
-     
-       
-
-

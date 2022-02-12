@@ -8,6 +8,6 @@ namespace SEA1G4
 {
     public interface RideObserver
     {
-        public void update(Ride r);
+        public void onRideRequested(Ride r);
     }
 }

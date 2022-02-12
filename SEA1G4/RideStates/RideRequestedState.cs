@@ -102,7 +102,7 @@ namespace SEA1G4 {
         }
 
         public void sendNotification() {
-            ride.driver.update(ride);        
+            ride.driver.onRideRequested(ride);        
         }
 
         public void startRide() {

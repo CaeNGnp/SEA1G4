@@ -132,24 +132,24 @@ namespace SEA1G4 {
 
             // cancel booking(vandana)
             // TODO (DIY)
-            Console.Write("You want to cancel booking? [y/n]");
+         /*   Console.Write("You want to cancel booking? [y/n]");
             string answer = Console.ReadLine().Trim().ToLower();
-            if (answer == "y") {
-                changeState(new customerCancelledState(this));
-            }
-        }*/
-
-        public void notifyObservers() {
-            foreach (RideObserver co in observers) {
-                co.update(this);
+            if (input == "y") {
+                changeState(new cancelBookingState(this));
             }
         }
 
-        public void registerObserver(RideObserver co) {
+        public void notifyRideObservers() {
+            foreach (RideObserver co in observers) {
+                co.onRideRequested(this);
+            }
+        }
+
+        public void registerRideObserver(RideObserver co) {
             observers.Add(co);
         }
 
-        public void removeObserver(RideObserver co) {
+        public void removeRideObserver(RideObserver co) {
             observers.Remove(co);
         }
         public void sendNotification() {
