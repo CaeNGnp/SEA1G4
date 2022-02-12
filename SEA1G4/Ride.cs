@@ -19,7 +19,7 @@ namespace SEA1G4 {
         private List<RideObserver> observers;
         private List<RatingObserver> ratingObservers;
 
-        private List<RideObserver> observers;
+        
         private RideState state;
 
         public Ride(string n, string pl, string dl, Customer c, DateTime sd, string st) {
