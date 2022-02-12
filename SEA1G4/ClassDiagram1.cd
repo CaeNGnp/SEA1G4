@@ -58,13 +58,12 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAIABCAAAAAAAAAAAQAAAAAIAAAAAAAQAAAAAAEAAA=</HashCode>
+      <HashCode>AAAIABCAAAAAAAAAAAQgAAAAIAAEgAAAQAAAAAAEAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="PremiumPrivilege" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SEA1G4.DefaultVehicleAggregate" Collapsed="true">
     <Position X="16.25" Y="2.5" Width="1.5" />
@@ -83,7 +82,7 @@
   <Class Name="SEA1G4.Driver">
     <Position X="6.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABIAAAAQAAAAAAAAACIAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAAAAAAAABIAAAAQAAAAAAAAACIAAAAA=</HashCode>
       <FileName>Driver.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -110,7 +109,8 @@
     <Position X="21.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FeedbackStrategy.cs</FileName>
+      <FileName>FeedbackStrategies\FeedbackFromCustomer.cs</FileName>
+      <NewMemberFileName>FeedbackStrategy.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
@@ -118,7 +118,8 @@
     <Position X="23.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FeedbackStrategy.cs</FileName>
+      <FileName>FeedbackStrategies\FeedbackFromDriver.cs</FileName>
+      <NewMemberFileName>FeedbackStrategy.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
@@ -139,7 +140,7 @@
   <Class Name="SEA1G4.Payment" Collapsed="true">
     <Position X="19.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAACACAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>gAAAAAAAIAAAQAQAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Payment.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -175,7 +176,7 @@
   <Class Name="SEA1G4.Ride">
     <Position X="5.75" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAJABCoAAYwgCAIQgBCCABUQAAAFEAgAACAEAAAA=</HashCode>
+      <HashCode>QAAIAJEBAIARQwgCAIwgBCCAJURAAAFEAgAACEEAAAA=</HashCode>
       <FileName>Ride.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -226,7 +227,7 @@
   <Class Name="SEA1G4.Vehicle">
     <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAEAAAABAAAAAAEAAAAGAAAAAgBAAgAgBAAAJAAA=</HashCode>
+      <HashCode>AAEAAEAAAQBAAAAAAEAAAACAAAAAgBAAgAgBAAAJAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>

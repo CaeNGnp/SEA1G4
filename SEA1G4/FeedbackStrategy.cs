@@ -1,23 +1,9 @@
 ﻿namespace SEA1G4 {
     public interface FeedbackStrategy {
+        /// <summary>
+        /// Processes a feedback message given by the User.
+        /// </summary>
+        /// <returns>The new feedback message.</returns>
         string processFeedback(string feedback);
     }
-
-    public class FeedbackFromCustomer : FeedbackStrategy {
-
-        public string processFeedback(string feedback) {
-            return feedback;
-        }
-
-    }
-
-    public class FeedbackFromDriver : FeedbackStrategy {
-        public string processFeedback(string feedback) {
-            // Feedback unapplicable for customer
-            return null;
-        }
-
-    }
-
-
 }
