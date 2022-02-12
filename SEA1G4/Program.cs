@@ -161,7 +161,7 @@ namespace SEA1G4 {
                     //    }
                     //}
                 })
-                .AddOption("Accept/Cancel booking", (m) => {
+                .AddOption("Cancel booking", (m) => {
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
@@ -219,6 +219,13 @@ namespace SEA1G4 {
                         return;
                     }
                     ride.startRide();
+                })
+                .AddOption("End ride", (m) => {
+                    if (ride == null) {
+                        Console.WriteLine("No ride or assigned driver yet. Make a booking first");
+                        return;
+                    }
+                    ride.endRide();
                 })
 
                 // Admins option
