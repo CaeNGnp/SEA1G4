@@ -55,7 +55,7 @@ namespace SEA1G4 {
                     // choose payment method
                     Console.WriteLine("Select payment method: ");
                     Console.WriteLine("[1] Credit Card");
-                    Console.WriteLine("[2] PickUpNow Points (not implemented)");
+                    Console.WriteLine("[2] PickUpNow Points");
                     Console.WriteLine("[3] Gift Card (not implemented)");
                     Console.Write("Pay with: ");
                     string pm = Console.ReadLine();
@@ -75,13 +75,17 @@ namespace SEA1G4 {
                     } else if (pm == "2") {
                         Console.WriteLine("Payment in process...");
                         // transaction
-                        ride.Payment.payFareWithPoints(rideTotal);
-                        ride.Payment.creditToDriver(rideFare);
-                        ride.customer.upgradePremium();
-                        ride.sendReceipt();
-                        ride.Payment.hasPaid = true;
-                        Console.WriteLine("\nPayment complete.");
-                        break;
+                        bool paid = ride.Payment.payFareWithPoints(rideTotal);
+                        if (paid) {
+                            ride.Payment.creditToDriver(rideFare);
+                            ride.customer.upgradePremium();
+                            ride.sendReceipt();
+                            ride.Payment.hasPaid = true;
+                            Console.WriteLine("\nPayment complete.");
+                            break;
+                        } else {
+                            continue;
+                        }
                     } else {
                         Console.WriteLine("Invalid input. Please try again.");
                         continue;

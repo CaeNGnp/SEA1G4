@@ -18,8 +18,8 @@ namespace SEA1G4 {
             ride.customer.payWithCreditCard(fare);
         }
 
-        public void payFareWithPoints(double fare) {
-            ride.customer.payWithPoints(fare);
+        public bool payFareWithPoints(double fare) {
+            return ride.customer.payWithPoints(fare);
         }
 
         public void creditToDriver(double fare) {
