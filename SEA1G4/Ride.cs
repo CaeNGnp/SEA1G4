@@ -8,7 +8,6 @@ namespace SEA1G4 {
     public class Ride : RatingSubject {
         private DateTime endTime;
         private DateTime startTime;
-        //private DateTime startDate;
         private double fare;
         private double distance; // in km
         private string referenceNo;
@@ -23,7 +22,6 @@ namespace SEA1G4 {
 
         public Ride(string n, string pl, string dl, Customer c, DateTime st) {
             startTime = st;
-            //startDate = sd;
             customer = c;
             referenceNo = n;
             pickupLoc = pl;
@@ -70,11 +68,6 @@ namespace SEA1G4 {
             get { return payment; }
         }
 
-        //public DateTime StartDate {
-        //    set { startDate = value; }
-        //    get { return startDate; }
-        //}
-
         public DateTime StartTime {
             set { startTime = value; }
             get { return startTime; }
@@ -112,26 +105,7 @@ namespace SEA1G4 {
         public void giveRating() {
             state.giveRating();
         
-    } 
-/*
-      public void promptCustomerAccept() {
-
-            // todoo (DIY) input validat
-            //    Console.Write("accept? [y/n]");
-
-            *//*  string input = Console.ReadLine().Trim().ToLower();
-              if (input == "y") {
-                  changeState(new RideStartedState(this));         
-              }*//*
-
-            // cancel booking(vandana)
-            // TODO (DIY)
-            Console.Write("You want to cancel booking? [y/n]");
-            string answer = Console.ReadLine().Trim().ToLower();
-            if (input == "y") {
-                changeState(new cancelBookingState(this));
-            }
-        }*/
+        } 
 
         public void notifyRideObservers() {
             foreach (RideObserver co in observers) {

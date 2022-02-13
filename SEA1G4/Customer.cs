@@ -17,7 +17,6 @@ namespace SEA1G4 {
         public PremiumCustomerPrivilege PremiumPrivilege { get; private set; }
 
         public Customer(string n, string c, string e, string id, CreditCard cc, PremiumCustomerPrivilege pp = null) : base(n, c, e, id) {
-            //observers = new List<RideObserver>();
             myCreditCard = cc;
             amountSpent = 0;
             points = 5;
