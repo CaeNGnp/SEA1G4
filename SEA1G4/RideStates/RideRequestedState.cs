@@ -13,9 +13,8 @@ namespace SEA1G4 {
 
             Driver d = ride.driver;
             // 2.	System provides information about the booking
-            // TODO customer name
-            //d.WriteLine($"Pickup location: {context.Ride.PickupLoc}");
-
+            d.WriteLine("Booking information:");
+            d.WriteLine("\n" + new string('=', 16) + "\n" + ride.ToString() + new string('=', 16));
 
             while (true) {
                 // 3.	System prompts admin whether to accept the booking.

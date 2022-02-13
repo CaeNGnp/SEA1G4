@@ -15,7 +15,6 @@ namespace SEA1G4 {
         private string pickupLoc;
         private string destinationLoc;
         private Payment payment;
-        private Rating rating;
         private List<RideObserver> observers;
         private List<RatingObserver> ratingObservers;
 
@@ -59,11 +58,6 @@ namespace SEA1G4 {
         public DateTime Endtime {
             set { endTime = value; }
             get { return endTime; }
-        }
-
-        public Rating Rating {
-            set { rating = value; }
-            get { return rating; }
         }
 
         public double Fare {
@@ -171,6 +165,28 @@ namespace SEA1G4 {
             foreach (RatingObserver o in ratingObservers) {
                 o.onRatingUpdated(rating);
             }
+        }
+
+        /// <summary>
+        /// Converts the ride information into a string value
+        /// </summary>
+        public override string ToString() {
+            StringBuilder buf = new StringBuilder();
+
+            buf.AppendLine($"Ref no.: {referenceNo}");
+            buf.AppendLine($"Customer Name: {customer.Name}");
+            buf.AppendLine($"Contact No.: {customer.ContactNo}");
+            buf.AppendLine($"Email Address: {customer.EmailAddress}");
+            buf.AppendLine($"Date: {StartTime.ToString("dd/MM/yyyy")}");
+            buf.AppendLine($"Time: {StartTime.ToString("HH:mm")}");
+            buf.AppendLine($"Pick Up Location: {PickUpLoc}");
+            buf.AppendLine($"Destination Location: {DestinationLoc}");
+
+            if (payment.hasPaid) {
+                buf.AppendLine($"Has Paid: {payment.hasPaid}");
+            }
+
+            return buf.ToString();
         }
     }
 }
