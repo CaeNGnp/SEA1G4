@@ -27,8 +27,10 @@ namespace SEA1G4 {
 
                 string response = Console.ReadLine().Trim().ToLower();
                 if (response == "y") {
+                    // 4.	Admin replies with a “Yes”.
                     break;
                 } else if (response == "n") {
+                    // 4.1.	Admin replies with a “No”.
                     // 4.2.	Use case ends.
                     return;
                 }
@@ -37,13 +39,16 @@ namespace SEA1G4 {
             string action;
 
             while (true) {
-                // 3.	System prompts admin whether to create a follow-up action.
+                // 5.	System prompts admin to provide an input to describe the follow up action being taken.
                 Write("Write your follow up action description: ");
 
                 // 6.	Admin supplies the follow-up description.
                 action = Console.ReadLine().Trim();
                 if (action.Length == 0) {
-                    // 6.1.	System sends an error message to supply a description
+                    // 6.1.	Admin provides an empty description
+                    // 6.2.	System sends an error message to supply a description
+                    WriteLine("You must provide a description.");
+                    // 6.3.	System goes back to step 5
                     continue;
                 }
                 break;

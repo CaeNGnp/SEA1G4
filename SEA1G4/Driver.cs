@@ -13,6 +13,7 @@ namespace SEA1G4 {
         public Driver(string n, string c, string e, string id, BankAccount acc, Vehicle v) : base(n, c, e, id) {
             this.myBankAccount = acc;
             this.myVehicle = v;
+            // Set the vehicle's driver to this instance
             v.Driver = this;
             rideList = new List<Ride>();
         }
