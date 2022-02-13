@@ -11,8 +11,8 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SEA1G4.BankAccount" Collapsed="true">
-    <Position X="11.75" Y="7.25" Width="1.5" />
+  <Class Name="SEA1G4.BankAccount">
+    <Position X="12" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAIAAAAEAAAgAAAAAAEAAA=</HashCode>
       <FileName>BankAccount.cs</FileName>
@@ -57,16 +57,19 @@
     <Position X="7.25" Y="5.75" Width="1.5" />
     <AssociationLine Name="PremiumPrivilege" Type="SEA1G4.PremiumCustomerPrivilege">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.475" Y="0.192" />
+        <Position X="0.192" Y="-1.475" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAIABCAAAAAAAAAAAQgAAAAIAAEgAAAQAAAAAAEAAA=</HashCode>
+      <HashCode>AAAIABCAIAAAAABIAASgAAAAIAAEgAAAQAAAAAAEAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="PremiumPrivilege" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="GList" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="SEA1G4.DefaultVehicleAggregate">
     <Position X="16.5" Y="3.25" Width="1.5" />
@@ -136,24 +139,24 @@
       <FileName>FollowUp.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEA1G4.GiftCard" Collapsed="true">
-    <Position X="21" Y="3.5" Width="1.5" />
+  <Class Name="SEA1G4.GiftCard">
+    <Position X="10.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAABAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>GiftCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.Payment" Collapsed="true">
     <Position X="22.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAIAAAQAQAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAAAIAAAQAQAAAAAAAAACAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Payment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEA1G4.PremiumCustomerPrivilege">
     <Position X="4.25" Y="9" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAIAACAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>PremiumCustomerPrivilege.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -182,7 +185,7 @@
   <Class Name="SEA1G4.Ride">
     <Position X="8.75" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAIAJEBAIARQwgCAIwgBCCAJURAAAFEAgAACEEAAAA=</HashCode>
+      <HashCode>AAAIAJEBAIARQwgGAIwgBCCAJURAAABEAgAACAEAAAA=</HashCode>
       <FileName>Ride.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -216,8 +219,8 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SEA1G4.User" Collapsed="true">
-    <Position X="7.25" Y="4.25" Width="1.5" />
+  <Class Name="SEA1G4.User">
+    <Position X="7.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAwAAAAAAAAAAAAAggEAAAA=</HashCode>
       <FileName>User.cs</FileName>
