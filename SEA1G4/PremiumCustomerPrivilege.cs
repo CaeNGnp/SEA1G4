@@ -14,6 +14,8 @@ namespace SEA1G4 {
 
         public void purchaseGiftCard(GiftCard gc) {
             // implementation
+            customer.GList.Add(gc);
+            Console.WriteLine("Gift card purchased.");
         }
     }
 }
