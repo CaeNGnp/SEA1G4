@@ -26,33 +26,38 @@ namespace SEA1G4 {
         }
 
         public void giveRating() {
-            // customer give rating
-            Console.WriteLine("Ride ended.");
+            if (ride.Payment.hasPaid) {
+                // customer give rating
+                Console.WriteLine("Ride ended.");
             Console.Write("Rate driver [1-5]: ");
             string rate = Console.ReadLine();
             int rating = Convert.ToInt32(rate);
             Rating r = new Rating(ride.customer, ride.driver);
             r.setRating(rating);
-            while (true) {
-                Console.Write("Any feedback to give? [Y/N]");
-                string res = Console.ReadLine().ToLower();
-                if (res == "y") {
-                    Console.Write("Give feedback: ");
-                    string feedback = Console.ReadLine();
-                    r.setFeedback(feedback);
-                    Console.Write("Ratings Done!");
-                    ride.notifyRatingObservers(r);
-                    ride.changeState(new RatedState(ride));
-                    break;
-                } else if (res == "n") {
-                    Console.Write("Ratings Done!");
-                    ride.notifyRatingObservers(r);
-                    ride.changeState(new RatedState(ride));
-                    break;
-                } else {
-                    Console.Write("Incorrect choice. Choose Y/N. Please re-enter");
-                    continue;
+                while (true) {
+                    Console.Write("Any feedback to give? [Y/N]");
+                    string res = Console.ReadLine().ToLower();
+                    if (res == "y") {
+                        Console.Write("Give feedback: ");
+                        string feedback = Console.ReadLine();
+                        r.setFeedback(feedback);
+                        Console.Write("Ratings Done!");
+                        ride.notifyRatingObservers(r);
+                        ride.changeState(new RatedState(ride));
+                        break;
+                    } else if (res == "n") {
+                        Console.Write("Ratings Done!");
+                        ride.notifyRatingObservers(r);
+                        ride.changeState(new RatedState(ride));
+                        break;
+                    } else {
+                        Console.Write("Incorrect choice. Choose Y/N. Please re-enter");
+                        continue;
+                    }
                 }
+            } else 
+            {
+                Console.WriteLine("You have not done the payemnt for this ride.");
             }
         }
 
