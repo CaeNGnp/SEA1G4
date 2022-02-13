@@ -176,7 +176,7 @@ namespace SEA1G4 {
 
                
                 .AddOption("Make payment", (m) => {
-                    // Make payment
+                    // Make payment (UC-6a, 6b, 6c)
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
@@ -211,6 +211,7 @@ namespace SEA1G4 {
                     ride.startRide();
                 })
                 .AddOption("End ride", (m) => {
+                    // End ride (UC-5)
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
