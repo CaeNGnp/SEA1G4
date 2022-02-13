@@ -54,6 +54,7 @@ namespace SEA1G4 {
                 })
 
                 // Customer options
+                // Make Booking UC-1 
                 .AddHeading("Customer")
                 .AddOption("Make booking", (m) => {
                 if (ride != null) {
@@ -101,7 +102,7 @@ namespace SEA1G4 {
                                 Console.WriteLine("Please enter a valid date!");
                             } else {
                                 Console.WriteLine("Date: " + bookingDateTime.ToString("dd/MM/yyyy") + " Time: " + bookingDateTime.ToString("HH:mm") + " Type any key to confirm.");
-                                Console.ReadLine();
+                                Console.ReadKey();
                                 Van va = (Van)chosen;
                                 c.payWithCreditCard(va.Deposit);
                                 ride = new Ride("1234", pick, des, c, bookingDateTime);
@@ -118,7 +119,7 @@ namespace SEA1G4 {
                                 Console.WriteLine("Please enter a valid date!");
                             } else {
                                 Console.WriteLine("Date: " + bookingDateTime.ToString("dd/MM/yyyy") + " Time: " + bookingDateTime.ToString("HH:mm") + " Type any key to confirm.");
-                                Console.ReadLine();
+                                Console.ReadKey();
                                 ExcursionBus eb = (ExcursionBus)chosen;
                                 c.payWithCreditCard(eb.Deposit);
                                 ride = new Ride("1234", pick, des, c, bookingDateTime);
@@ -126,7 +127,7 @@ namespace SEA1G4 {
                             }
 
                         }
-                    } else {
+                    } else if (chosen is Car) {
                         while(true) {
                             Console.Write("Date and Time of Ride (e.g. 12/2/2022 2pm):");
                             DateTime bookingDateTime = Convert.ToDateTime(Console.ReadLine());
@@ -134,15 +135,15 @@ namespace SEA1G4 {
                                 Console.WriteLine("Please enter a valid date!");
                             } else {
                                 Console.WriteLine("Date: " + bookingDateTime.ToString("dd/MM/yyyy") + " Time: " + bookingDateTime.ToString("HH:mm") + " Type any key to confirm.");
-                                Console.ReadLine();
+                                Console.ReadKey();
                                 ride = new Ride("1234", pick, des, c, bookingDateTime);
                                 break;
                             }                                                      
                             
                         }
-                        
 
-                    }
+
+                    } 
 
                     // no need to accept driver as already picked based on vehicle
                     ride.driver = chosen.Driver;
@@ -155,27 +156,19 @@ namespace SEA1G4 {
                 })
                
                 
-
+                // Cancel Booking UC-3
                 .AddOption("Cancel booking", (m) => {
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
                     }
-                    /*else {
-                        Console.WriteLine("Are you sure you want to cancel your Booking! [Y/N]");
-                        string answer= Console.ReadLine().Trim().ToLower();
-                        if (answer == "y") { 
-                        
-                        }
-                    }*/
                     ride.cancelBooking();
-                  //  ride.promptCustomerAccept();
 
                 })
 
                
                 .AddOption("Make payment", (m) => {
-                    // Make payment (UC-6a, 6b, 6c)
+                    // Make Payment (UC-6a, 6b, 6c)
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
                         return;
@@ -183,6 +176,8 @@ namespace SEA1G4 {
 
                     ride.makePayment();
                 })
+
+                //Rate Driver UC-7
                 .AddOption("Rate driver", (m) => {
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
@@ -192,6 +187,7 @@ namespace SEA1G4 {
                     ride.giveRating();
                 })
 
+                // Accept Booking UC-2
                 // Drivers option
                 .AddHeading("Driver")
                 .AddOption("Accept booking", (m) => {
@@ -202,6 +198,8 @@ namespace SEA1G4 {
 
                     ride.acceptBooking();
                 })
+
+                // Start Ride UC-4
                 .AddOption("Start ride", (m) => {
                     if (ride == null) {
                         Console.WriteLine("No ride or assigned driver yet. Make a booking first");
@@ -218,6 +216,7 @@ namespace SEA1G4 {
                     ride.endRide();
                 })
 
+                // View Follow Ups UC-9
                 // Admins option
                 .AddHeading("Admin")
                 // Don't need option for "Process Rating" as it is an observer.
