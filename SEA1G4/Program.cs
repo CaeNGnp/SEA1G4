@@ -62,10 +62,10 @@ namespace SEA1G4 {
                     }                    
                     Console.Write("Destination: ");
                     string des = Console.ReadLine();
-                    Console.Write("Pickup Point: ");
+                    Console.Write("Specific Pickup Point (optional): ");
                     string pick = Console.ReadLine();
                     if (String.IsNullOrEmpty(pick)) {
-                        pick = "my house"; //if no pickup point is specified, their current location will be the pick up point 
+                        pick = "My house"; //if no pickup point is specified, their current location will be the pick up point 
                     }
                     c.WriteLine("Available vehicles: ");
 
