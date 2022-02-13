@@ -64,6 +64,9 @@ namespace SEA1G4 {
                     string des = Console.ReadLine();
                     Console.Write("Pickup Point: ");
                     string pick = Console.ReadLine();
+                    if (String.IsNullOrEmpty(pick)) {
+                        pick = "my house"; //if no pickup point is specified, their current location will be the pick up point 
+                    }
                     c.WriteLine("Available vehicles: ");
 
                     DefaultVehicleIterator iter = vehAgg.createIterator(true);
@@ -77,11 +80,7 @@ namespace SEA1G4 {
                         c.WriteLine("[" + i + "]License Plate: " + vehi1.LicensePlate + " Brand: " + vehi1.Brand + " Model: " + vehi1.Model + " Driver: " + vehi1.Driver.Name);
 
                         c.Write("Choose this vehicle? [Y/N] ");
-                        
-                        //if (iter.lastVehicle()) {
-                        //    Console.WriteLine("No more vehicles left!");
-                        //    //break;
-                        //}
+                      
                         string inp = Console.ReadLine().Trim().ToLower();
                         if (inp == "n") {
                             continue;
